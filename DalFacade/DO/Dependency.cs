@@ -1,0 +1,27 @@
+﻿
+
+using System.Security.Cryptography.X509Certificates;
+
+namespace DO;
+
+/// <summary>
+/// 
+/// </summary>
+/// <param name="Id">Unique ID numbe</param>
+/// <param name="IdTask">ID number of pending task</param>
+/// <param name="DependsOnTask">ID number of a task that needs to be executed firstr</param>
+public record Dependency
+( 
+    int IdTask,
+    int DependsOnTask,
+    int? Id= null
+   
+   
+
+ )
+{
+  public Dependency(): this(0,0) { }//empty ctor for stage 3
+
+}
+
+
