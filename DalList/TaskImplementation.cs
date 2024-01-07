@@ -11,7 +11,7 @@ public class TaskImplementation : ITask
     {
         int id = DataSource.Config.NextTaskId;
         Task copy = item with { Id = id };
-        DataSource.Tasks.Add(copy);
+        DataSource.Tasks.Add(copy); 
         return id;
     }
 
