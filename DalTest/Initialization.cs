@@ -32,7 +32,7 @@ private static void creatTask()
                 , "Installation of television systems", "Buying new furniture", "Upgrading the water and electricity system in the garden", "Buying furniture for the yard or patio", "Home organization" };
         for (int i = 0; i < 20; i++)
         {
-            Task newTask= new Task(,TaskName[i]);
+            Task newTask= new Task( ,TaskName[i]);
         }
 
 }
