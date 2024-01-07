@@ -19,7 +19,11 @@ public class DependencyImplementation : IDependency
 
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+
+        Dependency? dependency1 = Read(id);
+        if (dependency1 is null)
+            throw new Exception($"Dependency with ID={id} not exists");
+        DataSource.Dependencies.Remove(dependency1);
     }
 
     public Dependency? Read(int id)
@@ -36,14 +40,14 @@ public class DependencyImplementation : IDependency
         return dependency1;
     }
 
-    public List<IDependency> ReadAll()
+    public List<Dependency> ReadAll()
     {
-        throw new NotImplementedException();
+        return new List<Dependency>(DataSource.Dependencies);
     }
 
     public void Update(Dependency item)
     {
-        if (Read(item.Id) is not null)
+        if (Read(item.Id) is null)
             throw new Exception($"Dependency with ID={item.Id} not exists");
         Delete(item.Id);
         DataSource.Dependencies.Add(item);
