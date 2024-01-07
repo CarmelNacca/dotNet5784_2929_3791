@@ -6,11 +6,11 @@ namespace DO;
 /// engineer level that can work on it.
 /// </summary>
 public enum Expirience
-{
-    Beginner,
-    AdvancedBeginner,
-    Intermediate,
-    Advanced,
-    Expert
-
+{ 
+    Contractor,
+    Electrician,
+    Handyman,
+    Painter,
+    Architect,
+    InteriorDesigner
 }
