@@ -14,13 +14,13 @@ public record Dependency
 ( 
     int IdTask,
     int DependsOnTask,
-    int? Id= null
+    int Id
    
    
 
  )
 {
-  public Dependency(): this(0,0) { }//empty ctor for stage 3
+  public Dependency(): this(0,0,0) { }//empty ctor for stage 3
 
 }
 
