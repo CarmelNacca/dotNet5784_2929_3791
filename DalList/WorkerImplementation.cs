@@ -19,7 +19,11 @@ public class WorkerImplementation : IWorker
 
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        Worker? worker1 =Read(id);
+        if (worker1 is null)
+            throw new Exception($"Worker with ID={id} not exists");
+        DataSource.Workers.Remove(worker1);
+
     }
 
     public Worker? Read(int id)
@@ -36,14 +40,14 @@ public class WorkerImplementation : IWorker
         return worker1;
     }
 
-    public List<IWorker> ReadAll()
+    public List<Worker> ReadAll()
     {
-        throw new NotImplementedException();
+        return new List<Worker>(DataSource.Workers);
     }
 
     public void Update(Worker item)
     {
-        if (Read(item.Id) is not null)
+        if (Read(item.Id) is null)
             throw new Exception($"Worker with ID={item.Id} not exists");
         Delete(item.Id);
         DataSource.Workers.Add(item);

@@ -18,7 +18,10 @@ public class TaskImplementation : ITask
 
     public void Delete(int id)
     {
-        throw new NotImplementedException();
+        Task? task1 = Read(id);
+        if (task1 is null)
+            throw new Exception($"Task with ID={id} not exists");
+        DataSource.Tasks.Remove(task1);
     }
 
     public Task? Read(int id)
@@ -36,15 +39,15 @@ public class TaskImplementation : ITask
         return task1;
     }
 
-    public List<ITask> ReadAll()
+    public List<Task> ReadAll()
     {
-        throw new NotImplementedException();
+        return new List<Task>(DataSource.Tasks);
     }
 
     public void Update(Task item)
     {
 
-        if (Read(item.Id) is not null)
+        if (Read(item.Id) is null)
             throw new Exception($"Task with ID={item.Id} not exists");
         Delete(item.Id);
         DataSource.Tasks.Add(item);
