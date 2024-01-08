@@ -32,20 +32,20 @@ private static void creatTask()
                 , "Installation of television systems", "Buying new furniture", "Upgrading the water and electricity system in the garden", "Buying furniture for the yard or patio", "Home organization" };
         for (int i = 0; i < 20; i++)
         {
-            Task newTask= new Task( ,TaskName[i]);
+            s_dalTask!.Create(new Task(0,TaskName[i]));
         }
 
 }
     private static void creatWorker()
     {
-        Worker newWorker1 = new(324561245, 150000, 0, "Chaim Cohen", "CH3245@gmail.com");
-        Worker newWorker2 = new(322323567, 20000, 1, "Yosef Levi", "Yl322@gmail.com");
-        Worker newWorker3 = new(035423456, 5000, 2, "Muchamad Abu Chasan", "muchamad0@gmail.com");
-        Worker newWorker4 = new(467893456, 5000, 2, "Muchamad Chabud", "muchamad0000@gmail.com");
-        Worker newWorker5 = new(780943567, 15000, 3, "Shlomo Ben Chaim", "Shlomo345@gmail.com");
-        Worker newWorker6 = new(345792615, 25000, 4, "Eden Chason", "Eden1212@gmail.com");
-        Worker newWorker7 = new(325952589, 20000, 5, "Rut Sharabi", "RS1212@gmail.com");
-        int id1 = WorkerImplementation.Create(newWorker1);
+        s_dalWorker!.Create(new Worker(324561245, 150000, (DO.Expirience)0, "Chaim Cohen", "CH3245@gmail.com"));
+        s_dalWorker!.Create(new Worker(322323567, 20000, (DO.Expirience)1, "Yosef Levi", "Yl322@gmail.com"));
+        s_dalWorker!.Create(new Worker(035423456, 5000, (DO.Expirience)2, "Muchamad Abu Chasan", "muchamad0@gmail.com"));
+        s_dalWorker!.Create(new Worker(467893456, 5000, (DO.Expirience)2, "Muchamad Chabud", "muchamad0000@gmail.com"));
+        s_dalWorker!.Create(new Worker(780943567, 15000, (DO.Expirience)3, "Shlomo Ben Chaim", "Shlomo345@gmail.com"));
+        s_dalWorker!.Create(new Worker(345792615, 25000, (DO.Expirience)4, "Eden Chason", "Eden1212@gmail.com"));
+        s_dalWorker!.Create(new Worker(325952589, 20000, (DO.Expirience)5, "Rut Sharabi", "RS1212@gmail.com"));
+       
     }
  private static void creatDependency() 
 {
