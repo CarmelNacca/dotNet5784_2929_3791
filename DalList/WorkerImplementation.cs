@@ -31,16 +31,7 @@ public class WorkerImplementation : IWorker
 
     public Worker? Read(int id)
     {
-        Worker? worker1 = null;
-        for (int i = 0; i < DataSource.Workers.Count; i++)
-        {
-            if (DataSource.Workers[i].Id == id)
-            { 
-                worker1 = DataSource.Workers[i];
-                break;
-            }
-        }
-        return worker1;
+        return DataSource.Workers.Find(x => x.Id == id);
     }
 
     public List<Worker> ReadAll()
