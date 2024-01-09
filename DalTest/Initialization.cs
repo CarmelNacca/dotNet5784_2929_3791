@@ -121,6 +121,7 @@ private static void creatTask()
 
 
     }
+    // Method for creating and initializing workers
     private static void creatWorker()
     {
         s_dalWorker!.Create(new Worker(324561245, 150000, (DO.Expirience)0, "Chaim Cohen", "CH3245@gmail.com"));
@@ -132,7 +133,8 @@ private static void creatTask()
         s_dalWorker.Create(new Worker(325952589, 20000, (DO.Expirience)4, "Rut Sharabi", "RS1212@gmail.com"));
        
     }
- private static void creatDependency()
+    //// Method for creating and initializing dependencies
+    private static void creatDependency()
 {
         s_dalDependency!.Create(new Dependency(0,1, 23));
         s_dalDependency!.Create(new Dependency(0,1, 24));
@@ -179,6 +181,13 @@ private static void creatTask()
         s_dalDependency!.Create(new Dependency(0, 18, 33));
         s_dalDependency!.Create(new Dependency(0, 18,34));
     }
+     /// <summary>
+     /// Main entry point for initializatio
+     /// </summary>
+     /// <param name="dal_Worker"></param>
+     /// <param name="dal_Task"></param>
+     /// <param name="dal_Dependency"></param>
+     /// <exception cref="NullReferenceException"></exception>
     public static void Do (IWorker? dal_Worker, ITask? dal_Task, IDependency? dal_Dependency)
     {
         s_dalWorker = dal_Worker ?? throw new NullReferenceException("DAL can not be null");

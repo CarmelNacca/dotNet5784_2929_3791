@@ -14,7 +14,7 @@ namespace DO;
 /// <param name="ScheduledDate">the planned start date</param>
 /// <param name="DeadlineDate">the latest complete date</param>
 /// <param name="CompleteDate">real completion date</param>
-/// <param name="Deliverables">escription of deliverables for MS copmletion</param>
+/// <param name="Deliverables">description of deliverables for MS copmletion</param>
 /// <param name="Expirience">minimum expirience for Worker to assign</param>
 
 public record Task
