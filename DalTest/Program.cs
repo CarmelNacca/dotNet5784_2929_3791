@@ -21,14 +21,16 @@ public class Program
     {
         try
         {
+            ///  Initializing the data using the Initialization class
             Initialization.Do(s_dalWorker, s_dalTask, s_dalDependency);
+            ///// Main menu for selecting an entity type
             Console.WriteLine("Select 1 for Worker, 2 for Task, 3 for Dependency and 0 for exit");
             int choice = int.Parse(Console.ReadLine()!);
             switch (choice)
             {
                 case 0:
                     {
-
+                        ///// Exit the program
                     }
                     break;
                 case 1:
@@ -53,7 +55,7 @@ public class Program
         catch (Exception ex) { Console.WriteLine(ex); };
 
 
-        void menuWorker()
+        void menuWorker()///// Submenu for Worker operations
         {
             Console.WriteLine("To add press 1, to display an object press 2, to display all objects press 3, to update press 4, to delete 5 and to exit the main menu press 0.");
             int choice2 = int.Parse(Console.ReadLine()!);
@@ -106,7 +108,7 @@ public class Program
                 default: throw new Exception("Number error ");
             }
         }
-        void menuTask()
+        void menuTask()///// Submenu for Task operations
         {
             Console.WriteLine("To add press 1, to display an object press 2, to display all objects press 3, to update press 4, to delete 5 and to exit the main menu press 0.");
             int choice2 = int.Parse(Console.ReadLine()!);
@@ -155,8 +157,8 @@ public class Program
                 default: throw new Exception("Number error ");
             }
         }
-            void menuDependency()
-            {
+            void menuDependency()///// Submenu for Dependency operations
+        {
                 Console.WriteLine("To add press 1, to display an object press 2, to display all objects press 3, to update press 4, to delete 5 and to exit the main menu press 0.");
                 int choice2 = int.Parse(Console.ReadLine()!);
                 switch (choice2)
