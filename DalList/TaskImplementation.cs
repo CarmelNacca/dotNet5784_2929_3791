@@ -7,6 +7,9 @@ using System.Collections.Generic;
 
 public class TaskImplementation : ITask
 {
+    /// <summary>
+    /// Implementation of CRUD methods
+    /// <returns></returns>
     public int Create(Task item)
     {
         int id = DataSource.Config.NextTaskId;
