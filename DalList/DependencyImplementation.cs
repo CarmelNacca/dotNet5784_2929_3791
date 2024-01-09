@@ -9,6 +9,9 @@ using System.Collections.Generic;
 
 public class DependencyImplementation : IDependency
 {
+    /// <summary>
+    /// Implementation of CRUD methods
+    /// <returns></returns>
     public int Create(Dependency item)
     {
         int id = DataSource.Config.NextDependencyId;
@@ -28,16 +31,8 @@ public class DependencyImplementation : IDependency
 
     public Dependency? Read(int id)
     {
-        Dependency? dependency1 = null;
-        for (int i = 0; i < DataSource.Dependencies.Count; i++)
-        {
-            if (DataSource.Dependencies[i].Id == id)
-            { 
-                dependency1 = DataSource.Dependencies[i];
-                break;
-            }
-        }
-        return dependency1;
+        return DataSource.Dependencies.Find(x => x.Id == id);
+
     }
 
     public List<Dependency> ReadAll()

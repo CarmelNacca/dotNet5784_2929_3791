@@ -1,6 +1,5 @@
 ﻿
 
-using System.Security.Cryptography.X509Certificates;
 
 namespace DO;
 
@@ -16,8 +15,6 @@ public record Dependency
     int IdTask,
     int DependsOnTask
   
-   
-   
 
  )
 {

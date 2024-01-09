@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 public class WorkerImplementation : IWorker
 {
+  /// <summary>
+ /// Implementation of CRUD methods
+ /// <returns></returns>
     public int Create(Worker item)
     {
         if (Read(item.Id) is not null)

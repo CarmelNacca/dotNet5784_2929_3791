@@ -8,9 +8,11 @@ using System.Runtime.InteropServices;
 
 
 
-
 public static class Initialization
 {
+    /// <summary>
+    /// Initialize initial values for all entities
+    /// </summary>
     private static IWorker? s_dalWorker;
     private static ITask? s_dalTask;
     private static IDependency? s_dalDependency;
@@ -18,13 +20,14 @@ public static class Initialization
     private static readonly Random s_rand = new();
 private static void creatTask()
 {
+        
         DateTime start = new DateTime(2024, 01, 08);
         DateTime finish = new DateTime(2024, 03, 15);
         int rangStart = (finish - start).Days;
         s_dalTask!.Create(new Task(0,0,"Signing a contract", "The legal process of adding the formal signature to a contract, signifying agreement and commitment", false,start.AddDays(s_rand.Next(rangStart)),null,null,null,null,null, "Formally signed contract indicating mutual agreement and commitment.", (DO.Expirience)0));
         string[] TaskNameForHandyman = {"Replacement of living room windows","Replacing kitchen windows","Replacing bedroom windows",
             "Replacing bathroom windows","Installation of living room floors","Installing bedroom floors","Installing kitchen floors",
-            "Installing bathroom floors","Bedroom door replacement","Living room door replacement","Living room door replacement",
+            "Installing bathroom floors","Bedroom door replacement","Living room door replacement",
             "Kitchen door replacement","Replacing a bathroom door","Living room air conditioning installation","Installing kitchen air conditioning",
             "Bedroom air conditioning installation","Installation of heating in a bathroom","General house cleaning"};
         string[] TaskNamePainter = { "Painting bedrooms", "Living room painting", "Kitchen painting", "Painting a bathroom" };
@@ -98,7 +101,7 @@ private static void creatTask()
             " Selected and arranged furniture combining functionality with aesthetics.",
             "Thoughtfully selected and arranged furniture enhancing both form and function."};
 
-
+       
         for (int i = 0; i < TaskNameForHandyman.Length; i++)
         {
             s_dalTask!.Create(new Task(0, 0, TaskNameForHandyman[i], TaskDescriptionForHandyman[i], false, start.AddDays(s_rand.Next(rangStart)), null, null, null, null, null, TaskResultForHandyman[i], (DO.Expirience)1));
@@ -129,7 +132,7 @@ private static void creatTask()
         s_dalWorker.Create(new Worker(325952589, 20000, (DO.Expirience)4, "Rut Sharabi", "RS1212@gmail.com"));
        
     }
- private static void creatDependency() 
+ private static void creatDependency()
 {
         s_dalDependency!.Create(new Dependency(0,1, 23));
         s_dalDependency!.Create(new Dependency(0,1, 24));
