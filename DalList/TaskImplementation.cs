@@ -29,17 +29,7 @@ public class TaskImplementation : ITask
 
     public Task? Read(int id)
     {
-        Task? task1 = null;
-        for (int i = 0; i < DataSource.Tasks.Count; i++)
-        {
-            if (DataSource.Tasks[i].Id == id)
-            {
-                task1 = DataSource.Tasks[i];
-                break;
-            }
-           
-        }
-        return task1;
+        return DataSource.Tasks.Find(x => x.Id == id);
     }
 
     public List<Task> ReadAll()

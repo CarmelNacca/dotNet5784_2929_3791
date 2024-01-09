@@ -26,13 +26,10 @@ public class Program
             ///// Main menu for selecting an entity type
             Console.WriteLine("Select 1 for Worker, 2 for Task, 3 for Dependency and 0 for exit");
             int choice = int.Parse(Console.ReadLine()!);
+            while (choice != 0)
+            {
             switch (choice)
             {
-                case 0:
-                    {
-                        ///// Exit the program
-                    }
-                    break;
                 case 1:
                     {
                         menuWorker();
@@ -50,7 +47,9 @@ public class Program
                     break;
                 default: throw new Exception("Number error Enter a number between 0 and 3");
             }
-
+                Console.WriteLine("Select 1 for Worker, 2 for Task, 3 for Dependency and 0 for exit");
+                choice = int.Parse(Console.ReadLine()!);
+            }
         }
         catch (Exception ex) { Console.WriteLine(ex); };
 
@@ -70,8 +69,8 @@ public class Program
                         if (exprience > 4 || exprience < 0)
                             throw new Exception("Number error Enter a number between 0 and 3");
                         Console.WriteLine("Enter ID, payment, name and email address for worker");
-                        Worker newWorker = new Worker(int.Parse(Console.ReadLine()!), double.Parse(Console.ReadLine()!), (DO.Expirience)exprience, Console.ReadLine()!, Console.ReadLine()!);
-                        s_dalWorker!.Create(newWorker);
+                        s_dalWorker!.Create(new Worker(int.Parse(Console.ReadLine()!), double.Parse(Console.ReadLine()!), (DO.Expirience)exprience, Console.ReadLine()!, Console.ReadLine()!));
+                        
                     }
                     break;
                 case 2:
@@ -167,8 +166,11 @@ public class Program
                         break;
                     case 1:
                         {
-                            Console.WriteLine("Enter task's Id and Id number of a task that needs to be executed first ");
-                            Dependency newDependency = new Dependency(0, int.Parse(Console.ReadLine()!) ,int.Parse(Console.ReadLine()!));
+                           
+                        Console.WriteLine("Enter task's Id and Id number of a task that needs to be executed first ");
+                        int taskId = int.Parse(Console.ReadLine()!);
+                        int DependencyId = int.Parse(Console.ReadLine()!);
+                        Dependency newDependency = new Dependency(0,taskId ,DependencyId);
                             s_dalDependency!.Create(newDependency);
                         }
                         break;
@@ -191,9 +193,12 @@ public class Program
                         break;
                     case 4:
                         {
-                            Console.WriteLine("Enter Id, task's Id and Id number of a task that needs to be executed first ");
-                            Dependency newDependency = new Dependency(int.Parse(Console.ReadLine()!), int.Parse(Console.ReadLine()!), int.Parse(Console.ReadLine()!));
-                            s_dalDependency!.Update(newDependency);
+                        Console.WriteLine("Enter Id, task's Id and Id number of a task that needs to be executed first ");
+                        int Id = int.Parse(Console.ReadLine()!);
+                        int taskId = int.Parse(Console.ReadLine()!);
+                        int DependencyId = int.Parse(Console.ReadLine()!);
+                        Dependency newDependency = new Dependency(Id, taskId, DependencyId);
+                        s_dalDependency!.Update(newDependency);
                         }
                         break;
                     case 5:
