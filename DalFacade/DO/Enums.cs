@@ -8,7 +8,6 @@ namespace DO;
 public enum Expirience
 { 
     Contractor,
-    Electrician,
     Handyman,
     Painter,
     Architect,
