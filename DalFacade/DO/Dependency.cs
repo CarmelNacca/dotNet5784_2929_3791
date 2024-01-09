@@ -12,9 +12,10 @@ namespace DO;
 /// <param name="DependsOnTask">ID number of a task that needs to be executed firstr</param>
 public record Dependency
 ( 
+    int Id,
     int IdTask,
-    int DependsOnTask,
-    int Id
+    int DependsOnTask
+  
    
    
 
