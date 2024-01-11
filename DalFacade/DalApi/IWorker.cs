@@ -1,12 +1,13 @@
 ﻿
 
-namespace DalApi;
 
-using Dal.DalApi;
+
+using DalApi;
 using DO;
+namespace DalApi;
 
 public interface IWorker : ICrud<Worker>
 {
- 
+
 
 }

@@ -6,11 +6,11 @@ using DO;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-internal class WorkerImplementation : IWorker
+internal class WorkerImplementation: IWorker
 {
-  /// <summary>
- /// Implementation of CRUD methods    
- /// <returns></returns>
+    /// <summary>
+    /// Implementation of CRUD methods
+    /// <returns></returns>
     public int Create(Worker item)
     {
         if (Read(item.Id) is not null)
@@ -22,7 +22,7 @@ internal class WorkerImplementation : IWorker
 
     public void Delete(int id)
     {
-        Worker? worker1 =Read(id);
+        Worker? worker1 = Read(id);
         if (worker1 is null)
             throw new Exception($"Worker with ID={id} not exists");
         DataSource.Workers.Remove(worker1);
@@ -34,12 +34,10 @@ internal class WorkerImplementation : IWorker
         return DataSource.Workers.FirstOrDefault(x => x.Id == id);
     }
 
-    public List<Worker> ReadAll()
-    {
-        return DataSource.Workers.Where(predicate);
-       
-    }
-
+    List<Worker> workers;
+    private IEnumerable<Worker> ReadAll(Func<Worker, bool>? predicate = null) =>
+        predicate is null ? workers.Select(e => e) : workers.Where(predicate);
+   
     public void Update(Worker item)
     {
         if (Read(item.Id) is null)
