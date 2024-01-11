@@ -1,9 +1,9 @@
 ﻿
-
-using Dal.DalApi;
+namespace DalApi;
+using DalApi;
 using DO;
 
-namespace DalApi;
+
 
 public interface IDependency : ICrud <Dependency>
 {

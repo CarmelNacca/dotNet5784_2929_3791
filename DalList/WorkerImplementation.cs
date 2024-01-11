@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 internal class WorkerImplementation : IWorker
 {
-  /// <summary> //////
+  /// <summary>
  /// Implementation of CRUD methods    
  /// <returns></returns>
     public int Create(Worker item)
