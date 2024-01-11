@@ -27,16 +27,34 @@ internal class TaskImplementation : ITask
         DataSource.Tasks.Remove(task1);
     }
 
+    //public Task? Read(int id)
+    //{
+    //    return DataSource.Tasks.FirstOrDefault(x => x.Id == id);
+    //}
+
+    //public List<Task> ReadAll()
+    //{
+    //    return new List<Task>(DataSource.Tasks);
+    //}
+
     public Task? Read(int id)
     {
         return DataSource.Tasks.FirstOrDefault(x => x.Id == id);
     }
 
-    public List<Task> ReadAll()
+    public IEnumerable<Task?> ReadAll(Func<Task, bool>? filter = null)
     {
-        return new List<Task>(DataSource.Tasks);
-    }
+        if (filter != null)
+        {
+            return from item in DataSource.Tasks
+                   where filter(item)
+                   select item;
+        }
+        return from item in DataSource.Tasks
+               select item;
 
+
+    }
     public void Update(Task item)
     {
 
