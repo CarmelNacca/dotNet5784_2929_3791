@@ -2,7 +2,7 @@
 
 namespace DalApi;
 
-using Dal.DalApi;
+using DalApi;
 using DO;
 public interface ITask : ICrud<Task>
 {
