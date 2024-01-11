@@ -6,7 +6,7 @@ using DO;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-public class WorkerImplementation : IWorker
+internal class WorkerImplementation : IWorker
 {
   /// <summary>
  /// Implementation of CRUD methods

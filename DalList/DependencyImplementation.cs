@@ -7,7 +7,7 @@ using DO;
 
 using System.Collections.Generic;
 
-public class DependencyImplementation : IDependency
+internal class DependencyImplementation : IDependency
 {
     /// <summary>
     /// Implementation of CRUD methods
