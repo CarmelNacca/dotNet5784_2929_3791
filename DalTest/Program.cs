@@ -79,7 +79,7 @@ internal class Program
                     break;
                 case 3:
                     {
-                        List<Worker> newWorkers = s_dal.Worker.ReadAll();
+                        IEnumerable<Worker> newWorkers = s_dal.Worker.ReadAll(null);
 
                         foreach (var worker in newWorkers)
                         {
@@ -128,7 +128,7 @@ internal class Program
                     break;
                 case 3:
                     {
-                        List<DO.Task> newTask = s_dal!.Task.ReadAll();
+                        IEnumerable<DO.Task> newTask = s_dal!.Task.ReadAll();
 
                         foreach (var task in newTask)
                         {
@@ -180,7 +180,7 @@ internal class Program
                         break;
                     case 3:
                         {
-                            List<Dependency> newDependency = s_dal.Dependency.ReadAll();
+                            IEnumerable<Dependency> newDependency = s_dal.Dependency.ReadAll();
 
                             foreach (var dependency in newDependency)
                             {

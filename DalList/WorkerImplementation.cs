@@ -34,10 +34,20 @@ internal class WorkerImplementation: IWorker
         return DataSource.Workers.FirstOrDefault(x => x.Id == id);
     }
 
-    List<Worker> workers;
-    private IEnumerable<Worker> ReadAll(Func<Worker, bool>? predicate = null) =>
-        predicate is null ? workers.Select(e => e) : workers.Where(predicate);
-   
+    public IEnumerable<Worker?> ReadAll(Func<Worker, bool>? filter = null)
+    {
+        if (filter != null)
+        {
+            return from item in DataSource.Workers
+                   where filter(item)
+                   select item;
+        }
+        return from item in DataSource.Workers
+               select item;
+
+
+    }
+
     public void Update(Worker item)
     {
         if (Read(item.Id) is null)

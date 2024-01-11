@@ -29,16 +29,35 @@ internal class DependencyImplementation : IDependency
         DataSource.Dependencies.Remove(dependency1);
     }
 
+    //public Dependency? Read(int id)
+    //{
+    //    return DataSource.Dependencies.FirstOrDefault(x => x.Id == id);
+
+    //}
+
+    //public List<Dependency> ReadAll()
+    //{
+    //    return new List<Dependency>(DataSource.Dependencies);
+    //}
     public Dependency? Read(int id)
     {
         return DataSource.Dependencies.FirstOrDefault(x => x.Id == id);
-
     }
 
-    public List<Dependency> ReadAll()
+    public IEnumerable<Dependency?> ReadAll(Func<Dependency, bool>? filter = null)
     {
-        return new List<Dependency>(DataSource.Dependencies);
+        if (filter != null)
+        {
+            return from item in DataSource.Dependencies
+                   where filter(item)
+                   select item;
+        }
+        return from item in DataSource.Dependencies
+               select item;
+
+
     }
+
 
     public void Update(Dependency item)
     {
