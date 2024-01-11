@@ -31,12 +31,13 @@ internal class WorkerImplementation : IWorker
 
     public Worker? Read(int id)
     {
-        return DataSource.Workers.Find(x => x.Id == id);
+        return DataSource.Workers.FirstOrDefault(x => x.Id == id);
     }
 
     public List<Worker> ReadAll()
     {
-        return new List<Worker>(DataSource.Workers);
+        return DataSource.Workers.Where(predicate);
+       
     }
 
     public void Update(Worker item)

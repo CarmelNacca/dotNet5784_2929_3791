@@ -31,7 +31,7 @@ internal class DependencyImplementation : IDependency
 
     public Dependency? Read(int id)
     {
-        return DataSource.Dependencies.Find(x => x.Id == id);
+        return DataSource.Dependencies.FirstOrDefault(x => x.Id == id);
 
     }
 
