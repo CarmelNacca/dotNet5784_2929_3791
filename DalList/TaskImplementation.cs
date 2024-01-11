@@ -29,7 +29,7 @@ internal class TaskImplementation : ITask
 
     public Task? Read(int id)
     {
-        return DataSource.Tasks.Find(x => x.Id == id);
+        return DataSource.Tasks.FirstOrDefault(x => x.Id == id);
     }
 
     public List<Task> ReadAll()
