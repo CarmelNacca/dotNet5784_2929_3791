@@ -1,13 +1,18 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DalApi;
 
 namespace Dal;
+using DalApi;
 
 sealed public class DalList : IDal
 {
+
+
+    public ITask Task => new TaskImplementation();
+    public IWorker Worker => new WorkerImplementation();
+    public IDependency Dependency => new DependencyImplementation();
 }
- 
