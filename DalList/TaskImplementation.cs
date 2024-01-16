@@ -23,19 +23,9 @@ internal class TaskImplementation : ITask
     {
         Task? task1 = Read(id);
         if (task1 is null)
-            throw new Exception($"Task with ID={id} not exists");
+            throw new DalDoesNotExistException($"Task with ID={id} not exists");
         DataSource.Tasks.Remove(task1);
     }
-
-    //public Task? Read(int id)
-    //{
-    //    return DataSource.Tasks.FirstOrDefault(x => x.Id == id);
-    //}
-
-    //public List<Task> ReadAll()
-    //{
-    //    return new List<Task>(DataSource.Tasks);
-    //}
 
     public Task? Read(int id)
     {
@@ -59,8 +49,12 @@ internal class TaskImplementation : ITask
     {
 
         if (Read(item.Id) is null)
-            throw new Exception($"Task with ID={item.Id} not exists");
+            throw new DalDoesNotExistException($"Task with ID={item.Id} not exists");
         Delete(item.Id);
         DataSource.Tasks.Add(item);
+    }
+    public Task? Read(Func<Task, bool> filter) // stage 2
+    {
+        return DataSource.Tasks.FirstOrDefault(filter);
     }
 }
