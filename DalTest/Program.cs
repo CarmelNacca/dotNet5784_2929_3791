@@ -180,7 +180,7 @@ internal class Program
                         break;
                     case 3:
                         {
-                            IEnumerable<Dependency> newDependency = s_dal.Dependency.ReadAll();
+                            IEnumerable<Dependency> newDependency = s_dal.Dependency.ReadAll()!;
 
                             foreach (var dependency in newDependency)
                             {
