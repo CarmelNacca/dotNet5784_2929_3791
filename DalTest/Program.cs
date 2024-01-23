@@ -12,13 +12,19 @@ internal class Program
     //private static IWorker? s_dalWorker = new WorkerImplementation();
     //private static ITask? s_dalTask = new TaskImplementation();
     //private static IDependency? s_dalDependency = new DependencyImplementation();
-    static readonly IDal s_dal = new DalList(); //stage 2
+    // static readonly IDal s_dal = new DalList(); //stage 2
+    static readonly IDal s_dal =new DalXml();//stage3
     static void Main(string[] args)
     {
         try
         {
             ///  Initializing the data using the Initialization class
-             Initialization.Do(s_dal); //stage 2
+            Console.Write("Would you like to create Initial data? (Y/N)"); //stage 3
+            string? ans = Console.ReadLine() ?? throw new FormatException("Wrong input"); //stage 3
+            if (ans == "Y") //stage 3
+                Initialization.Do(s_dal); //stage 2
+
+
             //Initialization.Do(s_dalWorker, s_dalTask, s_dalDependency);
             ///// Main menu for selecting an entity type
             Console.WriteLine("Select 1 for Worker, 2 for Task, 3 for Dependency and 0 for exit");
@@ -79,7 +85,7 @@ internal class Program
                     break;
                 case 3:
                     {
-                        IEnumerable<Worker> newWorkers = s_dal.Worker.ReadAll(null);
+                        IEnumerable<Worker?> newWorkers = s_dal.Worker.ReadAll(null);
 
                         foreach (var worker in newWorkers)
                         {
@@ -128,7 +134,7 @@ internal class Program
                     break;
                 case 3:
                     {
-                        IEnumerable<DO.Task> newTask = s_dal!.Task.ReadAll();
+                        IEnumerable<DO.Task?> newTask = s_dal!.Task.ReadAll();
 
                         foreach (var task in newTask)
                         {
@@ -194,7 +200,7 @@ internal class Program
                         int Id = int.Parse(Console.ReadLine()!);
                         int taskId = int.Parse(Console.ReadLine()!);
                         int DependencyId = int.Parse(Console.ReadLine()!);
-                        Dependency newDependency = new Dependency(Id, taskId, DependencyId);
+                        Dependency newDependency = new Dependency(Id,taskId,DependencyId);
                         s_dal.Dependency.Update(newDependency);
                         }
                         break;

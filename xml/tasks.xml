@@ -1,3 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfTask>
+<ArrayOfTask xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Task>
+    <Id>1</Id>
+    <Worker>333</Worker>
+    <Name>ddd</Name>
+    <Description>asf</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-01-23T23:27:14.2167147+02:00</createdAtDate>
+    <RequiredEffortTime>2000-04-13T00:00:00</RequiredEffortTime>
+    <StartDate>2000-05-13T00:00:00</StartDate>
+    <ScheduledDate>2000-06-13T00:00:00</ScheduledDate>
+    <DeadlineDate>2000-07-13T00:00:00</DeadlineDate>
+    <CompleteDate>2000-08-13T00:00:00</CompleteDate>
+    <Deliverables>hdhf</Deliverables>
+    <Copmlexity>Handyman</Copmlexity>
+  </Task>
 </ArrayOfTask>
