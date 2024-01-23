@@ -10,7 +10,10 @@ using System.Xml.Linq;
 namespace Dal;
 
 internal class DependencyImplementation: IDependency
-{
+{/// <summary>
+/// Implementation of CRUD methods according to method number 2 for XML files
+/// </summary>
+
     readonly string s_dependencies_xml = "dependencies";
     static Dependency GetDependency(XElement D)
     {
@@ -24,12 +27,12 @@ internal class DependencyImplementation: IDependency
 
     public int Create(Dependency item)
     {
-        int id = Dal.Config.NextDependencyId;
+        int id = Config.NextDependencyId;
         XElement elemde=new XElement("item");
         XElement elemdependency = new XElement("Dependency", new XElement("Id", id),
-            new XElement(" Id Task", item.IdTask), new XElement("DependsOnTask", item.DependsOnTask));
+            new XElement("IdTask", item.IdTask), new XElement("DependsOnTask", item.DependsOnTask));
         elemde.Add(elemdependency);
-        elemde.Save(s_dependencies_xml);
+        XMLTools.SaveListToXMLElement(elemde, s_dependencies_xml);
         return id;
     }
 
@@ -41,7 +44,7 @@ internal class DependencyImplementation: IDependency
         {
 
             TODelete.Remove();
-            XMLTools.SaveListToXMLElement(Root, s_dependencies_xml);
+            XMLTools.SaveListToXMLElement(Root,s_dependencies_xml);
         }
     }
 
