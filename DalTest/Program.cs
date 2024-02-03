@@ -12,8 +12,10 @@ internal class Program
     //private static IWorker? s_dalWorker = new WorkerImplementation();
     //private static ITask? s_dalTask = new TaskImplementation();
     //private static IDependency? s_dalDependency = new DependencyImplementation();
-    // static readonly IDal s_dal = new DalList(); //stage 2
-    static readonly IDal s_dal =new DalXml();//stage3
+    //static readonly IDal s_dal = new DalList(); //stage 2
+    //static readonly IDal s_dal = new DalXml(); //stage 3
+    static readonly IDal s_dal = Factory.Get; //stage 4
+
     static void Main(string[] args)
     {
         try
@@ -22,7 +24,9 @@ internal class Program
             Console.Write("Would you like to create Initial data? (Y/N)"); //stage 3
             string? ans = Console.ReadLine() ?? throw new FormatException("Wrong input"); //stage 3
             if (ans == "Y") //stage 3
-                Initialization.Do(s_dal); //stage 2
+                //Initialization.Do(s_dal); //stage 2
+                Initialization.Do(); //stage 4
+
 
 
             //Initialization.Do(s_dalWorker, s_dalTask, s_dalDependency);
