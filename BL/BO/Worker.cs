@@ -8,12 +8,12 @@ namespace BO
 {
     public class Worker
     {
-        int Id { get; set; }
+        public int Id { get; set; }
 
 
-        double Cost { get; set; }
-        Expirience Level { get; set; }
-        string? Name { get; set; } = null;
-        string? Email { get; set; } = null;
+        public double Cost { get; set; }
+        public Expirience Level { get; set; }
+        public string? Name { get; set; } = null;
+        public string? Email { get; set; } = null;
     }
 }

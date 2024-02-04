@@ -13,3 +13,11 @@ public enum Expirience
     Architect,
     InteriorDesigner
 }
+public enum Status
+{
+    Unscheduled,
+    Scheduled,
+    OnTrack, 
+    InJeopardy,
+    Done
+}
