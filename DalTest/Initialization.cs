@@ -1,6 +1,7 @@
 ﻿
 namespace Dal;
 using DalApi;
+
 using DO;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Common;
@@ -199,7 +200,7 @@ private static void creatTask()
         //s_dalTask = dal_Task ?? throw new NullReferenceException("DAL can not be null");
         //s_dalDependency = dal_Dependency ?? throw new NullReferenceException("DAL can not be null");
         //s_dal = dal ?? throw new NullReferenceException("DAL object can not be null!"); //stage 2
-        s_dal =DalApi.Factory.Get; //stage 4
+        s_dal = Factory.Get; //stage 4
 
         creatDependency();
         creatTask();
