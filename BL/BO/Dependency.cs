@@ -8,5 +8,9 @@ namespace BO
 {
     public class Dependency
     {
+
+        public int Id { get; init; }
+        public int IdTask { get; set; }
+        public int DependsOnTask { get; set; }
     }
 }
