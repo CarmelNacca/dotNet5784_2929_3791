@@ -7,7 +7,7 @@ namespace BlImplementation
 {
     internal class WorkerImplementation : IWorker
     {
-        private DalApi.IDal _dal = Factory.Get;
+        private DalApi.IDal dal = Factory.Get;
         public int Create(BO.Worker boWorker)
         {
             DO.Worker doWorker = new DO.Worker
@@ -15,17 +15,17 @@ namespace BlImplementation
             try
             {
                 
-                int id = _dal.Worker(doWorker);
+                int id = dal.Worker(doWorker);
 
                 return idStud;
             }
             catch (DO.DalAlreadyExistsException ex)
             {
-                throw new BO.BlAlreadyExistsException($"Student with ID={boStudent.Id} already exists", ex);
+                throw new BO.BlAlreadyExistsException($"Student with ID={boWorker.Id} already exists", ex);
             }
 
         }
-        private DalApi.IDal _dal = DalApi.Factory.Get;
+        private DalApi.IDal _dal = Factory.Get;
         public void Delete(int id)
         {
             throw new NotImplementedException();
