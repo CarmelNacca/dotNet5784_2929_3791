@@ -4,11 +4,24 @@ using BO;
 
 namespace BlImplementation
 {
-    internal class DependencyImplementation : IDependency
+    internal class DependencyImplementation :IDependency
     {
-        public int Create(Dependency item)
+        private DalApi.IDal dal = Factory.Get;
+        public int Create(Dependency boDependency)
         {
-            throw new NotImplementedException();
+            DO.Dependency doDependency = new DO.Dependency
+            (boDependency.Id, boDependency.IdTask, boDependency.DependsOnTask) ;
+            try
+            {
+
+                int id = dal.Dependency.Create(doDependency);
+
+                return id;
+            }
+            catch (DO.DalAlreadyExistException ex)
+            {
+                throw new BO.BlAlreadyExistsException($"Dependency with ID={boDependency.Id} already exists", ex);
+            }
         }
 
         public void Delete(int id)
