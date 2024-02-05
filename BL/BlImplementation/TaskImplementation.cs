@@ -1,24 +1,28 @@
 ﻿
 
 using BlApi;
+using BO;
+using System.Xml.Linq;
 
 namespace BlImplementation
 {
     internal class TaskImplementation : ITask
     {
-        public int Create(BO.Task item)
+        private DalApi.IDal dal = Factory.Get;
+        public int Create(BO.Task boTask)
         {
+            DO.Task doTask = new DO.Task
 
-            DO.Student doStudent = new DO.Student
-                (item.Id, boStudent.Name, boStudent.Alias, boStudent.IsActive, boStudent.BirthDate);
+                (boTask.Id , boTask.Worker, boTask. Name , boTask.Description, boTask. Status, boTask.TaskInList ,boTask.Milestone , boTask.createdAtDate , boTask.RequiredEffortTime,
+                boTask.CalculatedEndDate , boTask.StartDate , boTask.ScheduledDate , boTask.DeadlineDate , boTask.CompleteDate, boTask. Deliverables ,boTask.Copmlexity);
             try
             {
-                int idStud = _dal.Student.Create(doStudent);
-                return idStud;
+                int idTask = dal.Task.Create(doTask);
+                return idTask;
             }
-            catch (DO.DalAlreadyExistsException ex)
+            catch (DO.DalAlreadyExistException ex)
             {
-                throw new BO.BlAlreadyExistsException($"Student with ID={boStudent.Id} already exists", ex);
+                throw new BO.BlAlreadyExistsException($"Task with ID={boTask.Id} already exists", ex);
             }
 
         }

@@ -25,7 +25,7 @@ namespace BlImplementation
             }
 
         }
-        private DalApi.IDal _dal = Factory.Get;
+      //  private DalApi.IDal _dal = Factory.Get;
         public void Delete(int id)
         {
             throw new NotImplementedException();

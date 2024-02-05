@@ -9,8 +9,8 @@ namespace BO
 {
     public class Task
     {
-        public int Id { get; init; }
-        public int Worker {  get; set; }
+        public int Id { get; init; }// Id Worker Name Description Status TaskInList Milestone createdAtDate RequiredEffortTime
+        public int Worker {  get; set; }//CalculatedEndDate StartDate ScheduledDate DeadlineDate CompleteDate Deliverables Copmlexity
         public string? Name {  get; set; }=null;
         public string? Description { get; set; } = null;
         public Status Status { get; set; } = Status.Unscheduled;
