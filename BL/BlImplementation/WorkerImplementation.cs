@@ -25,15 +25,28 @@ namespace BlImplementation
             }
 
         }
-      //  private DalApi.IDal _dal = Factory.Get;
+    
         public void Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Worker? Read(int id)
+        public BO.Worker? Read(int id)
         {
-            throw new NotImplementedException();
+
+            DO.Worker? doWorker = dal.Worker.Read(id);
+            if (doWorker == null)
+                throw new BO.BlDoesNotExistException($"Worker with ID={id} does Not exist");
+
+            return new BO.Worker()
+            {
+                Id = id,
+              Cost = doWorker.Cost,
+              Name = doWorker.Name,
+             Level=  (BO.Expirience) doWorker.Level,
+              Email = doWorker.Email,
+
+            };
         }
 
         public Worker? Read(Func<Worker, bool> filter)
@@ -41,10 +54,10 @@ namespace BlImplementation
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Worker?> ReadAll(Func<Worker, bool>? filter = null)
+        public IEnumerable<Worker> ReadAll(Func<Worker, bool>? filter = null)
         {
-            throw new NotImplementedException();
-        }
+            throw new NotImplementedException(); 
+    }
 
         public void Update(Worker item)
         {

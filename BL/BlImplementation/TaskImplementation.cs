@@ -31,10 +31,35 @@ namespace BlImplementation
         {
             throw new NotImplementedException();
         }
-
         public BO.Task? Read(int id)
         {
-            throw new NotImplementedException();
+
+            DO.Task? doTask = dal.Task.Read(id);
+            if (doTask == null)
+                throw new BO.BlDoesNotExistException($"Task with ID={id} does Not exist");
+
+            return new BO.Task()
+            {
+                Id = id,
+               
+               Worker= doTask.Worker,
+                Name = doTask.Name,
+                Description = doTask.Description,
+                 Status = doTask.Status,
+                TaskInList = doTask.TaskInList,
+                Milestone = doTask.Milestone,
+                createdAtDate = doTask.createdAtDate,
+                RequiredEffortTime = doTask.RequiredEffortTime,
+                CalculatedEndDate = doTask.CalculatedEndDate,
+                StartDate = doTask.StartDate,
+                ScheduledDate = doTask.ScheduledDate,
+                DeadlineDate = doTask.DeadlineDate,
+                CompleteDate = doTask.CompleteDate,
+                    Deliverables = doTask.Deliverables,
+                Copmlexity =( BO.Expirience)doTask.Copmlexity
+
+
+            };
         }
 
         public BO.Task? Read(Func<BO.Task, bool> filter)
@@ -42,7 +67,7 @@ namespace BlImplementation
             throw new NotImplementedException();
         }
 
-        public IEnumerable<BO.Task?> ReadAll(Func<BO.Task, bool>? filter = null)
+        public IEnumerable<BO.Task> ReadAll(Func<BO.Task, bool>? filter = null)
         {
             throw new NotImplementedException();
         }
