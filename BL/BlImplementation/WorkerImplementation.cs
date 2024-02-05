@@ -15,13 +15,13 @@ namespace BlImplementation
             try
             {
                 
-                int id = dal.Worker(doWorker);
+                int id = dal.Worker.Create(doWorker);
 
-                return idStud;
+                return id;
             }
-            catch (DO.DalAlreadyExistsException ex)
+            catch (DO.DalAlreadyExistException ex)
             {
-                throw new BO.BlAlreadyExistsException($"Student with ID={boWorker.Id} already exists", ex);
+                throw new BO.BlAlreadyExistsException($"Worker with ID={boWorker.Id} already exists", ex);
             }
 
         }
