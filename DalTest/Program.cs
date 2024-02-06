@@ -125,7 +125,7 @@ internal class Program
                 case 1:
                     {
                         Console.WriteLine("Enter Worker's Id, name, desciption, date of reqiered, date of start,date of schduled, date of deadline, date of complete, deliverables and expirience ");
-                        DO.Task newTask = new DO.Task(0, int.Parse(Console.ReadLine()!), Console.ReadLine()!, Console.ReadLine()!, false, DateTime.Now, DateTime.Parse(Console.ReadLine()!), DateTime.Parse(Console.ReadLine()!), DateTime.Parse(Console.ReadLine()!), DateTime.Parse(Console.ReadLine()!), DateTime.Parse(Console.ReadLine()!), Console.ReadLine(), (Expirience)int.Parse(Console.ReadLine()!));
+                        DO.Task newTask = new DO.Task(0, int.Parse(Console.ReadLine()!), Console.ReadLine()!, Console.ReadLine()!, false, DateTime.Now, TimeSpan.Parse(Console.ReadLine()!), DateTime.Parse(Console.ReadLine()!), DateTime.Parse(Console.ReadLine()!), DateTime.Parse(Console.ReadLine()!), DateTime.Parse(Console.ReadLine()!), Console.ReadLine(), null, (Expirience)int.Parse(Console.ReadLine()!));
                         s_dal!.Task.Create(newTask);
                     }
                     break;
@@ -149,7 +149,7 @@ internal class Program
                 case 4:
                     {
                         Console.WriteLine("Enter Id, Worker's Id, name, desciption, date of reqiered, date of start,date of schduled, date of deadline, date of complete, deliverables and expirience ");
-                        DO.Task newTask = new DO.Task(int.Parse(Console.ReadLine()!), int.Parse(Console.ReadLine()!), Console.ReadLine()!, Console.ReadLine()!, false, DateTime.Now, DateTime.Parse(Console.ReadLine()!), DateTime.Parse(Console.ReadLine()!), DateTime.Parse(Console.ReadLine()!), DateTime.Parse(Console.ReadLine()!), DateTime.Parse(Console.ReadLine()!), Console.ReadLine(), (Expirience)int.Parse(Console.ReadLine()!));
+                        DO.Task newTask = new DO.Task(int.Parse(Console.ReadLine()!), int.Parse(Console.ReadLine()!), Console.ReadLine()!, Console.ReadLine()!, false, DateTime.Now, TimeSpan.Parse(Console.ReadLine()!), DateTime.Parse(Console.ReadLine()!), DateTime.Parse(Console.ReadLine()!), DateTime.Parse(Console.ReadLine()!), DateTime.Parse(Console.ReadLine()!), Console.ReadLine(), null, (Expirience)int.Parse(Console.ReadLine()!));
                         s_dal!.Task.Update(newTask);
                     }
                     break;

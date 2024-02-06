@@ -2,19 +2,20 @@
 
 using BlApi;
 using BO;
+using DalApi;
 using System.Xml.Linq;
 
 namespace BlImplementation
 {
     internal class TaskImplementation : ITask
     {
-        private DalApi.IDal dal = Factory.Get;
+        private DalApi.IDal _dal = Factory.Get;
         public int Create(BO.Task boTask)
         {
             DO.Task doTask = new DO.Task
 
-                (boTask.Id , boTask.Worker, boTask. Name , boTask.Description, boTask. Status, boTask.TaskInList ,boTask.Milestone , boTask.createdAtDate , boTask.RequiredEffortTime,
-                boTask.CalculatedEndDate , boTask.StartDate , boTask.ScheduledDate , boTask.DeadlineDate , boTask.CompleteDate, boTask. Deliverables ,boTask.Copmlexity);
+                (boTask.Id, boTask.Worker, boTask.Name, boTask.Description, boTask.Status, boTask.TaskInList, boTask.Milestone, boTask.createdAtDate, boTask.RequiredEffortTime,
+                boTask.CalculatedEndDate, boTask.StartDate, boTask.ScheduledDate, boTask.DeadlineDate, boTask.CompleteDate, boTask.Deliverables, boTask.Copmlexity);
             try
             {
                 int idTask = dal.Task.Create(doTask);
@@ -31,41 +32,25 @@ namespace BlImplementation
         {
             throw new NotImplementedException();
         }
-        public BO.Task? Read(int id)
+        private static BO.Task doTaskToBoTask(DO.Task? doTask) =>
+        new BO.Task()
         {
+            Id = doTask.Id,
 
-            DO.Task? doTask = dal.Task.Read(id);
-            if (doTask == null)
-                throw new BO.BlDoesNotExistException($"Task with ID={id} does Not exist");
-
-            return new BO.Task()
-            {
-                Id = id,
-               
-               Worker= doTask.Worker,
-                Name = doTask.Name,
-                Description = doTask.Description,
-                 Status = doTask.Status,
-                TaskInList = doTask.TaskInList,
-                Milestone = doTask.Milestone,
-                createdAtDate = doTask.createdAtDate,
-                RequiredEffortTime = doTask.RequiredEffortTime,
-                CalculatedEndDate = doTask.CalculatedEndDate,
-                StartDate = doTask.StartDate,
-                ScheduledDate = doTask.ScheduledDate,
-                DeadlineDate = doTask.DeadlineDate,
-                CompleteDate = doTask.CompleteDate,
-                    Deliverables = doTask.Deliverables,
-                Copmlexity =( BO.Expirience)doTask.Copmlexity
+            Description = doTask.Description,
+            Alias = doTask.Name,
+            createdAtDate = doTask.createdAtDate,
+            RequiredEffortTime = doTask.RequiredEffortTime,
+            StartDate = doTask.StartDate,
+            ScheduledDate = doTask.ScheduledDate,
+            DeadlineDate = doTask.DeadlineDate,
+            CompleteDate = doTask.CompleteDate,
+            Deliverables = doTask.Deliverables
+        };
 
 
-            };
-        }
 
-        public BO.Task? Read(Func<BO.Task, bool> filter)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public IEnumerable<BO.Task> ReadAll(Func<BO.Task, bool>? filter = null)
         {
@@ -86,5 +71,32 @@ namespace BlImplementation
         {
             throw new NotImplementedException();
         }
+
+
+        private bool HelpTaskNow(DO.Task task)
+        {
+            return (id == doTaskToBoTask(task).Worker.Id);
+        }
+
+        public BO.Task? Read(int id, bool taskNow = false)//מוכן
+        {
+            if (taskNow)
+            {
+                bool HelpTaskNow(DO.Task task)
+                {
+                    return (id == doTaskToBoTask(task).Worker.Id);
+                }
+                return doTaskToBoTask(_dal.Task.Read(HelpTaskNow));
+            }
+            else
+            {
+                DO.Task? doTask = _dal.Task.Read(id);
+                if (doTask == null)
+                    throw new BO.BlDoesNotExistException($"Task with ID={id} does Not exist");
+                return doTaskToBoTask(doTask);
+            }
+        }
+
     }
 }
+    

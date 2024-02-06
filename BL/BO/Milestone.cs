@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BO;
+
+public class Milestone
+{
+    public int Id { get; init; }
+    public string Description { get; set; } // NN
+
+    public string Alias { get; set; }// NN
+    public DateTime createdAtDate { get; set; }// NN
+    public Status Status { get; set; } = Status.Unscheduled;
+    public DateTime? ForeCastDate { get; set; } = null;//
+    public DateTime? DeadlineDate { get; set; } = null;//
+    public DateTime? CompleteDate { get; set; } = null;///
+    public double CompletionPercentage { get; set; }
+    public string? Remarks { get; set; } = null;
+    public List<BO.TaskInList>? Dependencies { get; set; } = null;
+
+
+}

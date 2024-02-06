@@ -4,16 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BO
+namespace BO;
+
+public class Worker
 {
-    public class Worker
-    {
-        public int Id { get; set; }
+    public int Id { get; set; }
 
+    public string Name { get; set; } //NN
+    public string Email { get; set; }//NN
+    public Expirience Level { get; set; }//NN
 
-        public double Cost { get; set; }
-        public Expirience Level { get; set; }
-        public string? Name { get; set; } = null;
-        public string? Email { get; set; } = null;
-    }
+    public double Cost { get; set; }//NN
+
+    public TaskInWorker Task { get; set; }
+
 }

@@ -9,8 +9,9 @@ namespace BO
     public class TaskInList
     {
         public int Id { get; init; }
-        public string? Name { get; set; } = null;
-        public string? Description { get; set; } = null;
+        public string Description { get; set; } //NN
+        public string Alias { get; set; } //NN
+
         public Status Status { get; set; } = Status.Unscheduled;
     }
 }

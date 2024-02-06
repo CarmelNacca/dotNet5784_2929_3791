@@ -11,23 +11,16 @@ namespace BlApi
 /// </summary>
     public interface ITask
     {
-        public int Create(BO.Task item);
-        public void Delete(int id);
-
-        public BO.Task? Read(int id);
-
-
         public IEnumerable<BO.Task?> ReadAll(Func<BO.Task, bool>? filter = null);
-
-
+        public int Add(BO.Task item);
         public void Update(BO.Task item);
+        public void TaskToWorker(Tuple<int, string> item);
+        public IEnumerable<BO.TaskInWorker?> ReadAll(bool withEmptyWorker = false);
+        public void Schedule();
+
+        public BO.Task? Read(int id, bool taskNow = false);
 
 
-        public BO.Task? Read(Func<BO.Task, bool> filter);
-        public void UpdateStatus(int id);
-        public void UpdateCalculatedEndDate(int id);
 
-
-
-}
+    }
 }

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BO
+namespace BO;
+
+public class MilestoneInTask
 {
-    static class Tools
-    {
-        
-    }
+    public int Id { get; init; }
+    public string Alias { get; set; }// NN
 }

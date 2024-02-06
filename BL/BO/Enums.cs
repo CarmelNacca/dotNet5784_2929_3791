@@ -13,11 +13,17 @@ public enum Expirience
     Architect,
     InteriorDesigner
 }
+
 public enum Status
 {
     Unscheduled,
     Scheduled,
-    OnTrack, 
-    InJeopardy,
+    OnTrack,
     Done
+}
+public enum StatusProject
+{
+    planning,
+    intermediate,
+    execution
 }
