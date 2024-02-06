@@ -25,20 +25,23 @@ public record Task
     string? Description= null,
     bool Milestone= false,
     
-    DateTime? createdAtDate=null,
-    DateTime? RequiredEffortTime = null,
+    DateTime createdAtDate,
+TimeSpan? RequiredEffortTime = null,
     DateTime? StartDate = null,
     DateTime? ScheduledDate = null,
     DateTime? DeadlineDate = null,  
     DateTime? CompleteDate = null,
     string? Deliverables= null,
-
+    string? Remarks=null,
 
   Expirience? Copmlexity = null
   
     )
+    
 {
-    public Task(): this (0,0) { }///empty ctor for stage 3
+    
+    public Task(): this (0,0) {  }///empty ctor for stage 3
+
 
 }
 

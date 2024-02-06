@@ -1,21 +1,17 @@
-﻿
-
-using BlApi;
-using BO;
-
+﻿using BO;
 namespace BlImplementation
 {
-    internal class WorkerImplementation : IWorker
+    internal class WorkerImplementation : BlApi.IWorker
     {
-        private DalApi.IDal dal = Factory.Get;
-        public int Create(BO.Worker boWorker)
+        private DalApi.IDal _dal = Factory.Get;
+        public int Add(BO.Worker boWorker)
         {
             DO.Worker doWorker = new DO.Worker
        (boWorker.Id, boWorker.Cost, (DO.Expirience)(int)boWorker.Level, boWorker.Email, boWorker.Name);
             try
             {
-                
-                int id = dal.Worker.Create(doWorker);
+
+                int id = _dal.Worker.Create(doWorker);
 
                 return id;
             }
@@ -25,43 +21,50 @@ namespace BlImplementation
             }
 
         }
-    
+
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _dal.Worker.Delete(id);
         }
 
         public BO.Worker? Read(int id)
         {
-
-            DO.Worker? doWorker = dal.Worker.Read(id);
+           
+            DO.Worker? doWorker = _dal.Worker.Read(id);
             if (doWorker == null)
                 throw new BO.BlDoesNotExistException($"Worker with ID={id} does Not exist");
+            return doWorkerToBoWorker(doWorker);
+           
 
-            return new BO.Worker()
-            {
-                Id = id,
-              Cost = doWorker.Cost,
-              Name = doWorker.Name,
-             Level=  (BO.Expirience) doWorker.Level,
-              Email = doWorker.Email,
+        } 
 
-            };
+        private static Worker doWorkerToBoWorker(DO.Worker? doWorker) =>
+        new BO.Worker()
+        {
+            Id = doWorker.Id,
+            Cost = doWorker.Cost,
+            Name = doWorker.Name,
+            Level = (BO.Expirience)doWorker.Level,
+            Email = doWorker.Email,
+        };
+
+        public IEnumerable<Worker> ReadAll(Func<Worker, bool>? filter = null, bool withEmptyTasks = false)
+        {
+            return from DO.Worker doWorker in _dal.Worker.ReadAll()
+                   where withEmptyTasks ? !_dal.Task.ReadAll(t => t.Worker == doWorker.Id).Any() : true
+                   let worker = doWorkerToBoWorker(doWorker)
+                   where filter is null ? true : filter(worker)
+                   select worker;
         }
-
-        public Worker? Read(Func<Worker, bool> filter)
+        public TaskInWorker TaskToWorker(int id)
         {
             throw new NotImplementedException();
         }
-
-        public IEnumerable<Worker> ReadAll(Func<Worker, bool>? filter = null)
-        {
-            throw new NotImplementedException(); 
-    }
-
-        public void Update(Worker item)
+        public void Update(BO.Worker item,BO.Status status)
         {
             throw new NotImplementedException();
         }
+      
+        
     }
 }
