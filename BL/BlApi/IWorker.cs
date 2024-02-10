@@ -18,11 +18,11 @@ namespace BlApi
         public BO.Worker? Read(int id);
 
 
-        public IEnumerable<BO.Worker?> ReadAll(Func<Worker, bool>? filter = null, bool withEmptyTasks = false);
-     
-        
+        public IEnumerable<BO.Worker?> ReadAll(Func<Worker, bool>? filter = null, bool withEmptyTasks = false);//v
 
-       public void Update(BO.Worker item,BO.Status newStatis);
+
+
+        public void Update(BO.Worker item);
         public BO.Task? TaskNow(int id);
     }
 }

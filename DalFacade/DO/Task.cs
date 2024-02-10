@@ -25,7 +25,7 @@ public record Task
     string? Description= null,
     bool Milestone= false,
     
-    DateTime createdAtDate,
+    DateTime? createdAtDate=null,
 TimeSpan? RequiredEffortTime = null,
     DateTime? StartDate = null,
     DateTime? ScheduledDate = null,
