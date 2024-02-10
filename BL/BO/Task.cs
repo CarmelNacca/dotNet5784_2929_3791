@@ -27,7 +27,7 @@ public class Task
     public DateTime? CompleteDate { get; set; } = null;///
     public string? Deliverables { get; set; } = null;
     public string? Remarks { get; set; } = null;
-    public BO.WorkerInTask Worker {  get; set; }//CalculatedEndDate StartDate ScheduledDate DeadlineDate CompleteDate Deliverables Copmlexity
+    public BO.WorkerInTask? Worker {  get; set; }//CalculatedEndDate StartDate ScheduledDate DeadlineDate CompleteDate Deliverables Copmlexity
     public Expirience? Copmlexity { get; set; } = null;
     
 }
