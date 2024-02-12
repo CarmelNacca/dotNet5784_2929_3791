@@ -1,11 +1,11 @@
 ﻿namespace BlImplementation;
 using BlApi;
-internal class BL : IBL
+internal class Bl : IBL
 {
     public IWorker Worker =>  new WorkerImplementation();
 
 
-    public ITask task =>  new TaskImplementation();
+    public ITask Task =>  new TaskImplementation();
 
-    public IDependency dependency => new DependencyImplementation();
+    
 }

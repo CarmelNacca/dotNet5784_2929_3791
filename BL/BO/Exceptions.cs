@@ -20,3 +20,22 @@ public class BlAlreadyExistsException : Exception
                 : base(message, innerException) { }
 }
 
+public class BlInvalidData : Exception
+{
+    public BlInvalidData(string? message) : base(message) { }
+}
+public class BlHavePendingTasks : Exception
+{
+    public BlHavePendingTasks(string? message) : base(message) { }
+}
+public class BlUnableDeleteBecauseProjectIsInProgress : Exception
+{
+    public BlUnableDeleteBecauseProjectIsInProgress(string? message) : base(message) { }
+}
+public class BlWorkerInMiddleOfTask : Exception
+{
+    public BlWorkerInMiddleOfTask(string? message) : base(message) { }
+}
+
+
+

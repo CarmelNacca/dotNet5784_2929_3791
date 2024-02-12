@@ -9,7 +9,7 @@ namespace BlApi
     public interface IBL
     {
         public IWorker Worker { get; }
-        public ITask task { get; }
-        public IDependency dependency { get; }
+        public ITask Task { get; }
+       
     }
 }

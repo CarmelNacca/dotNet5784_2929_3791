@@ -20,7 +20,7 @@ namespace DO;
 public record Task
 (
     int Id,
-    int Worker,
+    int? Worker=null,
     string? Name = null,
     string? Description= null,
     bool Milestone= false,
