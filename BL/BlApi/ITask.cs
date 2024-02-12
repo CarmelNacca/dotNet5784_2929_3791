@@ -1,4 +1,5 @@
-﻿using DO;
+﻿using BO;
+using DO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +16,13 @@ namespace BlApi
         public int Add(BO.Task item);
         public void Update(BO.Task item);
         //public void TaskToWorker(Tuple<int, string> item);
-        public IEnumerable<BO.TaskInWorker?> ReadAll(bool withEmptyWorker = false);
-        public void Schedule();
-
+        public IEnumerable<BO.TaskInList> ReadAll(Func<BO.TaskInList, bool>? filter = null);
+        
         public BO.Task? Read(int id, bool taskNow = false);
 
-        public BO.Task? TaskNow(int id);
+        public void Delete(int id);
 
+        public void UpdateDate(int id, DateTime date);
+        public void TasksWithStatusDone();
     }
 }

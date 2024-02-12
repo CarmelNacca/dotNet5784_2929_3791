@@ -31,7 +31,13 @@ internal class WorkerImplementation: IWorker
 
     public Worker? Read(int id)
     {
+        try { 
         return DataSource.Workers.FirstOrDefault(x => x.Id == id);
+        }
+        catch(Exception)
+        {
+            throw new DO.DalDoesNotExistException($"Worker with ID={id} not exists");
+        }
     }
 
     public IEnumerable<Worker?> ReadAll(Func<Worker, bool>? filter = null)

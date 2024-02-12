@@ -24,7 +24,7 @@ internal class WorkerImplementation : BlApi.IWorker
     }
     public int Add(BO.Worker boWorker)
     {
-        if (boWorker.Id >= 0 && boWorker.Name != "" && boWorker.Cost > 0 && IsValidEmail(boWorker.Name))
+        if (boWorker.Id >= 0 && boWorker.Name != "" && boWorker.Cost > 0 && IsValidEmail(boWorker.Email))
         {
             DO.Worker doWorker = new DO.Worker
        (boWorker.Id, boWorker.Cost, (DO.Expirience)(int)boWorker.Level, boWorker.Email, boWorker.Name);
@@ -35,51 +35,61 @@ internal class WorkerImplementation : BlApi.IWorker
 
                 return id;
             }
-            catch (BO.BlAlreadyExistsException ex)
+            catch (DO.DalAlreadyExistException ex)
             {
                 throw new BO.BlAlreadyExistsException($"Worker with ID={boWorker.Id} already exists", ex);
             }
         }
         else
         {
-            //הנתונים לא תקינים
+            throw new BO.BlInvalidData("The data is incorrect");
         }
     }
    
     public void Delete(int id)
     {
-        if (Read(id).Task == null)
+        try
         {
-            try
-            {
-                _dal.Worker.Delete(id);
-            }
-            catch (BO.BlDoesNotExistException ex)
-            {
-                throw new BO.BlDoesNotExistException($"Worker with ID={id} does Not exist");
-            }
+            Read(id);
+        }
+        catch (DO.DalDoesNotExistException ex)
+        {
+            throw new BO.BlDoesNotExistException($"Worker with ID={id} does Not exist",ex);
+        }
 
+        if (Read(id)!.Task == null)
+        {
+          _dal.Worker.Delete(id);
         }
         else
-        { //חריגה של עובד באמצע משימה
+        {
+            throw new BO.BlWorkerInMiddleOfTask("Cannot delete because the worker is in the middle of a task");
         }
 
     }
 
     public BO.Worker? Read(int id)
     {
-
+        try { 
         DO.Worker? doWorker = _dal.Worker.Read(id);
-        if (doWorker == null)
-            throw new BO.BlDoesNotExistException($"Worker with ID={id} does Not exist");
-        return doWorkerToBoWorker(doWorker);
+            return doWorkerToBoWorker(doWorker);
+        }
+        catch (DO.DalDoesNotExistException ex) 
+        { 
+            throw new BO.BlDoesNotExistException($"Worker with ID={id} does Not exist",ex);
+        }
+       
 
 
     }
 
-    private Worker doWorkerToBoWorker(DO.Worker? doWorker)
+    private BO.Worker doWorkerToBoWorker(DO.Worker? doWorker)
     {
-        var task = _dal.Task.Read(t => t.Worker == doWorker!.Id);
+        DO.Task? task = null;
+       if(_dal.Task.Read(doWorker.Id)!=null)
+        { 
+            task = _dal.Task.Read(t => t.Worker == doWorker!.Id);
+        }
         return new BO.Worker()
         {
             Id = doWorker!.Id,
@@ -98,24 +108,34 @@ internal class WorkerImplementation : BlApi.IWorker
 
     public IEnumerable<BO.Worker> ReadAll(Func<BO.Worker, bool>? filter = null)
     {
-        return from DO.Worker doWorker in _dal.Worker.ReadAll()
+        return (from DO.Worker doWorker in _dal.Worker.ReadAll()
                let worker = doWorkerToBoWorker(doWorker)
                where filter is null ? true : filter(worker)
-               select worker;
+               select worker).OrderByDescending(Worker => Worker.Name);
     }
-    public TaskInWorker TaskNow(int id)
-    {
-        TaskInWorker? task = Read(id)!.Task;
-        try
-        {
-            return task!;
-        }
-        catch (BO.BlDoesNotExistException ex)
-        {
-            throw new BO.BlDoesNotExistException($"The worker does not have a task", ex); //($"The worker does not have a task", ex);
-        }
+    //public TaskInWorker TaskNow(int id)
+    //{
+    //    try
+    //    { 
+    //        Read(id);
+    //        try
+    //        {
+    //            TaskInWorker task = Read(id).Task;
+    //            return task!;
+    //        }
+    //        catch (DO.DalDoesNotExistException ex)
+    //        {
+    //            throw new BO.BlDoesNotExistException($"The worker does not have a task", ex); //($"The worker does not have a task", ex);
+    //        }
+    //    }
+    //    catch (DO.DalDoesNotExistException ex)
+    //    {
+    //        throw new BO.BlDoesNotExistException($"Worker with ID={id} does Not exist", ex);
+    //    }
 
-    }
+        
+
+    //}
     public void Update(BO.Worker boWorker)
     {
         if (boWorker.Id >= 0 && boWorker.Name != "" && boWorker.Cost > 0 && IsValidEmail(boWorker.Name))
@@ -128,14 +148,14 @@ internal class WorkerImplementation : BlApi.IWorker
 
             }
 
-            catch (BO.BlDoesNotExistException ex)
+            catch (DO.DalDoesNotExistException ex)
             {
                 throw new BO.BlDoesNotExistException($"Worker with ID={boWorker.Id} does Not exist", ex);
             }
         }
         else
         {
-            //הנתונים לא תקינים
+            throw new BO.BlInvalidData("The data is incorrect");
         }
     }
 

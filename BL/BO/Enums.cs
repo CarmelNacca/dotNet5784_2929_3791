@@ -23,7 +23,7 @@ public enum Status
 }
 public enum StatusProject
 {
-    planning,
-    intermediate,
-    execution
+    planning,//No start date yet
+    intermediate,//There is a start date for the project but not for all tasks
+    execution//There is a start date for the project and also a date for all tasks
 }
