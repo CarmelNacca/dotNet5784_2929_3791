@@ -52,7 +52,7 @@ internal class TaskImplementation:ITask
 
     public IEnumerable<DO.Task?> ReadAll(Func<DO.Task, bool>? filter = null)
     {
-        List<DO.Task> tasks = XMLTools.LoadListFromXMLSerializer<DO.Task>(s_tasks_xml);
+        List<DO.Task>? tasks = XMLTools.LoadListFromXMLSerializer<DO.Task>(s_tasks_xml);
         if (filter != null)
         {
             return from item in tasks

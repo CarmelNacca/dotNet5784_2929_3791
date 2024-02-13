@@ -72,7 +72,8 @@ internal class WorkerImplementation : BlApi.IWorker
     {
         try { 
         DO.Worker? doWorker = _dal.Worker.Read(id);
-            return doWorkerToBoWorker(doWorker);
+            var boWorker= doWorkerToBoWorker(doWorker);
+            return boWorker;
         }
         catch (DO.DalDoesNotExistException ex) 
         { 
@@ -83,27 +84,24 @@ internal class WorkerImplementation : BlApi.IWorker
 
     }
 
-    private BO.Worker doWorkerToBoWorker(DO.Worker? doWorker)
+    private BO.Worker doWorkerToBoWorker(DO.Worker? doWorker/*,bool flag=true*/)
     {
-        DO.Task? task = null;
-       if(_dal.Task.Read(doWorker.Id)!=null)
-        { 
-            task = _dal.Task.Read(t => t.Worker == doWorker!.Id);
-        }
-        return new BO.Worker()
+        
+        
+        var boWorker= new BO.Worker
         {
             Id = doWorker!.Id,
             Cost = doWorker.Cost,
             Name = doWorker.Name!,
             Level = (BO.Expirience)doWorker.Level,
-            Email = doWorker.Email!,
-
-            Task = task is null ? null : new BO.TaskInWorker
-            {
-                Id = task.Id,
-                Alias = task.Name!
-            }
+            Email = doWorker.Email!
         };
+        //if(flag)
+        //    {
+        //    DO.Task task = _dal.Task.Read(t => t.Worker == doWorker!.Id)!;
+        //    boWorker.Task = new TaskInWorker { Id = task.Id, Alias = task.Name }; 
+        //    }
+        return boWorker;
     }
 
     public IEnumerable<BO.Worker> ReadAll(Func<BO.Worker, bool>? filter = null)
@@ -138,10 +136,10 @@ internal class WorkerImplementation : BlApi.IWorker
     //}
     public void Update(BO.Worker boWorker)
     {
-        if (boWorker.Id >= 0 && boWorker.Name != "" && boWorker.Cost > 0 && IsValidEmail(boWorker.Name))
+        if (boWorker.Id >= 0 && boWorker.Name != "" && boWorker.Cost > 0 && IsValidEmail(boWorker.Email))
         {
             DO.Worker doWorker = new DO.Worker
-       (boWorker.Id, boWorker.Cost, (DO.Expirience)(int)boWorker.Level, boWorker.Email, boWorker.Name);
+       (boWorker.Id, boWorker.Cost, (DO.Expirience)(int)boWorker.Level, boWorker.Name, boWorker.Email);
             try
             {
                 _dal.Worker.Update(doWorker);
@@ -158,6 +156,6 @@ internal class WorkerImplementation : BlApi.IWorker
             throw new BO.BlInvalidData("The data is incorrect");
         }
     }
-
+   
 }         
 
