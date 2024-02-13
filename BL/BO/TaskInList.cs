@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace BO
 {
@@ -13,5 +15,9 @@ namespace BO
         public string Alias { get; set; } //NN
 
         public Status Status { get; set; } = Status.Unscheduled;
+        public override string ToString()
+        {
+            return ("id=" + Id + ", name=" + Alias + ", description=" + Description + ", status=" + Status );
+        }
     }
 }

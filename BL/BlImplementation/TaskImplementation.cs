@@ -12,7 +12,7 @@ internal class TaskImplementation : BlApi.ITask
 
     public int Add(BO.Task boTask)
     {
-        DO.Task doTask = new DO.Task(boTask.Id, boTask.Worker!.Id, boTask.Alias, boTask.Description, false, boTask.createdAtDate, boTask.RequiredEffortTime,
+        DO.Task doTask = new DO.Task(boTask.Id,null, boTask.Alias, boTask.Description, false, boTask.createdAtDate, boTask.RequiredEffortTime,
              boTask.StartDate, boTask.ScheduledDate, boTask.DeadlineDate, boTask.CompleteDate, boTask.Deliverables, boTask.Remarks, (DO.Expirience)boTask.Copmlexity);
 
         try
@@ -38,9 +38,8 @@ internal class TaskImplementation : BlApi.ITask
 
     private BO.Task doTaskToBoTask(DO.Task? doTask)
     {
-        var work = _dal.Worker.Read(t => t.Id == doTask!.Worker);
-
-        return new BO.Task()
+       
+        var task= new BO.Task()
         {
 
 
@@ -55,13 +54,19 @@ internal class TaskImplementation : BlApi.ITask
             DeadlineDate = doTask.DeadlineDate,
             CompleteDate = doTask.CompleteDate,
             Deliverables = doTask.Deliverables,
-            Worker = work is null ? null : new BO.WorkerInTask
-            {
-                Id = work!.Id,
-                Name = work.Name!
-            }
-        };
-    }
+            
+
+        }; 
+        //if (flag)
+        //{
+        //    var work = _dal.Worker.Read(t => t.Id == doTask!.Worker);
+
+        //    task.Worker.Id = work!.Id;
+        //     task.Worker.Name = work.Name;
+        //    }
+        return task;
+        }
+    
 
     private TaskInList taskToTaskInList(BO.Task task)
     {
@@ -200,7 +205,7 @@ internal class TaskImplementation : BlApi.ITask
 
         var grouped = ReadAll().GroupBy(TaskInList => TaskInList.Status = BO.Status.Done);
         if(grouped!=null)
-            Console.WriteLine(grouped); 
+            Console.WriteLine(grouped.ToString()); 
         return;
     }
 }

@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace BO;
 
@@ -28,6 +30,10 @@ public class Task
     public string? Deliverables { get; set; } = null;
     public string? Remarks { get; set; } = null;
     public BO.WorkerInTask? Worker { get; set; } = null;//CalculatedEndDate StartDate ScheduledDate DeadlineDate CompleteDate Deliverables Copmlexity
-    public Expirience Copmlexity { get; set; } 
-    
+    public Expirience Copmlexity { get; set; }
+    public override string ToString()
+    {
+        return ("id=" + Id + ", name=" + Alias + ", description=" + Description + ", create at date=" + createdAtDate + ", sratus=" + Status+", dependencies="+Dependencies+",milstone="+Milestone+ ", RequiredEffortTime=" + RequiredEffortTime + ", start date=" + StartDate + ", scheduled date=" + ScheduledDate + ", forecast date=" + ForeCastDate + ", deadline=" + DeadlineDate + ", compleated date=" + CompleteDate + ", deliverable=" + Deliverables+ ", remarks=" + Remarks );
+    }
+
 }

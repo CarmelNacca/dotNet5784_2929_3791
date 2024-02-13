@@ -84,7 +84,7 @@ internal class Program
                     break;
                 case 4:
                     {
-                        Console.WriteLine("Enter ID, name, email,level  and payment for worker");
+                        Console.WriteLine("Enter ID, name, email,level  and payment and cost for worker");
                         BO.Worker worker = new BO.Worker { Id = int.Parse(Console.ReadLine()!), Name = Console.ReadLine()!, Email = Console.ReadLine()!, Level = (BO.Expirience)int.Parse(Console.ReadLine()!), Cost = double.Parse(Console.ReadLine()!) };
                         s_bl!.Worker.Update(worker);
                     }
@@ -109,15 +109,16 @@ internal class Program
                     break;
                 case 1:
                     {
-                        Console.WriteLine("Enter, name, desciption, date of reqiered, date of start,date of schduled,date of forcast , date of deadline, date of complete, deliverables,remarks and expirience ");
-                        BO.Task newTask = new BO.Task { Id = 0, Alias = Console.ReadLine()!, Description = Console.ReadLine()!
+                        Console.WriteLine("Enter name, idWorker, desciption, date of reqiered, date of start,date of schduled,date of forcast , date of deadline, date of complete, deliverables,remarks and expirience ");
+                        BO.Task newTask = new BO.Task { Id = 0,Alias = Console.ReadLine()!,Worker=new BO.WorkerInTask{ Id = int.Parse(Console.ReadLine())}, Description = Console.ReadLine()!
                             ,createdAtDate=DateTime.Now, RequiredEffortTime = TimeSpan.Parse(Console.ReadLine()!),Status = BO.Status.Unscheduled,
                             StartDate = DateTime.Parse(Console.ReadLine()!),ScheduledDate= DateTime.Parse(Console.ReadLine()!),ForeCastDate = DateTime.Parse(Console.ReadLine()!),
                             DeadlineDate = DateTime.Parse(Console.ReadLine()!), CompleteDate = DateTime.Parse(Console.ReadLine()!),
                             Deliverables = Console.ReadLine(),Remarks=Console.ReadLine(), Copmlexity = (BO.Expirience)int.Parse(Console.ReadLine()!) };
-                        Console.WriteLine("is you want to enter dependencies?");
+                        newTask.Worker.Name = s_bl.Worker.Read(newTask.Worker.Id).Name;
+                        Console.WriteLine("Do you want to enter dependencies?");
                         string? ans = Console.ReadLine() ?? throw new FormatException("Wrong input");
-                        if (ans == "Y")
+                        if (ans == "y"||ans=="Y")
                         {
                             List<TaskInList> tasks = new List<TaskInList>();
                             Console.WriteLine("Enter Id of tasks to stop press -1");
@@ -175,7 +176,7 @@ internal class Program
                         s_bl.Task.UpdateDate(id, DateTime.Parse(Console.ReadLine()!));
                     }
                     break;
-                case 8:
+                case 7:
                     {
                         s_bl.Task.TasksWithStatusDone();
                     }
