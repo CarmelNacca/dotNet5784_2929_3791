@@ -205,7 +205,7 @@ internal class TaskImplementation : BlApi.ITask
 
         var grouped = ReadAll().GroupBy(TaskInList => TaskInList.Status = BO.Status.Done);
         if(grouped!=null)
-            Console.WriteLine(grouped.ToString()); 
+            Console.WriteLine(grouped); 
         return;
     }
 }
