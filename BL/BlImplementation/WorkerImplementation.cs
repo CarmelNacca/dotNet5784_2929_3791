@@ -4,7 +4,7 @@ namespace BlImplementation;
 internal class WorkerImplementation : BlApi.IWorker
 {
     private DalApi.IDal _dal = Factory.Get;
-    private bool IsValidEmail(string email)
+    private bool IsValidEmail(string email)//Email integrity check
     {
         var trimmedEmail = email.Trim();
 
@@ -22,7 +22,7 @@ internal class WorkerImplementation : BlApi.IWorker
             return false;
         }
     }
-    public int Add(BO.Worker boWorker)
+    public int Add(BO.Worker boWorker)//Add an employee
     {
         if (boWorker.Id >= 0 && boWorker.Name != "" && boWorker.Cost > 0 && IsValidEmail(boWorker.Email))
         {
@@ -46,7 +46,7 @@ internal class WorkerImplementation : BlApi.IWorker
         }
     }
    
-    public void Delete(int id)
+    public void Delete(int id)//Deleting an employee
     {
         try
         {
@@ -68,7 +68,7 @@ internal class WorkerImplementation : BlApi.IWorker
 
     }
 
-    public BO.Worker? Read(int id)
+    public BO.Worker? Read(int id)//Displaying employee details
     {
         try { 
         DO.Worker? doWorker = _dal.Worker.Read(id);
@@ -84,7 +84,7 @@ internal class WorkerImplementation : BlApi.IWorker
 
     }
 
-    private BO.Worker doWorkerToBoWorker(DO.Worker? doWorker/*,bool flag=true*/)
+    private BO.Worker doWorkerToBoWorker(DO.Worker? doWorker/*,bool flag=true*/)//Converting an employee from DO to BO
     {
         
         
@@ -104,7 +104,7 @@ internal class WorkerImplementation : BlApi.IWorker
         return boWorker;
     }
 
-    public IEnumerable<BO.Worker> ReadAll(Func<BO.Worker, bool>? filter = null)
+    public IEnumerable<BO.Worker> ReadAll(Func<BO.Worker, bool>? filter = null)//Displaying the details of all employees
     {
         return (from DO.Worker doWorker in _dal.Worker.ReadAll()
                let worker = doWorkerToBoWorker(doWorker)
@@ -134,7 +134,7 @@ internal class WorkerImplementation : BlApi.IWorker
         
 
     //}
-    public void Update(BO.Worker boWorker)
+    public void Update(BO.Worker boWorker)//Update worker
     {
         if (boWorker.Id >= 0 && boWorker.Name != "" && boWorker.Cost > 0 && IsValidEmail(boWorker.Email))
         {

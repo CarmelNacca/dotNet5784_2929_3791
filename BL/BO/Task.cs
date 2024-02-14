@@ -17,7 +17,7 @@ public class Task
 
     public string  Alias {  get; set; }// NN
     public DateTime? createdAtDate { get; set; }// NN
-    public Status Status { get; set; } = Status.Unscheduled;
+    public Status Status { get; set; }
     public List<BO.TaskInList>? Dependencies { get; set; } = null;
 
     public BO.MilestoneInTask Milestone { get; set; }
