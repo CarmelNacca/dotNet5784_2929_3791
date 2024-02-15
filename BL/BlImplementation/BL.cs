@@ -7,7 +7,7 @@ internal class Bl : IBL
 
 
     public ITask Task =>  new TaskImplementation();
-    public void InitializeDB() => DalTest.Initialization.Do();
+    public void InitializeDB() => Initialization.Do();
 
 
 
