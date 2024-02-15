@@ -8,8 +8,9 @@
         Title="MainWindow" Height="309" Width="670">
     <Grid>
 
-        <Button Content="Worker" HorizontalAlignment="Left" Margin="403,203,0,0" VerticalAlignment="Top" Height="65" Width="217" Click="BtnWorker"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="58,203,0,0" VerticalAlignment="Top" Height="65" Width="217" Click="Button_Click"/>
+        <Button Content="WORKER" HorizontalAlignment="Left" Margin="453,203,0,0" VerticalAlignment="Top" Height="65" Width="150" Click="BtnWorker"/>
+        <Button Content="INITDB" HorizontalAlignment="Center" Margin="0,203,0,0" VerticalAlignment="Top" Height="65" Width="150" Click="Button_Click"/>
+        <Button Content="ADMIN" HorizontalAlignment="Left" Margin="53,203,0,0" VerticalAlignment="Top" Height="65" Width="150" Click="Button_Click_1" />
 
     </Grid>
 </Window>
