@@ -49,7 +49,18 @@ namespace PL
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            MessageBoxResult result = MessageBox.Show("Would you like to reset data?", " ", MessageBoxButton.YesNo);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    {
+                        BlApi.Factory.Get().ResetDB();
+                    }
+                    break;
+                case MessageBoxResult.No:
+                    break;
 
+            }
         }
 
         //private void Button_Click_1(object sender, RoutedEventArgs e)

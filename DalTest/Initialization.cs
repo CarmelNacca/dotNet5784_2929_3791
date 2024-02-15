@@ -5,6 +5,7 @@ using DalApi;
 using DO;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Common;
+using System.Reflection.Metadata;
 using System.Runtime.InteropServices;
 
 
@@ -201,7 +202,8 @@ private static void creatTask()
         //s_dalDependency = dal_Dependency ?? throw new NullReferenceException("DAL can not be null");
         //s_dal = dal ?? throw new NullReferenceException("DAL object can not be null!"); //stage 2
         s_dal = Factory.Get; //stage 4
-
+        Reset();
+        s_dal.Task.Reset(); 
         creatDependency();
         creatTask();
         creatWorker();
@@ -209,9 +211,12 @@ private static void creatTask()
     }
     public static void Reset()
     {
-       NextTaskId = 1;
-
-
+        
+        s_dal.Worker.Reset();
+        s_dal.Dependency.Reset();
+        s_dal.Task.Reset();
     }
+
+
 }
 

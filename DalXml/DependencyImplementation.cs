@@ -78,4 +78,11 @@ internal class DependencyImplementation: IDependency
         elemde.Add(elemdependency);
         elemde.Save(s_dependencies_xml);
     }
+    public void Reset()
+    {
+        XElement elemde = XMLTools.LoadListFromXMLElement(s_dependencies_xml);
+        elemde.RemoveAll();
+        XMLTools.SaveListToXMLElement(elemde, s_dependencies_xml);
+       
+    }
 }

@@ -8,7 +8,7 @@ namespace BlImplementation;
 
 internal class TaskImplementation : BlApi.ITask
 {
-    private DalApi.IDal _dal = Factory.Get;
+    private DalApi.IDal _dal = DalApi.Factory.Get;
 
     public int Add(BO.Task boTask)//Adding a task
     {

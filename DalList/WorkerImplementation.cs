@@ -65,5 +65,9 @@ internal class WorkerImplementation: IWorker
     {
         return DataSource.Workers.FirstOrDefault(filter);
     }
+    public void Reset()
+    {
+        DataSource.Workers.Clear();
+    }
 }
 
