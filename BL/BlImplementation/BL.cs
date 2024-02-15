@@ -1,5 +1,7 @@
 ﻿namespace BlImplementation;
+
 using BlApi;
+using Dal;
 
 internal class Bl : IBL
 {
@@ -7,7 +9,7 @@ internal class Bl : IBL
 
 
     public ITask Task =>  new TaskImplementation();
-    public void InitializeDB() => Initialization.Do();
+    public void InitializeDB() =>Initialization.Do();
 
 
 

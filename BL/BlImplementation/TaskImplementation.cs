@@ -10,7 +10,7 @@ internal class TaskImplementation : BlApi.ITask
 {
     private DalApi.IDal _dal = Factory.Get;
 
-    public int Add(BO.Task boTask)
+    public int Add(BO.Task boTask)//Adding a task
     {
         DO.Task doTask = new DO.Task(boTask.Id,null, boTask.Alias, boTask.Description, false, boTask.createdAtDate, boTask.RequiredEffortTime,
              boTask.StartDate, boTask.ScheduledDate, boTask.DeadlineDate, boTask.CompleteDate, boTask.Deliverables, boTask.Remarks, (DO.Expirience)boTask.Copmlexity);
@@ -22,7 +22,7 @@ internal class TaskImplementation : BlApi.ITask
             {
                 for (int i = 0; i < boTask.Dependencies.Count(); i++)
                 {
-                    DO.Dependency dependency = new DO.Dependency(0, boTask.Dependencies[i].Id, boTask.Id);
+                    DO.Dependency dependency = new DO.Dependency(0, boTask.Dependencies[i].Id, idTask);
                     _dal.Dependency.Create(dependency);
                 }
             }
@@ -36,7 +36,7 @@ internal class TaskImplementation : BlApi.ITask
     }
 
 
-    private BO.Task doTaskToBoTask(DO.Task? doTask)
+    private BO.Task doTaskToBoTask(DO.Task? doTask)//Converting a task from DO to BO
     {
        
         var task= new BO.Task()
@@ -57,6 +57,16 @@ internal class TaskImplementation : BlApi.ITask
             
 
         }; 
+        if(doTask.ScheduledDate == null)
+        {
+            task.Status=BO.Status.Unscheduled;
+        }else if(doTask.StartDate==null)
+        {  task.Status=BO.Status.Scheduled; }
+        else if(doTask.CompleteDate==null)
+            {
+            task.Status=BO.Status.OnTrack;
+        }
+        else { task.Status=BO.Status.Done; }
         //if (flag)
         //{
         //    var work = _dal.Worker.Read(t => t.Id == doTask!.Worker);
@@ -68,13 +78,13 @@ internal class TaskImplementation : BlApi.ITask
         }
     
 
-    private TaskInList taskToTaskInList(BO.Task task)
+    private TaskInList taskToTaskInList(BO.Task task)//Converting a task from TASK to TASKINLIST
     {
         return new TaskInList() { Id = task.Id, Description = task.Description, Alias = task.Alias, Status = task.Status };
     }
 
 
-    public IEnumerable<BO.TaskInList> ReadAll(Func<BO.TaskInList, bool>? filter = null)
+    public IEnumerable<BO.TaskInList> ReadAll(Func<BO.TaskInList, bool>? filter = null)//Displaying all tasks in TASKINLIST
     {
         return from DO.Task doTask in _dal.Task.ReadAll()
                let task = taskToTaskInList(doTaskToBoTask(doTask))
@@ -83,7 +93,7 @@ internal class TaskImplementation : BlApi.ITask
     }
 
 
-    public void Update(BO.Task item)
+    public void Update(BO.Task item)//task update
     {
         if (item.Id >= 0 && item.Alias != "")
         {
@@ -123,7 +133,7 @@ internal class TaskImplementation : BlApi.ITask
 
 
 
-    public BO.Task? Read(int id, bool taskNow = false)
+    public BO.Task? Read(int id, bool taskNow = false)//Displaying a task in TASKINLIST
     {
         if (taskNow)
         {
@@ -155,7 +165,7 @@ internal class TaskImplementation : BlApi.ITask
 
         }
     }
-    public void Delete(int id)
+    public void Delete(int id)//Deleting a task
     {
         if (BO.Task.StatusProject != BO.StatusProject.execution)
         {
@@ -181,7 +191,7 @@ internal class TaskImplementation : BlApi.ITask
             throw new BO.BlUnableDeleteBecauseProjectIsInProgress("It cannot be deleted because the project is in progress");
         }
     }
-    public void UpdateDate(int id, DateTime date)
+    public void UpdateDate(int id, DateTime date)//Update task start date
     {
         try { Read(id); }
         catch (DO.DalDoesNotExistException ex)
@@ -200,12 +210,20 @@ internal class TaskImplementation : BlApi.ITask
             Update(task);
         }
     }
-    public  void TasksWithStatusDone()
+    public  void TasksWithStatusDone()//Prints the tasks whose status is DONE
     {
+        var grouped = ReadAll().GroupBy(TaskInList => TaskInList.Status == BO.Status.Done);
 
-        var grouped = ReadAll().GroupBy(TaskInList => TaskInList.Status = BO.Status.Done);
-        if(grouped!=null)
-            Console.WriteLine(grouped); 
+        foreach (var group in grouped)
+        {
+            Console.WriteLine($"Tasks with Status done:");
+
+            foreach (var task in group)
+            {
+                Console.WriteLine($" - {task}");
+            }
+        }
+       
         return;
     }
 }

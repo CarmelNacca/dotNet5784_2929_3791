@@ -109,9 +109,9 @@ internal class Program
                     break;
                 case 1:
                     {
-                        Console.WriteLine("Enter name, idWorker, desciption, date of reqiered, date of start,date of schduled,date of forcast , date of deadline, date of complete, deliverables,remarks and expirience ");
+                        Console.WriteLine("Enter name, idWorker, desciption, date of reqiered, date of start,date of schduled,date of forcast , date of deadline, date of complete, deliverables,remarks and expirience");
                         BO.Task newTask = new BO.Task { Id = 0,Alias = Console.ReadLine()!,Worker=new BO.WorkerInTask{ Id = int.Parse(Console.ReadLine())}, Description = Console.ReadLine()!
-                            ,createdAtDate=DateTime.Now, RequiredEffortTime = TimeSpan.Parse(Console.ReadLine()!),Status = BO.Status.Unscheduled,
+                            ,createdAtDate=DateTime.Now, RequiredEffortTime = TimeSpan.Parse(Console.ReadLine()!),
                             StartDate = DateTime.Parse(Console.ReadLine()!),ScheduledDate= DateTime.Parse(Console.ReadLine()!),ForeCastDate = DateTime.Parse(Console.ReadLine()!),
                             DeadlineDate = DateTime.Parse(Console.ReadLine()!), CompleteDate = DateTime.Parse(Console.ReadLine()!),
                             Deliverables = Console.ReadLine(),Remarks=Console.ReadLine(), Copmlexity = (BO.Expirience)int.Parse(Console.ReadLine()!) };
@@ -127,10 +127,15 @@ internal class Program
                             {
                                 var task = s_bl.Task.Read(id);
                                 tasks.Add( new TaskInList { Id = task.Id, Alias = task.Alias, Description = task.Description, Status = task.Status });
+                                Console.WriteLine("Enter Id of tasks to stop press -1");
+                                id = int.Parse(Console.ReadLine()!);
                             }
                             newTask.Dependencies=tasks;
                         }
+
                         
+                           
+
                         s_bl!.Task.Add(newTask);
                     }
                     break;
@@ -188,4 +193,6 @@ internal class Program
 
     }
 }
+
+
 
