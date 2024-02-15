@@ -1,4 +1,5 @@
-﻿using Dal;
+﻿using BlApi;
+using Dal;
 using PL.Worker;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -36,8 +37,9 @@ namespace PL
             switch (result)
             {
                 case MessageBoxResult.Yes:
-
-                   
+                    {
+                      
+                    }
                     break;
                 case MessageBoxResult.No:
                     MessageBox.Show("Oh well, too bad!", "My App");
