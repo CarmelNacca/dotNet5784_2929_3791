@@ -38,16 +38,34 @@ namespace PL
             {
                 case MessageBoxResult.Yes:
                     {
-                      
+                       BlApi.Factory.Get().InitializeDB();
                     }
                     break;
                 case MessageBoxResult.No:
-                    MessageBox.Show("Oh well, too bad!", "My App");
-                    break;
-                case MessageBoxResult.Cancel:
-                    MessageBox.Show("Nevermind then...", "My App");
-                    break;
+                   break;
+                
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //private void Button_Click_1(object sender, RoutedEventArgs e)
+        //{
+        //    MessageBoxResult result = MessageBox.Show("Would you like to reset?", " ", MessageBoxButton.YesNo);
+        //    switch (result)
+        //    {
+        //        case MessageBoxResult.Yes:
+        //            {
+        //                BlApi.Factory.Get().ResetDB();
+        //            }
+        //            break;
+        //        case MessageBoxResult.No:
+        //            break;
+
+        //    }
+        //}
     }
 }

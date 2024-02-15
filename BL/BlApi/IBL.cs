@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ namespace BlApi
         public IWorker Worker { get; }
         public ITask Task { get; }
         public void InitializeDB();
+         public void ResetDB();
 
 
     }
