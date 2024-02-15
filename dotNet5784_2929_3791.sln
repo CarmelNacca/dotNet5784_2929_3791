@@ -28,9 +28,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xml", "xml", "{C314E8BB-A80
 		xml\workers.xml = xml\workers.xml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{2EB97678-C89C-4C71-AB4A-D50CC2F3469E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BL", "BL\BL.csproj", "{2EB97678-C89C-4C71-AB4A-D50CC2F3469E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlTest", "BlTest\BlTest.csproj", "{072F244A-45BD-464E-B02D-A69C60A8E169}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlTest", "BlTest\BlTest.csproj", "{072F244A-45BD-464E-B02D-A69C60A8E169}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PL", "PL\PL.csproj", "{66C3F222-BA40-40FC-91C4-3DF39C864AB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -66,12 +68,17 @@ Global
 		{072F244A-45BD-464E-B02D-A69C60A8E169}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{072F244A-45BD-464E-B02D-A69C60A8E169}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{072F244A-45BD-464E-B02D-A69C60A8E169}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66C3F222-BA40-40FC-91C4-3DF39C864AB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66C3F222-BA40-40FC-91C4-3DF39C864AB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66C3F222-BA40-40FC-91C4-3DF39C864AB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66C3F222-BA40-40FC-91C4-3DF39C864AB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C314E8BB-A808-43AD-878E-345BD62C7253} = {8283621C-7BDA-4447-939A-7A5F4424F2FA}
+		{66C3F222-BA40-40FC-91C4-3DF39C864AB9} = {8283621C-7BDA-4447-939A-7A5F4424F2FA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DB1C7792-AE72-4764-A0CC-C7F02B920A3A}
