@@ -3,6 +3,7 @@
 using DalApi;
 using DO;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Dal;
 
@@ -65,5 +66,12 @@ internal class WorkerImplementation:IWorker
             throw new DalDoesNotExistException($"Worker with ID={item.Id} not exists");
         workers.Add(item) ;
         XMLTools.SaveListToXMLSerializer(workers,s_workers_xml);
+    }
+    public void Reset()
+    {
+        XElement elemde = XMLTools.LoadListFromXMLElement(s_workers_xml);
+        elemde.RemoveAll();
+        XMLTools.SaveListToXMLElement(elemde, s_workers_xml);
+
     }
 }

@@ -3,7 +3,7 @@ namespace BlImplementation;
 
 internal class WorkerImplementation : BlApi.IWorker
 {
-    private DalApi.IDal _dal = Factory.Get;
+    private DalApi.IDal _dal = DalApi.Factory.Get;
     private bool IsValidEmail(string email)//Email integrity check
     {
         var trimmedEmail = email.Trim();

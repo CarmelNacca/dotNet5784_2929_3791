@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL.Worker"
         mc:Ignorable="d"
-        
-        Title="WorkerWindow" Height="640" Width="800">
+        Title="WorkerWindow" Height="640" Width="800"
+        DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
     <!--Extrnal Grid-->
     <Grid RenderTransformOrigin="0.486,0.522">
         <Grid.ColumnDefinitions>
@@ -27,7 +27,8 @@
         </Grid>
         <Label Content="select level" HorizontalAlignment="Left" Margin="11,0,0,0" VerticalAlignment="Center" Width="61" Height="35" Grid.Column="0"/>
         <ComboBox  Grid.Column="1" Margin="0,0,0,531" Grid.RowSpan="2"/>
-        <ListView Margin="0,46,0,0" Grid.RowSpan="2">
+        <ListView Margin="5,5,0,5" Grid.Row="1" ItemsSource="{Binding Path=WorkerList}" HorizontalAlignment="Left" Width="390">
+
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>

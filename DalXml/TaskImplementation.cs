@@ -71,4 +71,11 @@ internal class TaskImplementation:ITask
         tasks.Add(item);
         XMLTools.SaveListToXMLSerializer(tasks, s_tasks_xml);
     }
+    public void Reset()
+    {
+        XElement element = XMLTools.LoadListFromXMLElement(s_tasks_xml);
+        element.RemoveAll();
+        XMLTools.SaveListToXMLElement(element, s_tasks_xml);
+
+    }
 }
