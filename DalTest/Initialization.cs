@@ -207,5 +207,11 @@ private static void creatTask()
         creatWorker();
 
     }
+    public static void Reset()
+    {
+       NextTaskId = 1;
+
+
+    }
 }
 
