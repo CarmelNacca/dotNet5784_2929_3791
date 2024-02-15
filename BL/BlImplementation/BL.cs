@@ -9,7 +9,9 @@ internal class Bl : IBL
 
 
     public ITask Task =>  new TaskImplementation();
-    public void InitializeDB() =>Initialization.Do();
+    public void InitializeDB() => Initialization.Do();
+    public void ResetDB() => Initialization.reset();
+
 
 
 
