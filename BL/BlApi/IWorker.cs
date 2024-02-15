@@ -12,16 +12,16 @@ namespace BlApi
     /// </summary>
     public interface IWorker
     {
-      public int Add(BO.Worker boWorker);
-      public void Delete(int id);
+      public int Add(BO.Worker boWorker);//Add an employee
+        public void Delete(int id);//Deleting an employee
 
-        public BO.Worker? Read(int id);
-
-
-        public IEnumerable<BO.Worker> ReadAll(Func<BO.Worker, bool>? filter = null);//v
+        public BO.Worker? Read(int id);//Displaying employee details
 
 
-        public void Update(BO.Worker item);
+        public IEnumerable<BO.Worker> ReadAll(Func<BO.Worker, bool>? filter = null);//Displaying the details of all employees
+
+
+        public void Update(BO.Worker item);//Update worker
         //public TaskInWorker TaskNow(int id);
     }
 }
