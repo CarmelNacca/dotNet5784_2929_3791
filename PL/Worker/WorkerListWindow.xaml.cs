@@ -16,6 +16,7 @@ namespace PL.Worker
 {
     /// <summary>
     /// Interaction logic for WorkerWindow.xaml
+    /// hiii
     /// </summary>
     public partial class WorkerListWindow : Window
     {
