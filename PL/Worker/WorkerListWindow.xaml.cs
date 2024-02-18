@@ -48,5 +48,7 @@ namespace PL.Worker
 
         public static readonly DependencyProperty WorkerListProperty =
             DependencyProperty.Register("WorkerList", typeof(IEnumerable<BO.Worker>), typeof(WorkerListWindow), new PropertyMetadata(null));
+
+       
     }
 }
