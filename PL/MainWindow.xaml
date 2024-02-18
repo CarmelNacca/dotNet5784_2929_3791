@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
         Title="MainWindow" Height="309" Width="670">
-    <Grid>
+    <Grid Margin="-4928,-1280,0,-4120">
 
         <Button Content="WORKER" HorizontalAlignment="Left" Margin="453,203,0,0" VerticalAlignment="Top" Height="65" Width="150" Click="BtnWorker"/>
         <Button Content="INITDB" HorizontalAlignment="Center" Margin="0,203,0,0" VerticalAlignment="Top" Height="65" Width="150" Click="Button_Click"/>
