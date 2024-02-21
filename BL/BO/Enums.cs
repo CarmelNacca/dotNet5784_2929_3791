@@ -13,6 +13,15 @@ public enum Expirience
     Architect,
     InteriorDesigner
 }
+public enum ExpiriencePl//We have defined another enum so that updates cannot use the "ALL" value to represent an Worker level and it will only be used for the display layer
+{
+    Contractor,
+    Handyman,
+    Painter,
+    Architect,
+    InteriorDesigner,
+    All
+}
 
 public enum Status
 {
