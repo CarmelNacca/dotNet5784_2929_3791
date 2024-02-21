@@ -48,5 +48,18 @@ namespace PL.Worker
 
         public static readonly DependencyProperty WorkerListProperty =
             DependencyProperty.Register("WorkerList", typeof(IEnumerable<BO.Worker>), typeof(WorkerListWindow), new PropertyMetadata(null));
+
+        public BO.ExpiriencePl Semester { get; set; } = BO.ExpiriencePl.All;
+
+        private void ComboBoxLevel_SelectionChanged(object sender, SelectionChangedEventArgs e)/////
+        {
+            WorkerList = (Worker == BO.ExpiriencePl.All) ?
+                s_bl?.Worker.ReadAll()! : s_bl?.Worker.ReadAll(item => item. )!;
+
+        }
+
+
     }
+
+
 }

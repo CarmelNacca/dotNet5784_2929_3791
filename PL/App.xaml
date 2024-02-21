@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:PL"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <local:Enums x:Key="WorkerLevelKey" />
+        <local:WorkerLevel x:Key="WorkerLevelKey" />
+
     </Application.Resources>
 </Application>
