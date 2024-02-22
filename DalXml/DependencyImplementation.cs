@@ -80,7 +80,7 @@ internal class DependencyImplementation: IDependency
     }
     public void Reset()
     {
-        XElement elemde = XMLTools.LoadListFromXMLElement(s_dependencies_xml);
+        XElement? elemde = XMLTools.LoadListFromXMLElement(s_dependencies_xml);
         elemde.RemoveAll();
         XMLTools.SaveListToXMLElement(elemde, s_dependencies_xml);
        

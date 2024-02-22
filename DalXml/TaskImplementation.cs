@@ -73,7 +73,7 @@ internal class TaskImplementation:ITask
     }
     public void Reset()
     {
-        XElement element = XMLTools.LoadListFromXMLElement(s_tasks_xml);
+        XElement? element = XMLTools.LoadListFromXMLElement(s_tasks_xml);
         element.RemoveAll();
         XMLTools.SaveListToXMLElement(element, s_tasks_xml);
 

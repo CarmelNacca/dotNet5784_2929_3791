@@ -212,7 +212,7 @@ private static void creatTask()
     public static void Reset()
     {
         
-        s_dal.Worker.Reset();
+        s_dal!.Worker.Reset();
         s_dal.Dependency.Reset();
         s_dal.Task.Reset();
     }
