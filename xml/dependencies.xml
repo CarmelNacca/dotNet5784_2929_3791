@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <item>
   <Dependency>
-    <Id>1</Id>
-    <IdTask>88</IdTask>
-    <DependsOnTask>88</DependsOnTask>
+    <Id>44</Id>
+    <IdTask>18</IdTask>
+    <DependsOnTask>34</DependsOnTask>
   </Dependency>
 </item>
