@@ -6,7 +6,7 @@ namespace PL.Worker
     /// <summary>
     ///
     /// </summary>
-
+     
     public partial class WorkerWindow : Window
     {
         static readonly BlApi.IBL s_bl = BlApi.Factory.Get();
@@ -15,7 +15,6 @@ namespace PL.Worker
             get { return (BO.Worker)GetValue(WorkerProperty); }
             set { SetValue(WorkerProperty, value); }
         }
-
         public static readonly DependencyProperty WorkerProperty =
            DependencyProperty.Register("WorkerPL", typeof(BO.Worker),
                typeof(WorkerWindow), new PropertyMetadata(null));
@@ -76,5 +75,7 @@ namespace PL.Worker
 
             this.Close();
         }
+
+       
     }
 }
