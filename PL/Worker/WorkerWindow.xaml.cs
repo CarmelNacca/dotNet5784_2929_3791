@@ -30,17 +30,20 @@ namespace PL.Worker
             InitializeComponent();
             try
             {
-                WorkerList = (id != 0) ? s_bl.Worker.Read(id)! : new BO.Worker { Id = 0, Name = " ", Email = " ", Level = 0, Cost = 0, Task = null };
+                Worker = (id != 0) ? s_bl.Worker.Read(id)! : new BO.Worker { Id = 0, Name = " ", Email = " ", Level = 0, Cost = 0, Task = null };
             }
             catch(BO.BlDoesNotExistException ex)
             {
-                WorkerList = null;
+                WorkerProperty = null;
 
                 MessageBox.Show(ex.Message,"operation faild",MessageBoxButton.OK,MessageBoxImage.Exclamation);
                 this.Close();
             }
         }
 
-       
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -30,7 +30,7 @@
         <ComboBox ItemsSource="{Binding Source={StaticResource WorkerLevelKey}}"
  Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         <ComboBox Grid.Column="1" SelectedValue="{Binding Level, Mode=TwoWay}"
- ItemsSource="{Binding Source={StaticResource WorkerLevelKey}}" Margin="0,-16,0,16" SelectionChanged="ComboBoxLevel_SelectionChanged"/>
+ ItemsSource="{Binding Source={StaticResource WorkerLevelKey}}" Margin="0,-16,0,0" SelectionChanged="ComboBoxLevel_SelectionChanged" Height="46" VerticalAlignment="Top"/>
         <ListView Margin="5" Grid.Row="1" ItemsSource="{Binding Path=WorkerList}" HorizontalAlignment="Left" Width="390">
 
             <ListView.View>
@@ -40,8 +40,8 @@
             </ListView.View>
         </ListView>
         <Button Content="Add" Grid.Row="1" HorizontalAlignment="Center" Width="100" Margin="0,531,0,0"/>
-<!--hiiii-->
+        <!--hiiii-->
     </Grid>
-    
+
 </Window>
 <!--2222222-->
