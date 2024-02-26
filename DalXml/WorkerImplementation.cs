@@ -69,7 +69,7 @@ internal class WorkerImplementation:IWorker
     }
     public void Reset()
     {
-        XElement elemde = XMLTools.LoadListFromXMLElement(s_workers_xml);
+        XElement? elemde = XMLTools.LoadListFromXMLElement(s_workers_xml);
         elemde.RemoveAll();
         XMLTools.SaveListToXMLElement(elemde, s_workers_xml);
 

@@ -17,6 +17,7 @@ namespace BlApi
             s_dal.Dependency.Reset();
             s_dal.Worker.Reset();
             s_dal.Task.Reset();
+            
 
         }
 

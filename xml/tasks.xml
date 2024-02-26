@@ -2,17 +2,512 @@
 <ArrayOfTask xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Task>
     <Id>1</Id>
-    <Worker>333</Worker>
-    <Name>ddd</Name>
-    <Description>asf</Description>
+    <Worker>0</Worker>
+    <Name>Signing a contract</Name>
+    <Description>The legal process of adding the formal signature to a contract, signifying agreement and commitment</Description>
     <Milestone>false</Milestone>
-    <createdAtDate>2024-01-23T23:27:14.2167147+02:00</createdAtDate>
-    <RequiredEffortTime>2000-04-13T00:00:00</RequiredEffortTime>
-    <StartDate>2000-05-13T00:00:00</StartDate>
-    <ScheduledDate>2000-06-13T00:00:00</ScheduledDate>
-    <DeadlineDate>2000-07-13T00:00:00</DeadlineDate>
-    <CompleteDate>2000-08-13T00:00:00</CompleteDate>
-    <Deliverables>hdhf</Deliverables>
+    <createdAtDate>2024-03-07T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Formally signed contract indicating mutual agreement and commitment.</Deliverables>
+    <Copmlexity>Contractor</Copmlexity>
+  </Task>
+  <Task>
+    <Id>2</Id>
+    <Worker>0</Worker>
+    <Name>Replacement of living room windows</Name>
+    <Description>The action of removing old windows and installing new ones in the living room.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-03-05T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Improved lighting and aesthetics with new windows.</Deliverables>
     <Copmlexity>Handyman</Copmlexity>
+  </Task>
+  <Task>
+    <Id>3</Id>
+    <Worker>0</Worker>
+    <Name>Replacing kitchen windows</Name>
+    <Description>The action of removing existing windows in the kitchen and installing new ones.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-01-08T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Enhanced lighting and improved aesthetics in the kitchen.</Deliverables>
+    <Copmlexity>Handyman</Copmlexity>
+  </Task>
+  <Task>
+    <Id>4</Id>
+    <Worker>0</Worker>
+    <Name>Replacing bedroom windows</Name>
+    <Description>The action of removing existing windows in the bedrooms and installing new ones.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-03-12T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Improved insulation and aesthetics in bedrooms.</Deliverables>
+    <Copmlexity>Handyman</Copmlexity>
+  </Task>
+  <Task>
+    <Id>5</Id>
+    <Worker>0</Worker>
+    <Name>Replacing bathroom windows</Name>
+    <Description>The action of removing existing windows in the bathroom and installing new ones.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-01-14T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Enhanced privacy and lighting in the bathroom.</Deliverables>
+    <Copmlexity>Handyman</Copmlexity>
+  </Task>
+  <Task>
+    <Id>6</Id>
+    <Worker>0</Worker>
+    <Name>Installation of living room floors</Name>
+    <Description>The process of installing the flooring surface in the living room, including the selection of flooring material and installation procedures.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-02-13T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Stylish and easy-to-maintain living room flooring.</Deliverables>
+    <Copmlexity>Handyman</Copmlexity>
+  </Task>
+  <Task>
+    <Id>7</Id>
+    <Worker>0</Worker>
+    <Name>Installing bedroom floors</Name>
+    <Description>The process of installing the flooring surface in the bedrooms, including the selection of flooring material and installation procedures.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-02-09T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Comfortable and visually appealing bedroom flooring.</Deliverables>
+    <Copmlexity>Handyman</Copmlexity>
+  </Task>
+  <Task>
+    <Id>8</Id>
+    <Worker>0</Worker>
+    <Name>Installing kitchen floors</Name>
+    <Description>The process of installing the flooring surface in the kitchen, including the selection of flooring material and installation procedures.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-01-18T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Functional and visually appealing kitchen flooring.</Deliverables>
+    <Copmlexity>Handyman</Copmlexity>
+  </Task>
+  <Task>
+    <Id>9</Id>
+    <Worker>0</Worker>
+    <Name>Installing bathroom floors</Name>
+    <Description>The process of installing the flooring surface in the bathroom, including the selection of flooring material and installation procedures.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-02-08T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Water-resistant and aesthetically pleasing bathroom flooring.</Deliverables>
+    <Copmlexity>Handyman</Copmlexity>
+  </Task>
+  <Task>
+    <Id>10</Id>
+    <Worker>0</Worker>
+    <Name>Bedroom door replacement</Name>
+    <Description>The action of removing existing doors in the bedrooms and installing new ones.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-01-26T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Modern and privacy-enhancing bedroom doors.</Deliverables>
+    <Copmlexity>Handyman</Copmlexity>
+  </Task>
+  <Task>
+    <Id>11</Id>
+    <Worker>0</Worker>
+    <Name>Living room door replacement</Name>
+    <Description>The action of removing the existing door in the living room and installing a new one.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-01-26T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Upgraded living room door for improved security.</Deliverables>
+    <Copmlexity>Handyman</Copmlexity>
+  </Task>
+  <Task>
+    <Id>12</Id>
+    <Worker>0</Worker>
+    <Name>Kitchen door replacement</Name>
+    <Description>The action of removing the existing door in the kitchen and installing a new one.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-02-09T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>New kitchen door enhancing functionality.</Deliverables>
+    <Copmlexity>Handyman</Copmlexity>
+  </Task>
+  <Task>
+    <Id>13</Id>
+    <Worker>0</Worker>
+    <Name>Replacing a bathroom door</Name>
+    <Description>The action of removing the existing door in the bathroom and installing a new one.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-03-03T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Replacement of the bathroom door for improved privacy.</Deliverables>
+    <Copmlexity>Handyman</Copmlexity>
+  </Task>
+  <Task>
+    <Id>14</Id>
+    <Worker>0</Worker>
+    <Name>Living room air conditioning installation</Name>
+    <Description>The process of installing an air conditioning system in the living room.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-03-10T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Installation of an air conditioning system for comfort.</Deliverables>
+    <Copmlexity>Handyman</Copmlexity>
+  </Task>
+  <Task>
+    <Id>15</Id>
+    <Worker>0</Worker>
+    <Name>Installing kitchen air conditioning</Name>
+    <Description>The process of installing an air conditioning system in the kitchen.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-03-02T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Installation of an air conditioning system for a comfortable cooking environment.</Deliverables>
+    <Copmlexity>Handyman</Copmlexity>
+  </Task>
+  <Task>
+    <Id>16</Id>
+    <Worker>0</Worker>
+    <Name>Bedroom air conditioning installation</Name>
+    <Description>The process of installing an air conditioning system in the bedrooms.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-02-06T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Installation of an air conditioning system for a comfortable sleeping environment.</Deliverables>
+    <Copmlexity>Handyman</Copmlexity>
+  </Task>
+  <Task>
+    <Id>17</Id>
+    <Worker>0</Worker>
+    <Name>Installation of heating in a bathroom</Name>
+    <Description>The process of installing a heating system suitable for the bathroom.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-01-15T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Installation of a heating system in the bathroom for comfort</Deliverables>
+    <Copmlexity>Handyman</Copmlexity>
+  </Task>
+  <Task>
+    <Id>18</Id>
+    <Worker>0</Worker>
+    <Name>General house cleaning</Name>
+    <Description>A thorough cleaning process for the entire house.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-03-13T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>A thoroughly cleaned and organized home, providing a fresh living space.</Deliverables>
+    <Copmlexity>Handyman</Copmlexity>
+  </Task>
+  <Task>
+    <Id>19</Id>
+    <Worker>0</Worker>
+    <Name>Painting bedrooms</Name>
+    <Description>Applying a fresh coat of paint to the walls in the bedrooms.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-01-23T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Refreshed bedroom walls, creating a warm atmosphere.</Deliverables>
+    <Copmlexity>Painter</Copmlexity>
+  </Task>
+  <Task>
+    <Id>20</Id>
+    <Worker>0</Worker>
+    <Name>Living room painting</Name>
+    <Description>Applying a fresh coat of paint to the walls in the living room.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-01-13T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Renewed living room walls, enhancing the overall ambiance.</Deliverables>
+    <Copmlexity>Painter</Copmlexity>
+  </Task>
+  <Task>
+    <Id>21</Id>
+    <Worker>0</Worker>
+    <Name>Kitchen painting</Name>
+    <Description>Applying a fresh coat of paint to the walls in the kitchen.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-02-12T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Updated kitchen walls, contributing to a clean look.</Deliverables>
+    <Copmlexity>Painter</Copmlexity>
+  </Task>
+  <Task>
+    <Id>22</Id>
+    <Worker>0</Worker>
+    <Name>Painting a bathroom</Name>
+    <Description>Applying a fresh coat of paint to the walls in the bathroom.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-01-26T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Revitalized bathroom walls, enhancing cleanliness.</Deliverables>
+    <Copmlexity>Painter</Copmlexity>
+  </Task>
+  <Task>
+    <Id>23</Id>
+    <Worker>0</Worker>
+    <Name>Bedroom planning</Name>
+    <Description>The process of designing and planning the sleeping spaces in a home, including the selection of furniture, colors, lighting, and aesthetics.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-01-14T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Well-designed and aesthetically pleasing sleeping spaces.</Deliverables>
+    <Copmlexity>Architect</Copmlexity>
+  </Task>
+  <Task>
+    <Id>24</Id>
+    <Worker>0</Worker>
+    <Name>Kitchen planning</Name>
+    <Description>The process of designing and planning the cooking area in a home, including the selection of furniture, accessories, functional planning, and aesthetics.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-02-02T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Efficient and aesthetically pleasing kitchen spaces.</Deliverables>
+    <Copmlexity>Architect</Copmlexity>
+  </Task>
+  <Task>
+    <Id>25</Id>
+    <Worker>0</Worker>
+    <Name>Bathroom design</Name>
+    <Description>The process of designing and planning the bathroom space in a home, including the selection of furniture, colors, lighting, and privacy considerations.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-01-14T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Well-designed and private bathroom spaces.</Deliverables>
+    <Copmlexity>Architect</Copmlexity>
+  </Task>
+  <Task>
+    <Id>26</Id>
+    <Worker>0</Worker>
+    <Name>Living room planning</Name>
+    <Description>The process of designing and planning the central living space in a home, including the selection of furniture, colors, and overall aesthetics.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-02-22T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Centrally designed living space with an inviting aesthetic.</Deliverables>
+    <Copmlexity>Architect</Copmlexity>
+  </Task>
+  <Task>
+    <Id>27</Id>
+    <Worker>0</Worker>
+    <Name>Installation of living room curtains</Name>
+    <Description>The process of installing curtains or blinds in the living room </Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-02-03T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Improved privacy and light control with curtains or blinds.</Deliverables>
+    <Copmlexity>InteriorDesigner</Copmlexity>
+  </Task>
+  <Task>
+    <Id>28</Id>
+    <Worker>0</Worker>
+    <Name>Installing bedroom curtains</Name>
+    <Description>The process of installing curtains or blinds in the bedrooms </Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-01-19T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Enhanced privacy and light control in bedrooms.</Deliverables>
+    <Copmlexity>InteriorDesigner</Copmlexity>
+  </Task>
+  <Task>
+    <Id>29</Id>
+    <Worker>0</Worker>
+    <Name>Installing bathroom curtains</Name>
+    <Description>The process of installing curtains or blinds in the bathroom </Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-02-18T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Improved privacy and light control in the bathroom.</Deliverables>
+    <Copmlexity>InteriorDesigner</Copmlexity>
+  </Task>
+  <Task>
+    <Id>30</Id>
+    <Worker>0</Worker>
+    <Name>Installing kitchen curtains</Name>
+    <Description>The process of installing curtains or blinds in the kitchen </Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-01-11T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Enhanced privacy and light control in the kitchen.</Deliverables>
+    <Copmlexity>InteriorDesigner</Copmlexity>
+  </Task>
+  <Task>
+    <Id>31</Id>
+    <Worker>0</Worker>
+    <Name>Bedroom furniture</Name>
+    <Description>The process of selecting and installing furniture in the bedrooms.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-01-29T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Well-selected and arranged furniture for comfort.</Deliverables>
+    <Copmlexity>InteriorDesigner</Copmlexity>
+  </Task>
+  <Task>
+    <Id>32</Id>
+    <Worker>0</Worker>
+    <Name>Living room furniture</Name>
+    <Description>The process of selecting and installing furniture in the living room.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-02-26T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Carefully chosen and arranged furniture for a welcoming environment.</Deliverables>
+    <Copmlexity>InteriorDesigner</Copmlexity>
+  </Task>
+  <Task>
+    <Id>33</Id>
+    <Worker>0</Worker>
+    <Name>Bathroom furniture</Name>
+    <Description>The process of selecting and installing furniture in the bathroom.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-02-02T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Selected and arranged furniture combining functionality with aesthetics.</Deliverables>
+    <Copmlexity>InteriorDesigner</Copmlexity>
+  </Task>
+  <Task>
+    <Id>34</Id>
+    <Worker>0</Worker>
+    <Name>kitchen furniture</Name>
+    <Description>The process of selecting and installing furniture in the kitchen.</Description>
+    <Milestone>false</Milestone>
+    <createdAtDate>2024-03-14T00:00:00</createdAtDate>
+    <RequiredEffortTime xsi:nil="true" />
+    <StartDate xsi:nil="true" />
+    <ScheduledDate xsi:nil="true" />
+    <DeadlineDate xsi:nil="true" />
+    <CompleteDate xsi:nil="true" />
+    <Deliverables>Thoughtfully selected and arranged furniture enhancing both form and function.</Deliverables>
+    <Copmlexity>InteriorDesigner</Copmlexity>
   </Task>
 </ArrayOfTask>
