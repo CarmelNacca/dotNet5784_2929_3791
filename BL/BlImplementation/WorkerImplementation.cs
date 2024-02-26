@@ -27,7 +27,7 @@ internal class WorkerImplementation : BlApi.IWorker
         if (boWorker.Id >= 0 && boWorker.Name != "" && boWorker.Cost > 0 && IsValidEmail(boWorker.Email))
         {
             DO.Worker doWorker = new DO.Worker
-       (boWorker.Id, boWorker.Cost, (DO.Expirience)(int)boWorker.Level, boWorker.Email, boWorker.Name);
+       (boWorker.Id, boWorker.Cost, (DO.Expirience)(int)boWorker.Level,boWorker.Name ,  boWorker.Email);
             try
             {
 

@@ -27,7 +27,7 @@
         </Grid>
         <Label Content="select level" HorizontalAlignment="Left" Margin="11,0,0,0" VerticalAlignment="Center" Width="61" Height="35" Grid.Column="0"/>
         <ComboBox  Grid.Column="1" Margin="0,0,0,531" Grid.RowSpan="2" />
-        <ListView Margin="5" Grid.Row="1" ItemsSource="{Binding Path=WorkerList}" HorizontalAlignment="Left" Width="390">
+        <ListView Margin="5" Grid.Row="1" ItemsSource="{Binding Path=WorkerList}" HorizontalAlignment="Left" Width="390" MouseDoubleClick="SelectWorkerToUpdate">
 
             <ListView.View>
                 <GridView>
@@ -35,8 +35,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Add" Grid.Row="1" HorizontalAlignment="Center" Width="100" Margin="0,531,0,0"/>
-        <!--hiiii-->
+        <Button Content="Add" Grid.Row="1" HorizontalAlignment="Center" Width="100" Margin="0,531,0,0" Click="Button_Click"/>
+<!--hiiii-->
     </Grid>
 
 </Window>
