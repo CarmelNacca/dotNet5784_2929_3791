@@ -1,30 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace PL.Worker
 {
@@ -40,6 +16,7 @@ namespace PL.Worker
             InitializeComponent();
             WorkerList = s_bl.Worker.ReadAll();
         }
+
         public IEnumerable<BO.Worker> WorkerList
         {
             get { return (IEnumerable<BO.Worker>)GetValue(WorkerListProperty); }
@@ -49,7 +26,19 @@ namespace PL.Worker
         public static readonly DependencyProperty WorkerListProperty =
             DependencyProperty.Register("WorkerList", typeof(IEnumerable<BO.Worker>), typeof(WorkerListWindow), new PropertyMetadata(null));
 
-       
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+           new WorkerWindow().Show();
+           
+        }
+
+        private void SelectWorkerToUpdate(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            BO.Worker? worker = (sender as ListView)?.SelectedItem as BO.Worker;
+
+            new WorkerWindow(worker!.Id).Show();
+
+        }
     }
 
 
