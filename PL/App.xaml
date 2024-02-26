@@ -8,5 +8,6 @@
 
         <local:Level x:Key="LevelKey" />
         <local:ConvertIdToContent x:Key="ConverIdToContentKey"/>
+        <local:ConverIdToEnable x:Key="ConverIdToEnablKey"/>
     </Application.Resources>
 </Application>
