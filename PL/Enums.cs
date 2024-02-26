@@ -14,7 +14,7 @@ internal class WorkerLevel : IEnumerable
 
     public IEnumerator GetEnumerator() => s_enums.GetEnumerator();
 }
-    internal class Level : IEnumerable
+internal class Level : IEnumerable
     {
         static readonly IEnumerable<BO.Expirience> s_enums =
     (Enum.GetValues(typeof(BO.Expirience)) as IEnumerable<BO.Expirience>)!;
