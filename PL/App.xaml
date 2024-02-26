@@ -5,7 +5,6 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <local:WorkerLevel x:Key="WorkerLevelKey" />
-
         <local:Level x:Key="LevelKey" />
         <local:ConvertIdToContent x:Key="ConverIdToContentKey"/>
     </Application.Resources>
