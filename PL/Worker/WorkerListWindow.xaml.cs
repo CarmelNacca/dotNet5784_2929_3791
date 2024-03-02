@@ -28,8 +28,8 @@ namespace PL.Worker
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           new WorkerWindow().Show();
-           
+            new WorkerWindow().Show();
+
         }
 
         private void SelectWorkerToUpdate(object sender, System.Windows.Input.MouseButtonEventArgs e)
