@@ -1,5 +1,4 @@
-﻿
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 
@@ -8,7 +7,7 @@ namespace PL.Worker;
 /// <summary>
 ///
 /// </summary>
- 
+
 public partial class WorkerWindow : Window
 {
     static readonly BlApi.IBL s_bl = BlApi.Factory.Get();
@@ -33,13 +32,13 @@ public partial class WorkerWindow : Window
 
             MessageBox.Show(ex.Message, "operation faild", MessageBoxButton.OK, MessageBoxImage.Exclamation);
             this.Close();
-             
-            
+
+
         }
     }
 
 
-   
+
     private void Button_Click_AddUpdate(object sender, RoutedEventArgs e)
     {
         if ((sender as Button)!.Content.ToString() == "Add")
@@ -69,16 +68,16 @@ public partial class WorkerWindow : Window
             catch (BO.BlDoesNotExistException ex)
             {
                 MessageBox.Show(ex.Message, "operation faild", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            } 
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "operation faild", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
             }
         }
-        
+
         this.Close();
     }
 
-   
+
 }
