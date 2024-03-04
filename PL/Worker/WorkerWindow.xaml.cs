@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 
 
+
 namespace PL.Worker;
 
 /// <summary>
@@ -11,6 +12,7 @@ namespace PL.Worker;
 public partial class WorkerWindow : Window
 {
     static readonly BlApi.IBL s_bl = BlApi.Factory.Get();
+    WorkerListWindow item;
     public BO.Worker? WorkerPL
     {
         get { return (BO.Worker)GetValue(WorkerProperty); }
@@ -19,7 +21,7 @@ public partial class WorkerWindow : Window
     public static readonly DependencyProperty WorkerProperty =
        DependencyProperty.Register("WorkerPL", typeof(BO.Worker),
            typeof(WorkerWindow), new PropertyMetadata(null));
-    public WorkerWindow(int id = 0)
+    public WorkerWindow(WorkerListWindow itemw, int id = 0)
     {
         InitializeComponent();
         try
@@ -31,10 +33,12 @@ public partial class WorkerWindow : Window
             WorkerPL = null;
 
             MessageBox.Show(ex.Message, "operation faild", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            
             this.Close();
 
 
         }
+         item = itemw;
     }
 
 
@@ -46,6 +50,7 @@ public partial class WorkerWindow : Window
             {
                 int? id = s_bl.Worker.Add(WorkerPL!);
                 MessageBox.Show($"worker {id} was successfully added", "success", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                item.updateListview();
                 this.Close();
             }
             catch (BO.BlAlreadyExistsException ex)
@@ -63,6 +68,7 @@ public partial class WorkerWindow : Window
             {
                 s_bl.Worker.Update(WorkerPL!);
                 MessageBox.Show($"worker {WorkerPL?.Id} was successfully updeted", "success", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                item.updateListview();
                 this.Close();
             }
             catch (BO.BlDoesNotExistException ex)

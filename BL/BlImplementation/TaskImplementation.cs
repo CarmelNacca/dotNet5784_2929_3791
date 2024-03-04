@@ -203,7 +203,7 @@ internal class TaskImplementation : BlApi.ITask
             else
                 return false;
         }
-        if (Read(id).Dependencies != null && _dal.Dependency.ReadAll(helpUpdateDate) == null)
+        if (Read(id)!.Dependencies != null && _dal.Dependency.ReadAll(helpUpdateDate) == null)
         {
             var task = Read(id);
             task!.StartDate = date;

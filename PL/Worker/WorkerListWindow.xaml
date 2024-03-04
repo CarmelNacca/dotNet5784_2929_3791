@@ -26,7 +26,7 @@
             </Grid.ColumnDefinitions>
         </Grid>
         <Label Content="select level" HorizontalAlignment="Left" Margin="11,0,0,0" VerticalAlignment="Center" Width="61" Height="35" Grid.Column="0"/>
-        <ComboBox  Grid.Column="1" Margin="0,0,0,531" Grid.RowSpan="2" />
+        <ComboBox SelectedValue="{Binding Path=level, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource WorkerLevelKey}}" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="filter" />
         <ListView Margin="5" Grid.Row="1" ItemsSource="{Binding Path=WorkerList}" HorizontalAlignment="Left" Width="390" MouseDoubleClick="SelectWorkerToUpdate">
 
             <ListView.View>

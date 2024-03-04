@@ -1,4 +1,5 @@
 ﻿
+using System.Reflection.Emit;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -10,6 +11,8 @@ namespace PL.Worker
     /// </summary>
     public partial class WorkerListWindow : Window
     {
+        public BO.ExpiriencePl level { get; set; } = BO.ExpiriencePl.All;
+
         static readonly BlApi.IBL s_bl = BlApi.Factory.Get();
         public WorkerListWindow()
         {
@@ -28,7 +31,7 @@ namespace PL.Worker
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            new WorkerWindow().Show();
+            new WorkerWindow(this).Show();
 
         }
 
@@ -36,9 +39,24 @@ namespace PL.Worker
         {
             BO.Worker? worker = (sender as ListView)?.SelectedItem as BO.Worker;
 
-            new WorkerWindow(worker!.Id).Show();
+            new WorkerWindow(this,worker!.Id).Show();
 
         }
+        public void updateListview ()//Updates the table so that it is displayed after a change - addition or update
+        {
+            WorkerList =s_bl.Worker.ReadAll();
+        }
+        
+        
+        private void filter(object sender, SelectionChangedEventArgs e)
+        {
+          
+            WorkerList = (level == BO.ExpiriencePl.All) ?
+                s_bl?.Worker.ReadAll()! : s_bl?.Worker.ReadAll(item => item.Level == (BO.Expirience)level)!;
+           
+            
+        }
+
     }
 
 
