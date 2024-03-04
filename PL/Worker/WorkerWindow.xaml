@@ -5,33 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL.Worker"
         mc:Ignorable="d"
-        Title="WorkerWindow" Height="450" Width="356"
+        Title="WorkerWindow" Height="600" Width="600"
 
         DataContext="{Binding WorkerPL, RelativeSource={RelativeSource Self}, Mode=TwoWay}">
 
     <Grid Margin="0,0,0,-6">
         <Grid.Background>
-            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionColorKey}}"/>
+            <SolidColorBrush Color="#FFCCB6B6"/>
         </Grid.Background>
 
-        <Button Content="{Binding Id, Mode=OneTime, Converter={StaticResource ConverIdToContentKey}}" HorizontalAlignment="Center" Margin="0,356,0,0" VerticalAlignment="Top" Width="184" Height="34" Click="Button_Click_AddUpdate" />
+        <Button Content="{Binding Id, Mode=OneTime, Converter={StaticResource ConverIdToContentKey}}" HorizontalAlignment="Center" Margin="0,443,0,0" VerticalAlignment="Top" Width="260" Height="34" Click="Button_Click_AddUpdate" Background="White" FontFamily="Bell MT" FontWeight="Bold" />
 
 
-        <Label Content="Id:" HorizontalAlignment="Left" Margin="40,60,0,0" VerticalAlignment="Top" Width="52" Height="23"/>
-        <Label Content="Name:" HorizontalAlignment="Left" Margin="40,100,0,0" VerticalAlignment="Top" Width="52"/>
-        <Label Content="Email:" HorizontalAlignment="Left" Margin="40,140,0,0" VerticalAlignment="Top" Width="52"/>
-        <Label Content="Cost:" HorizontalAlignment="Left" Margin="40,180,0,0" VerticalAlignment="Top" Width="52"/>
-        <Label Content="level:" HorizontalAlignment="Left" Margin="40,220,0,0" VerticalAlignment="Top" Width="52" Height="27"/>
+        <Label Content="Id:" HorizontalAlignment="Left" Margin="112,60,0,0" VerticalAlignment="Top" Width="74" Height="38" FontFamily="Bell MT" FontWeight="Bold" FontSize="18"/>
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="112,126,0,0" VerticalAlignment="Top" Width="74" FontFamily="Bell MT" FontWeight="Bold" Height="39" FontSize="18"/>
+        <Label Content="Email:" HorizontalAlignment="Left" Margin="112,192,0,0" VerticalAlignment="Top" Width="74" FontFamily="Bell MT" FontWeight="Bold" Height="39" FontSize="18"/>
+        <Label Content="Cost:" HorizontalAlignment="Left" Margin="112,258,0,0" VerticalAlignment="Top" Width="74" FontFamily="Bell MT" FontWeight="Bold" Height="39" FontSize="18"/>
+        <Label Content="level:" HorizontalAlignment="Left" Margin="112,324,0,0" VerticalAlignment="Top" Width="74" Height="45" FontFamily="Bell MT" FontWeight="Bold" FontSize="18"/>
 
-        <TextBox  HorizontalAlignment="Left" Margin="150,65,0,0" TextWrapping="Wrap" Text="{Binding Id, Mode=TwoWay, NotifyOnValidationError=true,  ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120"  Foreground="#FF020202" BorderBrush="#FF020202" IsEnabled="{Binding Id,Mode=OneTime,Converter={StaticResource ConverIdToEnablKey}}">
-
-
-            <TextBox.Background>
-                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
-            </TextBox.Background>
-        </TextBox>
-
-        <TextBox HorizontalAlignment="Left" Margin="150,105,0,0" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true,  ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" BorderBrush="#FF020202" >
+        <TextBox  HorizontalAlignment="Left" Margin="186,68,0,0" TextWrapping="Wrap" Text="{Binding Id, Mode=TwoWay, NotifyOnValidationError=true,  ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="232"  Foreground="#FF020202" BorderBrush="#FF020202" IsEnabled="{Binding Id,Mode=OneTime,Converter={StaticResource ConverIdToEnablKey}}" FontFamily="Bell MT" Height="26" FontSize="16">
 
 
             <TextBox.Background>
@@ -39,13 +31,7 @@
             </TextBox.Background>
         </TextBox>
 
-        <TextBox HorizontalAlignment="Left" Margin="150,185,0,0" TextWrapping="Wrap" Text="{Binding Cost, Mode=TwoWay, NotifyOnValidationError=true,  ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" BorderBrush="#FF020202">
-
-            <TextBox.Background>
-                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
-            </TextBox.Background>
-        </TextBox>
-        <TextBox HorizontalAlignment="Left" Margin="150,145,0,0" TextWrapping="Wrap" Text="{Binding Email, Mode=TwoWay, NotifyOnValidationError=true,  ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="120" BorderBrush="#FF020202">
+        <TextBox HorizontalAlignment="Left" Margin="186,134,0,0" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true,  ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="232" BorderBrush="#FF020202" FontFamily="Bell MT" Height="26" FontSize="16" >
 
 
             <TextBox.Background>
@@ -53,7 +39,21 @@
             </TextBox.Background>
         </TextBox>
 
-        <ComboBox HorizontalAlignment="Left" Margin="150,225,0,0" ItemsSource="{Binding Source={StaticResource LevelKey}}" SelectedValue="{Binding Level, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  VerticalAlignment="Top" Width="120" >
+        <TextBox HorizontalAlignment="Left" Margin="186,267,0,0" TextWrapping="Wrap" Text="{Binding Cost, Mode=TwoWay, NotifyOnValidationError=true,  ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="232" BorderBrush="#FF020202" FontFamily="Bell MT" Height="25" FontSize="16">
+
+            <TextBox.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+            </TextBox.Background>
+        </TextBox>
+        <TextBox HorizontalAlignment="Left" Margin="186,200,0,0" TextWrapping="Wrap" Text="{Binding Email, Mode=TwoWay, NotifyOnValidationError=true,  ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="232" BorderBrush="#FF020202" FontFamily="Bell MT" Height="26" FontSize="16">
+
+
+            <TextBox.Background>
+                <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+            </TextBox.Background>
+        </TextBox>
+
+        <ComboBox HorizontalAlignment="Left" Margin="186,333,0,0" ItemsSource="{Binding Source={StaticResource LevelKey}}" SelectedValue="{Binding Level, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"  VerticalAlignment="Top" Width="232" FontFamily="Bell MT" Height="32" FontSize="16" >
 
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1">
