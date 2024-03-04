@@ -8,6 +8,13 @@
     <Email>CH3245@gmail.com</Email>
   </Worker>
   <Worker>
+    <Id>322323567</Id>
+    <Cost>20000</Cost>
+    <Level>Handyman</Level>
+    <Name>Yosef Levi</Name>
+    <Email>Yl322@gmail.com</Email>
+  </Worker>
+  <Worker>
     <Id>35423456</Id>
     <Cost>5000</Cost>
     <Level>Handyman</Level>
@@ -22,6 +29,13 @@
     <Email>muchamad0000@gmail.com</Email>
   </Worker>
   <Worker>
+    <Id>780943567</Id>
+    <Cost>15000</Cost>
+    <Level>Painter</Level>
+    <Name>Shlomo Ben Chaim</Name>
+    <Email>Shlomo345@gmail.com</Email>
+  </Worker>
+  <Worker>
     <Id>345792615</Id>
     <Cost>25000</Cost>
     <Level>Architect</Level>
@@ -34,33 +48,5 @@
     <Level>InteriorDesigner</Level>
     <Name>Rut Sharabi</Name>
     <Email>RS1212@gmail.com</Email>
-  </Worker>
-  <Worker>
-    <Id>780943567</Id>
-    <Cost>15000</Cost>
-    <Level>Painter</Level>
-    <Name>Shlomo ben</Name>
-    <Email>Shlomo345@gmail.com</Email>
-  </Worker>
-  <Worker>
-    <Id>322323567</Id>
-    <Cost>20000</Cost>
-    <Level>Handyman</Level>
-    <Name>Yosef Lev</Name>
-    <Email>Yl322@gmail.com</Email>
-  </Worker>
-  <Worker>
-    <Id>325982929</Id>
-    <Cost>999999</Cost>
-    <Level>Handyman</Level>
-    <Name> michal</Name>
-    <Email>mt097654@gmail.com</Email>
-  </Worker>
-  <Worker>
-    <Id>392017374</Id>
-    <Cost>67890008</Cost>
-    <Level>Painter</Level>
-    <Name>carmel</Name>
-    <Email>car568@gmail.com</Email>
   </Worker>
 </ArrayOfWorker>
