@@ -54,7 +54,7 @@ internal class TaskImplementation : BlApi.ITask
             DeadlineDate = doTask.DeadlineDate,
             CompleteDate = doTask.CompleteDate,
             Deliverables = doTask.Deliverables,
-            
+            Copmlexity=(BO.Expirience)doTask.Copmlexity!
 
         }; 
         if(doTask.ScheduledDate == null)
@@ -84,11 +84,11 @@ internal class TaskImplementation : BlApi.ITask
     }
 
 
-    public IEnumerable<BO.TaskInList> ReadAll(Func<BO.TaskInList, bool>? filter = null)//Displaying all tasks in TASKINLIST
+    public IEnumerable<BO.TaskInList> ReadAll(Func<BO.Task, bool>? filter = null)//Displaying all tasks in TASKINLIST
     {
         return from DO.Task doTask in _dal.Task.ReadAll()
                let task = taskToTaskInList(doTaskToBoTask(doTask))
-               where filter is null ? true : filter(task)
+               where filter is null ? true : filter(Read(task.Id)!)
                select task;
     }
 
@@ -171,7 +171,7 @@ internal class TaskImplementation : BlApi.ITask
         {
             try
             {
-                BO.Task task = Read(id);
+                BO.Task task = Read(id)!;
                 if (task.Dependencies == null)
                 {
                     _dal.Worker.Delete(id);
@@ -225,5 +225,22 @@ internal class TaskImplementation : BlApi.ITask
         }
        
         return;
+    }
+    //אמור להביא את כל המשימות עם דרגה מסוימת של עובד
+    public IEnumerable<BO.TaskInList> TasksWithLevel(BO.ExpiriencePl level)
+    {
+        if(level==ExpiriencePl.All)
+        {  return from DO.Task doTask in ReadAll()
+                  let task = taskToTaskInList(doTaskToBoTask(doTask))
+                  select task;
+        }
+        else { 
+
+        var grouped = _dal.Task.ReadAll().GroupBy(Task=> (BO.ExpiriencePl)Task!.Copmlexity! == level);
+        return from DO.Task doTask in grouped
+               let task = taskToTaskInList(doTaskToBoTask(doTask))
+               select task;
+        }
+        
     }
 }

@@ -16,7 +16,7 @@ namespace BlApi
         public int Add(BO.Task item);//Adding a task
         public void Update(BO.Task item);//task update
         //public void TaskToWorker(Tuple<int, string> item);
-        public IEnumerable<BO.TaskInList> ReadAll(Func<BO.TaskInList, bool>? filter = null);//Displaying all tasks in TASKINLIST
+        public IEnumerable<BO.TaskInList> ReadAll(Func<BO.Task, bool>? filter = null);//Displaying all tasks in TASKINLIST
 
         public BO.Task? Read(int id, bool taskNow = false);//Displaying a task in TASKINLIST
 
@@ -24,5 +24,7 @@ namespace BlApi
 
         public void UpdateDate(int id, DateTime date);//Update task start date
         public void TasksWithStatusDone();//Prints the tasks whose status is DONE
+        public IEnumerable<BO.TaskInList> TasksWithLevel(BO.ExpiriencePl level);
+
     }
 }
