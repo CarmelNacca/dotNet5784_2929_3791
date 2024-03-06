@@ -14,7 +14,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="לוגו.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BL\BL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="לוגו.jpg" />
   </ItemGroup>
  
 

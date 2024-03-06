@@ -1,5 +1,6 @@
 ﻿using BlApi;
 using Dal;
+using PL.Task;
 using PL.Worker;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -25,9 +26,9 @@ namespace PL
             InitializeComponent();
         }
          
-        private void BtnWorker(object sender, RoutedEventArgs e)
+        private void BtnTask(object sender, RoutedEventArgs e)
         {
-            new WorkerListWindow().Show();
+            new TaskListWindow().Show();
 
         }
 

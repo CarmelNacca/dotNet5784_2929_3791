@@ -30,6 +30,14 @@ public enum Status
     OnTrack,
     Done
 }
+public enum StatusPl
+{
+    Unscheduled,
+    Scheduled,
+    OnTrack,
+    Done,
+    All
+}
 public enum StatusProject
 {
     planning,//No start date yet

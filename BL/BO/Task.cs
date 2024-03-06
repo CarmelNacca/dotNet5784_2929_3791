@@ -13,14 +13,14 @@ public class Task
 {
     public static StatusProject StatusProject { get; set; } = StatusProject.planning;
     public int Id { get; init; }
-    public string Description { get; set; } // NN
+    public string Description { get; set; } = " "; // NN
 
-    public string  Alias {  get; set; }// NN
+    public string Alias { get; set; } = " ";// NN
     public DateTime? createdAtDate { get; set; }// NN
     public Status Status { get; set; }
     public List<BO.TaskInList>? Dependencies { get; set; } = null;
 
-    public BO.MilestoneInTask Milestone { get; set; }
+    public BO.MilestoneInTask? Milestone { get; set; } 
     public TimeSpan? RequiredEffortTime { get; set; } = null;
     public DateTime? StartDate { get; set; } = null;///
     public DateTime? ScheduledDate { get; set; } = null;//
