@@ -22,6 +22,8 @@ namespace BlApi
 
 
         public void Update(BO.Worker item);//Update worker
-        //public TaskInWorker TaskNow(int id);
+                                           //public TaskInWorker TaskNow(int id);
+        public IEnumerable<BO.WorkerInTask> ReadAllForTask(Func<BO.WorkerInTask, bool>? filter = null);
+
     }
 }

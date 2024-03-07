@@ -110,7 +110,8 @@ internal class Program
                 case 1:
                     {
                         Console.WriteLine("Enter name, idWorker, desciption, date of reqiered, date of start,date of schduled,date of forcast , date of deadline, date of complete, deliverables,remarks and expirience");
-                        BO.Task newTask = new BO.Task { Id = 0,Alias = Console.ReadLine()!,Worker=new BO.WorkerInTask{ Id = int.Parse(Console.ReadLine())}, Description = Console.ReadLine()!
+                        string alias = Console.ReadLine()!;int idw = int.Parse(Console.ReadLine()!);
+                        BO.Task newTask = new BO.Task { Id = 0,Alias =alias,Worker=new BO.WorkerInTask(idw,s_bl.Worker.Read(idw)!.Name), Description = Console.ReadLine()!
                             ,createdAtDate=DateTime.Now, RequiredEffortTime = TimeSpan.Parse(Console.ReadLine()!),
                             StartDate = DateTime.Parse(Console.ReadLine()!),ScheduledDate= DateTime.Parse(Console.ReadLine()!),ForeCastDate = DateTime.Parse(Console.ReadLine()!),
                             DeadlineDate = DateTime.Parse(Console.ReadLine()!), CompleteDate = DateTime.Parse(Console.ReadLine()!),

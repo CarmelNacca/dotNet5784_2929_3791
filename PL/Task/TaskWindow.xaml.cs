@@ -1,4 +1,6 @@
-﻿using PL.Task;
+﻿using BO;
+using PL.Task;
+using PL.Worker;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,12 +23,23 @@ namespace PL.Task
     public partial class TaskWindow : Window
     {
         static readonly BlApi.IBL s_bl = BlApi.Factory.Get();
+        public WorkerInTask? WorkerIntask { get; set; } = null;
+
+
         TaskListWindow item;
         public BO.Task? TaskPL
         {
             get { return (BO.Task)GetValue(TaskProperty); }
             set { SetValue(TaskProperty, value); }
         }
+        public IEnumerable<BO.TaskInList> TaskList
+        {
+            get { return (IEnumerable<BO.TaskInList>)GetValue(TaskListProperty); }
+            set { SetValue(TaskListProperty, value); }
+        }
+        public static readonly DependencyProperty TaskListProperty =
+           DependencyProperty.Register("TaskList", typeof(IEnumerable<BO.TaskInList>), typeof(TaskListWindow), new PropertyMetadata(null));
+
         public IEnumerable<BO.TaskInList> TaskList1
         {
             get { return (IEnumerable<BO.TaskInList>)GetValue(TaskProperty); }
@@ -36,12 +49,14 @@ namespace PL.Task
         public static readonly DependencyProperty TaskProperty =
            DependencyProperty.Register("TaskPL", typeof(BO.Task),
                typeof(TaskWindow), new PropertyMetadata(null));
+
         public TaskWindow(TaskListWindow itemw, int id = 0)
         {
             InitializeComponent();
+            DataContext=WorkerIntask;
             try
             {
-                TaskPL = ((id != 0) ? s_bl.Task.Read(id)! : new BO.Task { Id = 0, Alias = " ", Description = " ", createdAtDate = null, StartDate = null, ScheduledDate = null, DeadlineDate = null, CompleteDate = null, Deliverables = " ", Remarks = " ", Copmlexity = 0 });
+                TaskPL = ((id != 0) ? s_bl.Task.Read(id)! : new BO.Task { Id =0, Alias = " ", Description = " ", createdAtDate = null, StartDate = null, ScheduledDate = null, DeadlineDate = null, CompleteDate = null, Deliverables = " ", Remarks = " ", Copmlexity = 0 });
             }
             catch (BO.BlDoesNotExistException ex)
             {
@@ -96,6 +111,17 @@ namespace PL.Task
 
             this.Close();
         }
+
+        private void ChooseWorker(object sender, RoutedEventArgs e)
+        {
+            new WorkerListWindow(true,this).Show();
+            TaskPL!.Worker = WorkerIntask;
+            
+        }
+
+        
+
+       
     }
 }
 

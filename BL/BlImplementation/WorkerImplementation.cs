@@ -156,6 +156,19 @@ internal class WorkerImplementation : BlApi.IWorker
             throw new BO.BlInvalidData("The data is incorrect");
         }
     }
+    public IEnumerable<BO.WorkerInTask> ReadAllForTask(Func<BO.WorkerInTask, bool>? filter = null)
+        {
+            WorkerInTask fanc(Worker worker)
+            {
+            var WorkerT = new BO.WorkerInTask(worker!.Id, worker.Name!);
+              
+            return WorkerT;
+            }
+          return (from DO.Worker doWorker in _dal.Worker.ReadAll()
+               let worker = fanc(doWorkerToBoWorker(doWorker))
+               where filter is null ? true : filter(worker)
+               select worker).OrderByDescending(Worker => Worker.Name);
+    }
    
 }         
 
