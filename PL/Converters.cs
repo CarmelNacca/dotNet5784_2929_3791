@@ -28,4 +28,3 @@ class ConverIdToEnable : IValueConverter
         throw new NotImplementedException();
     }
 }
-

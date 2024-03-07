@@ -1,4 +1,5 @@
 ﻿
+using PL.Task;
 using System.Reflection.Emit;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,12 +13,18 @@ namespace PL.Worker
     public partial class WorkerListWindow : Window
     {
         public BO.ExpiriencePl level { get; set; } = BO.ExpiriencePl.All;
-
+        bool chooseWorker = false;
+        TaskWindow? task = null;
         static readonly BlApi.IBL s_bl = BlApi.Factory.Get();
-        public WorkerListWindow()
+        int id;
+        public  WorkerListWindow(bool chooseworker=false,TaskWindow? t=null)
         {
             InitializeComponent();
             WorkerList = s_bl.Worker.ReadAll();
+            chooseWorker=chooseworker;
+            task = t;
+            
+
         }
 
         public IEnumerable<BO.Worker> WorkerList
@@ -37,9 +44,21 @@ namespace PL.Worker
 
         private void SelectWorkerToUpdate(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if(!chooseWorker) 
+            { 
             BO.Worker? worker = (sender as ListView)?.SelectedItem as BO.Worker;
 
             new WorkerWindow(this,worker!.Id).Show();
+            }
+            else
+            {
+                BO.Worker? worker = (sender as ListView)?.SelectedItem as BO.Worker;
+                id = worker!.Id;
+                task!.TaskPL!.Worker = new BO.WorkerInTask(worker.Id,worker.Name);
+                this.Close();
+            }
+            
+
 
         }
         public void updateListview ()//Updates the table so that it is displayed after a change - addition or update
