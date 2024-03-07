@@ -24,6 +24,8 @@ namespace PL.Task
         public BO.StatusPl status { get; set; } = BO.StatusPl.All;
 
         static readonly BlApi.IBL s_bl = BlApi.Factory.Get();
+        
+
         public TaskListWindow()
         {
             InitializeComponent();
@@ -50,12 +52,17 @@ namespace PL.Task
         }
         private void filter(object sender, SelectionChangedEventArgs e)
         {
+           
+          
             if(level!=BO.ExpiriencePl.All)
             {
-                var grouped = s_bl.Task.ReadAll(fanc);
-                TaskList= grouped;
+                var tasks = s_bl.Task.ReadAll(fanc);
+                TaskList= tasks;
             }
-            else { s_bl.Task.ReadAll(); }
+            else {
+                var tasks = s_bl.Task.ReadAll();
+                TaskList = tasks;
+            }
             bool fanc(BO.Task t)
             {
                 return (t.Copmlexity == (BO.Expirience)level);
@@ -77,17 +84,21 @@ namespace PL.Task
         {
             if (status != BO.StatusPl.All)
             {
-                var grouped = s_bl.Task.ReadAll(fanc);
-                TaskList = grouped;
+                var tasks = s_bl.Task.ReadAll(fanc);
+                TaskList = tasks;
             }
             else {
-                s_bl.Task.ReadAll();
+                var tasks = s_bl.Task.ReadAll();
+                TaskList = tasks;
+                
             }
             bool fanc(BO.Task t)
             {
                 return (t.Status == (BO.Status)status);
             }
         }
+
+      
     }
 }
 
