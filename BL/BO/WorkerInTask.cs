@@ -10,4 +10,5 @@ public class WorkerInTask
 {
     public int Id { get; set; }
     public string Name { get; set; }//NN
+    public WorkerInTask(int i, string n) { Id = i;Name = n; }
 }

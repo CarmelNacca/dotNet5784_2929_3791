@@ -29,7 +29,7 @@
         <ComboBox SelectedValue="{Binding Path=level, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource WorkerLevelKey}}" Grid.Column="1" SelectionChanged="filter" Background="#FFDDB6CE" FontFamily="Bell MT" FontSize="14" Height="46" VerticalAlignment="Top" Margin="0,46,0,0" Grid.RowSpan="2" />
         <Button Content="Add" Grid.Row="1" HorizontalAlignment="Center" Width="352" Margin="0,404,0,87" Click="Button_Click" RenderTransformOrigin="0.522,0.007" FontSize="24" FontWeight="Bold" FontFamily="Bell MT" Background="#FFCCB6B6"/>
         <ListView Margin="5,5,0,179" Grid.Row="1" ItemsSource="{Binding Path=TaskList}" FontFamily="Bell MT" MouseDoubleClick="SelectTaskToUpdate" />
-        <ComboBox SelectedValue="{Binding status, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource TaskStatusKey}}" SelectionChanged="FilterStatus" Background="#FFDDB6CE" FontFamily="Bell MT" FontSize="14" Height="46" VerticalAlignment="Top" Margin="508,55,0,0" Grid.Row="1" Grid.ColumnSpan="2" />
+        <ComboBox SelectedValue="{Binding Path=status, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource TaskStatusKey}}" SelectionChanged="FilterStatus" Background="#FFDDB6CE" FontFamily="Bell MT" FontSize="14" Height="46" VerticalAlignment="Top" Margin="508,55,0,0" Grid.Row="1" Grid.ColumnSpan="2" />
 
         <!--hiiii-->
     </Grid>
