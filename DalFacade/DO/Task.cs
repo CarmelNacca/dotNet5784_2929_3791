@@ -26,7 +26,7 @@ public record Task
     bool Milestone= false,
     
     DateTime? createdAtDate=null,
-TimeSpan? RequiredEffortTime = null,
+    TimeSpan? RequiredEffortTime = null,
     DateTime? StartDate = null,
     DateTime? ScheduledDate = null,
     DateTime? DeadlineDate = null,  
