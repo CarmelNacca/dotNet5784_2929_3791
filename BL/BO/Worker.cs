@@ -10,7 +10,7 @@ public class Worker
 {
     public int Id { get; set; }
 
-    public string Name { get; set; } = "";//NN
+    public string Name { get; set; } ="";//NN
     public string Email { get; set; } = "";//NN
     public Expirience Level { get; set; }//NN
 

@@ -15,7 +15,7 @@ public class Task
     public int Id { get; init; }
     public string Description { get; set; } = " "; // NN
 
-    public string Alias { get; set; } = " ";// NN
+    public string Alias { get; set; } // NN
     public DateTime? createdAtDate { get; set; }// NN
     public Status Status { get; set; }
     public List<BO.TaskInList>? Dependencies { get; set; } = null;

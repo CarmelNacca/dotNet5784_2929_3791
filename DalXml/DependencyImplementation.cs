@@ -28,13 +28,14 @@ internal class DependencyImplementation: IDependency
     public int Create(Dependency item)
     {
         int id = Config.NextDependencyId;
-        XElement elemde=new XElement("item");
+        XElement elemde=new XElement("dependency");
         XElement elemdependency = new XElement("Dependency", new XElement("Id", id),
             new XElement("IdTask", item.IdTask), new XElement("DependsOnTask", item.DependsOnTask));
         elemde.Add(elemdependency);
         XMLTools.SaveListToXMLElement(elemde, s_dependencies_xml);
         return id;
     }
+    
 
     public void Delete(int id)
     {

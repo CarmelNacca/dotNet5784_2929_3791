@@ -15,13 +15,13 @@ public record Worker
     
     double Cost,
     Expirience Level,
-    string? Name=null,
+    string Name="",
     string? Email=null
 
 
     )
 {
-public Worker(): this(0, 0,0) { }////empty ctor for stage 3
+public Worker(): this(0, 0,0,"") { }////empty ctor for stage 3
 
 
 }
