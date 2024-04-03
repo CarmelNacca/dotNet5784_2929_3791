@@ -7,7 +7,7 @@
         <local:WorkerLevel x:Key="WorkerLevelKey" />
         <local:Level x:Key="LevelKey" />
         <local:TaskStatus x:Key="TaskStatusKey" />
-        <local:Status x:Key="StatusKey" />
+        <local:Status x:Key="StatusKey" /> 
         <local:ConvertIdToContent x:Key="ConverIdToContentKey"/>
         <local:ConverIdToEnable x:Key="ConverIdToEnablKey"/>
         <local:ConverIdToEnable2 x:Key="ConverIdToEnabl2Key"/>
