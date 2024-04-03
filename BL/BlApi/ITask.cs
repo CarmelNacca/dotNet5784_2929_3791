@@ -26,6 +26,7 @@ namespace BlApi
         public void TasksWithStatusDone();//Prints the tasks whose status is DONE
         public IEnumerable<BO.TaskInList> TasksWithLevel(BO.ExpiriencePl level);
 
+        public BO.Status UpdateStatus(int id);
 
     }
 }

@@ -29,10 +29,10 @@ internal class WorkerImplementation: IWorker
 
     }
 
-    public Worker? Read(int id)
+    public Worker Read(int id)
     {
         try { 
-        return DataSource.Workers.FirstOrDefault(x => x.Id == id);
+        return DataSource.Workers.FirstOrDefault(x => x.Id == id)!;
         }
         catch(Exception)
         {

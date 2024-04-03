@@ -40,7 +40,7 @@ TimeSpan? RequiredEffortTime = null,
     
 {
     
-    public Task(): this (0,0) {  }///empty ctor for stage 3
+    public Task(): this (0,null) {  }///empty ctor for stage 3
 
 
 }

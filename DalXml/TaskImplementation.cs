@@ -37,7 +37,7 @@ internal class TaskImplementation:ITask
         XMLTools.SaveListToXMLSerializer(tasks, s_tasks_xml);
     }
 
-    public DO.Task? Read(int id)
+    public DO.Task Read(int id)
     {
         List<DO.Task> tasks = XMLTools.LoadListFromXMLSerializer<DO.Task>(s_tasks_xml);
         return tasks.FirstOrDefault(x => x.Id == id);
