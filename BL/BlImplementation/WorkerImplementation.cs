@@ -68,11 +68,11 @@ internal class WorkerImplementation : BlApi.IWorker
 
     }
 
-    public BO.Worker? Read(int id)//Displaying employee details
+    public BO.Worker Read(int id)//Displaying employee details
     {
         try { 
-        DO.Worker? doWorker = _dal.Worker.Read(id);
-            var boWorker= doWorkerToBoWorker(doWorker);
+        DO.Worker doWorker = _dal.Worker.Read(id);
+            var boWorker=(doWorker==null)?null: doWorkerToBoWorker(doWorker);
             return boWorker;
         }
         catch (DO.DalDoesNotExistException ex) 
@@ -169,6 +169,12 @@ internal class WorkerImplementation : BlApi.IWorker
                where filter is null ? true : filter(worker)
                select worker).OrderByDescending(Worker => Worker.Name);
     }
-   
+    public IEnumerable<int> ReadAllForTask2(Func<BO.WorkerInTask, bool>? filter = null)
+    {
+      
+        return (from DO.Worker doWorker in _dal.Worker.ReadAll()
+                let worker =doWorkerToBoWorker(doWorker).Id
+                select worker).OrderByDescending(Worker => Worker);
+    }
 }         
 

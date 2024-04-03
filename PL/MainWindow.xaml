@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PL"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="600" Background="#FFCCB6B6">
+        Title="MainWindow" Height="600" Width="600" Background="#FFCCB6B6"
+          DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
+    
     <Grid Margin="0,10,0,-16" RenderTransformOrigin="0.5,0.5">
         <Grid.RenderTransform>
             <TransformGroup>
@@ -16,11 +18,41 @@
             </TransformGroup>
         </Grid.RenderTransform>
 
-        <Button Content="WORKER" HorizontalAlignment="Left" Margin="400,425,0,0" VerticalAlignment="Top" Height="71" Width="150" Click="BtnTask" Background="White" FontFamily="Bell MT" FontWeight="Bold" FontSize="20"/>
+        <Button Content="WORKER" HorizontalAlignment="Left" Margin="400,425,0,0" VerticalAlignment="Top" Height="71" Width="150" Click="BtnWorker" Background="White" FontFamily="Bell MT" FontWeight="Bold" FontSize="20"/>
         <Button Content="INITDB" HorizontalAlignment="Center" Margin="0,425,0,0" VerticalAlignment="Top" Height="71" Width="150" Click="Button_Click" Background="White" FontSize="20" FontFamily="Bell MT" FontWeight="Bold"/>
         <Button Content="ADMIN" HorizontalAlignment="Left" Margin="48,425,0,0" VerticalAlignment="Top" Height="71" Width="150" Click="Button_Click_1" Background="White" FontWeight="Bold" FontFamily="Bell MT" FontSize="20" />
         <Button Content="TASK" HorizontalAlignment="Left" Margin="400,327,0,0" VerticalAlignment="Top" Height="71" Width="150" Click="BtnTask" FontFamily="Bell MT" FontWeight="Bold" FontSize="20" Background="White"/>
         <Image Source="/לוגו.jpg" Margin="48,246,227,129"/>
+        <StackPanel HorizontalAlignment="Left" Height="122" Margin="242,38,0,0" VerticalAlignment="Top" Width="308" Panel.ZIndex="-2">
+            <Label Content="For manager enter password:" Width="264" Height="32" FontFamily="Bell MT" FontWeight="Bold" FontSize="20" IsEnabled="False"/>
+            <TextBox BorderBrush="#FF020202" FontFamily="Bell MT" Height="33" FontSize="16" Text="{Binding Password}"  Width="244" RenderTransformOrigin="0.5,0.5">
+                <TextBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-0.646"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-0.011"/>
+                    </TransformGroup>
+                </TextBox.RenderTransform>
+            </TextBox>
+            <Button Content="Enter" Height="33" Width="102" FontSize="22" Background="White" FontFamily="Bell MT" FontWeight="Bold" Click="Button_Click_Manager" />
+
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="122" Margin="242,160,0,0" VerticalAlignment="Top" Width="308" Panel.ZIndex="-2">
+            <Label Content="For worker enter password:" Width="264" Height="32" FontFamily="Bell MT" FontWeight="Bold" FontSize="20" IsEnabled="False"/>
+            <TextBox BorderBrush="#FF020202" FontFamily="Bell MT" Height="33" FontSize="16" Text="{Binding Password2}"  Width="244" RenderTransformOrigin="0.5,0.5">
+                <TextBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-0.646"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-0.011"/>
+                    </TransformGroup>
+                </TextBox.RenderTransform>
+            </TextBox>
+            <Button Content="Enter" Height="33" Width="102" FontSize="22" Background="White" FontFamily="Bell MT" FontWeight="Bold" Click="Button_Click_Worker" />
+
+        </StackPanel>
 
     </Grid>
 </Window>

@@ -29,7 +29,7 @@ private static void creatTask()
         DateTime start = new DateTime(2024, 01, 08);
         DateTime finish = new DateTime(2024, 03, 15);
         int rangStart = (finish - start).Days;
-        s_dal!.Task.Create(new Task(0,0,"Signing a contract", "The legal process of adding the formal signature to a contract, signifying agreement and commitment", false,start.AddDays(s_rand.Next(rangStart)),null,null,null,null,null, "Formally signed contract indicating mutual agreement and commitment.", null, (DO.Expirience)0));
+        s_dal!.Task.Create(new Task(0,null,"Signing a contract", "The legal process of adding the formal signature to a contract, signifying agreement and commitment", false,start.AddDays(s_rand.Next(rangStart)),null,null,null,null,null, "Formally signed contract indicating mutual agreement and commitment.", null, (DO.Expirience)0));
         string[] TaskNameForHandyman = {"Replacement of living room windows","Replacing kitchen windows","Replacing bedroom windows",
             "Replacing bathroom windows","Installation of living room floors","Installing bedroom floors","Installing kitchen floors",
             "Installing bathroom floors","Bedroom door replacement","Living room door replacement",
@@ -109,19 +109,19 @@ private static void creatTask()
        
         for (int i = 0; i < TaskNameForHandyman.Length; i++)
         {
-            s_dal!.Task.Create(new Task(0, 0, TaskNameForHandyman[i], TaskDescriptionForHandyman[i], false, start.AddDays(s_rand.Next(rangStart)), null, null, null, null, null, TaskResultForHandyman[i],null, (DO.Expirience)1));
+            s_dal!.Task.Create(new Task(0, null, TaskNameForHandyman[i], TaskDescriptionForHandyman[i], false, start.AddDays(s_rand.Next(rangStart)), null, null, null, null, null, TaskResultForHandyman[i],null, (DO.Expirience)1));
         }
         for (int i = 0; i < TaskNamePainter.Length; i++)
         {
-            s_dal!.Task.Create(new Task(0, 0, TaskNamePainter[i], TaskDescriptionForPainter[i], false, start.AddDays(s_rand.Next(rangStart)), null, null, null, null, null, TaskResultForPainter[i], null, (DO.Expirience)2));
+            s_dal!.Task.Create(new Task(0, null, TaskNamePainter[i], TaskDescriptionForPainter[i], false, start.AddDays(s_rand.Next(rangStart)), null, null, null, null, null, TaskResultForPainter[i], null, (DO.Expirience)2));
         }
         for (int i = 0; i < TaskNameArchitect.Length; i++)
         {
-            s_dal!.Task.Create(new Task(0, 0, TaskNameArchitect[i], TaskDescriptionForArchitect[i], false, start.AddDays(s_rand.Next(rangStart)), null, null, null, null, null, TaskResultForArchitect[i], null, (DO.Expirience)3));
+            s_dal!.Task.Create(new Task(0, null, TaskNameArchitect[i], TaskDescriptionForArchitect[i], false, start.AddDays(s_rand.Next(rangStart)), null, null, null, null, null, TaskResultForArchitect[i], null, (DO.Expirience)3));
         }
         for (int i = 0; i < TaskNameInteriorDesigner.Length; i++)
         {
-            s_dal!.Task.Create(new Task(0, 0, TaskNameInteriorDesigner[i], TaskDescriptionForInteriorDesigner[i], false, start.AddDays(s_rand.Next(rangStart)), null, null, null, null, null, TaskResultForInteriorDesigner[i], null, (DO.Expirience)4));
+            s_dal!.Task.Create(new Task(0, null, TaskNameInteriorDesigner[i], TaskDescriptionForInteriorDesigner[i], false, start.AddDays(s_rand.Next(rangStart)), null, null, null, null, null, TaskResultForInteriorDesigner[i], null, (DO.Expirience)4));
         }
 
 

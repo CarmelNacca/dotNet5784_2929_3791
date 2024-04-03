@@ -1,4 +1,6 @@
 ﻿
+using BO;
+using DO;
 using PL.Task;
 using System.Reflection.Emit;
 using System.Windows;
@@ -14,15 +16,17 @@ namespace PL.Worker
     {
         public BO.ExpiriencePl level { get; set; } = BO.ExpiriencePl.All;
         bool chooseWorker = false;
-        TaskWindow? task = null;
+        WorkerInTask? workerInTask;
         static readonly BlApi.IBL s_bl = BlApi.Factory.Get();
         int id;
-        public  WorkerListWindow(bool chooseworker=false,TaskWindow? t=null)
+        public WorkerInTask? SelectedWorker { get; private set; }
+        
+        public  WorkerListWindow(bool chooseworker=false,WorkerInTask? worker=null)
         {
             InitializeComponent();
             WorkerList = s_bl.Worker.ReadAll();
             chooseWorker=chooseworker;
-            task = t;
+            workerInTask = worker;
             
 
         }
@@ -53,8 +57,7 @@ namespace PL.Worker
             else
             {
                 BO.Worker? worker = (sender as ListView)?.SelectedItem as BO.Worker;
-                id = worker!.Id;
-                task!.TaskPL!.Worker = new BO.WorkerInTask(worker.Id,worker.Name);
+                workerInTask = new BO.WorkerInTask( worker!.Id,worker.Name);
                 this.Close();
             }
             
@@ -75,7 +78,12 @@ namespace PL.Worker
            
             
         }
-
+        private void OnWorkerSelected(object sender, RoutedEventArgs e)
+        {
+            // כאשר נבחר עובד, עדכן את ה-SelectedWorker
+            SelectedWorker = (sender as ListView)?.SelectedItem as WorkerInTask; // קבל את העובד מהבחירה של המשתמש;
+            Close();
+        }
     }
 
 
