@@ -47,7 +47,7 @@ namespace PL.Task
                 }
                 TaskList = s_bl.Task.ReadAll(helpChooseTask);
             }
-            else if(updateDates)
+            else if(updateDates) 
             {
                 bool helpupdateDates(BO.Task task)
                 {
