@@ -1,4 +1,5 @@
 ﻿using BO;
+using DO;
 using PL.Task;
 using PL.Worker;
 using System;
@@ -23,8 +24,6 @@ namespace PL.Task
     public partial class TaskWindow : Window
     {
         static readonly BlApi.IBL s_bl = BlApi.Factory.Get();
-        public WorkerInTask? WorkerIntask { get; set; } = null;
-
 
         TaskListWindow item;
         public BO.Task? TaskPL
@@ -32,31 +31,29 @@ namespace PL.Task
             get { return (BO.Task)GetValue(TaskProperty); }
             set { SetValue(TaskProperty, value); }
         }
-        public IEnumerable<BO.TaskInList> TaskList
-        {
-            get { return (IEnumerable<BO.TaskInList>)GetValue(TaskListProperty); }
-            set { SetValue(TaskListProperty, value); }
-        }
-        public static readonly DependencyProperty TaskListProperty =
-           DependencyProperty.Register("TaskList", typeof(IEnumerable<BO.TaskInList>), typeof(TaskListWindow), new PropertyMetadata(null));
-
-        public IEnumerable<BO.TaskInList> TaskList1
-        {
-            get { return (IEnumerable<BO.TaskInList>)GetValue(TaskProperty); }
-            set { SetValue(TaskProperty, value); }
-        }
 
         public static readonly DependencyProperty TaskProperty =
            DependencyProperty.Register("TaskPL", typeof(BO.Task),
                typeof(TaskWindow), new PropertyMetadata(null));
+        //public IEnumerable<int> WorkerList
+        //{
+        //    get { return (IEnumerable<int>)GetValue(WorkerListProperty); }
+        //    set { SetValue(WorkerListProperty, value); }
+        //}
 
-        public TaskWindow(TaskListWindow itemw, int id = 0)
+        //public static readonly DependencyProperty WorkerListProperty =
+        //    DependencyProperty.Register("WorkerList", typeof(IEnumerable<int>), typeof(TaskWindow), new PropertyMetadata(null));
+        private BO.Status selectedStatus=BO.Status.Unscheduled;
+
+        public TaskWindow(TaskListWindow? itemw, int id = 0,bool tasknow=false)
         {
+            
             InitializeComponent();
-            DataContext=WorkerIntask;
+            //WorkerList = s_bl.Worker.ReadAllForTask2();
             try
             {
-                TaskPL = ((id != 0) ? s_bl.Task.Read(id)! : new BO.Task { Id =0, Alias = " ", Description = " ", createdAtDate = null, StartDate = null, ScheduledDate = null, DeadlineDate = null, CompleteDate = null, Deliverables = " ", Remarks = " ", Copmlexity = 0 });
+                TaskPL = ((id != 0) ? s_bl.Task.Read(id,tasknow)! : new BO.Task { Id =0, Description = " ", createdAtDate = DateTime.Today, StartDate = null, ScheduledDate = null, DeadlineDate = null, CompleteDate = null, Deliverables = " ", Remarks = " ", Copmlexity = 0 ,Status=0});
+                TaskPL.Status= ((id != 0) ? s_bl.Task.UpdateStatus(TaskPL.Id):BO.Status.Unscheduled);
             }
             catch (BO.BlDoesNotExistException ex)
             {
@@ -72,6 +69,7 @@ namespace PL.Task
         }
         private void Button_Click_AddUpdate(object sender, RoutedEventArgs e)
         {
+           
             if ((sender as Button)!.Content.ToString() == "Add")
                 try
                 {
@@ -95,7 +93,8 @@ namespace PL.Task
                 {
                     s_bl.Task.Update(TaskPL!);
                     MessageBox.Show($"Task {TaskPL?.Id} was successfully updeted", "success", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                    item.updateListview();
+                    if (item != null)
+                        item.updateListview();
                     this.Close();
                 }
                 catch (BO.BlDoesNotExistException ex)
@@ -112,18 +111,40 @@ namespace PL.Task
             this.Close();
         }
 
-        private void ChooseWorker(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            new WorkerListWindow(true,this).Show();
-            TaskPL!.Worker = WorkerIntask;
-            
+            new TaskListWindow(null,true,this).Show();
         }
 
-        
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Do you want to end the task?", " ", MessageBoxButton.YesNo);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    {
+                        TaskPL.CompleteDate = DateTime.Today;
+                        s_bl.Task.Update(TaskPL);
+                        MessageBox.Show($"Task {TaskPL?.Id} was successfully end", "success", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        this.Close();
+                    }
+                    break;
+                case MessageBoxResult.No:
+                    break;
+
+            }
+           
+        }
 
        
     }
+   
+
+
+
+
 }
+
 
   
 

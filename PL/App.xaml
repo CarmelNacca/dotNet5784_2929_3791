@@ -10,5 +10,10 @@
         <local:Status x:Key="StatusKey" />
         <local:ConvertIdToContent x:Key="ConverIdToContentKey"/>
         <local:ConverIdToEnable x:Key="ConverIdToEnablKey"/>
+        <local:ConverIdToEnable2 x:Key="ConverIdToEnabl2Key"/>
+        <local:ConverButtonToInvisible x:Key="ConverButtonToInvisibleKey"/>
+        <local:ConverButtonToInvisible2 x:Key="ConverButtonToInvisible2Key"/>
+        <local:ConverChooseWorkerToInvisible x:Key="ConverChooseWorkerToInvisibleKey"/>
+        
     </Application.Resources>
 </Application>

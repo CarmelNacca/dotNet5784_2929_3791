@@ -13,11 +13,17 @@ internal class TaskImplementation : BlApi.ITask
 
     public int Add(BO.Task boTask)//Adding a task
     {
+        if(boTask.Alias==null)
+        {
+            throw new BO.BlInvalidData("The data is incorrect");
+        }
+        
         DO.Task doTask = new DO.Task(boTask.Id,null, boTask.Alias, boTask.Description, false, boTask.createdAtDate, boTask.RequiredEffortTime,
              boTask.StartDate, boTask.ScheduledDate, boTask.DeadlineDate, boTask.CompleteDate, boTask.Deliverables, boTask.Remarks, (DO.Expirience)boTask.Copmlexity);
 
         try
         {
+           
             int idTask = _dal.Task.Create(doTask);
             if (boTask.Dependencies != null)
             {
@@ -27,11 +33,12 @@ internal class TaskImplementation : BlApi.ITask
                     _dal.Dependency.Create(dependency);
                 }
             }
+            
             return idTask;
         }
-        catch (DO.DalAlreadyExistException ex)
+        catch 
         {
-            throw new BO.BlAlreadyExistsException($"Task with ID={boTask.Id} already exists", ex);
+            throw new BO.BlInvalidData("The data is incorrect");
         }
 
     }
@@ -39,13 +46,15 @@ internal class TaskImplementation : BlApi.ITask
 
     private BO.Task doTaskToBoTask(DO.Task? doTask)//Converting a task from DO to BO
     {
-       
-        var task= new BO.Task()
+        int? idw = doTask!.Worker;
+        string? namew = idw == null ? null : _dal.Worker.Read((int)idw)!.Name;
+
+        var task = new BO.Task()
         {
 
 
             Id = doTask!.Id,
-
+            Worker =idw==null?null: new WorkerInTask((int)idw, namew),
             Description = doTask.Description!,
             Alias = doTask.Name!,
             createdAtDate = doTask.createdAtDate,
@@ -55,10 +64,12 @@ internal class TaskImplementation : BlApi.ITask
             DeadlineDate = doTask.DeadlineDate,
             CompleteDate = doTask.CompleteDate,
             Deliverables = doTask.Deliverables,
+            Remarks= doTask.Remarks,
             Copmlexity=(BO.Expirience)doTask.Copmlexity!
 
-        }; 
-        if(doTask.ScheduledDate == null)
+        };
+
+        if (doTask.ScheduledDate == null)
         {
             task.Status=BO.Status.Unscheduled;
         }else if(doTask.StartDate==null)
@@ -140,11 +151,14 @@ internal class TaskImplementation : BlApi.ITask
         {
             bool HelpTaskNow(DO.Task task)
             {
-                return (id == task.Id);
+                return (id == task.Worker&& task.CompleteDate==null);
             }
             try
             {
                 var task = _dal.Task.Read(HelpTaskNow);
+                if (task == null)
+                    return null;
+                
                 return doTaskToBoTask(task);
             }
             catch (DO.DalDoesNotExistException ex)
@@ -243,6 +257,23 @@ internal class TaskImplementation : BlApi.ITask
                select task;
         }
        
+    }
+    public BO.Status UpdateStatus(int id)
+    {
+        DO.Task? task=_dal.Task.Read(id);
+        
+        if(task.StartDate==null&&task.ScheduledDate!=null)
+        {
+            return BO.Status.Scheduled;
+        }
+        if(task.CompleteDate==null)
+        { 
+            return BO.Status.Scheduled;
+        }
+        if(task.CompleteDate!=null)
+        return BO.Status.Done;
+        
+            return BO.Status.Unscheduled;
     }
    
 }
