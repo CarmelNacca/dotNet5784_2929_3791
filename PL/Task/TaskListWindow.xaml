@@ -25,7 +25,7 @@
                 <ColumnDefinition Width="119*"/>
             </Grid.ColumnDefinitions>
         </Grid>
-        <Label Content="select level" HorizontalAlignment="Center" VerticalAlignment="Center" Width="94" Height="35" Grid.Column="1" FontFamily="Bell MT" FontSize="18"/>
+        <Label Content="select level" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="35" FontFamily="Bell MT" FontSize="18" Grid.ColumnSpan="2" Margin="506,6,0,0"/>
         <ComboBox SelectedValue="{Binding Path=level, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource WorkerLevelKey}}" Grid.Column="1" SelectionChanged="filter" Background="#FFDDB6CE" FontFamily="Bell MT" FontSize="14" Height="46" VerticalAlignment="Top" Margin="0,46,0,0" Grid.RowSpan="2" />
         <Button Content="Add" Grid.Row="1" HorizontalAlignment="Center" Width="352" Margin="0,404,0,87" Click="Button_Click" RenderTransformOrigin="0.522,0.007" FontSize="24" FontWeight="Bold" FontFamily="Bell MT" Background="#FFCCB6B6"/>
         <ListView Margin="5,5,0,179" Grid.Row="1" ItemsSource="{Binding Path=TaskList}" FontFamily="Bell MT" MouseDoubleClick="SelectTaskToUpdate" />

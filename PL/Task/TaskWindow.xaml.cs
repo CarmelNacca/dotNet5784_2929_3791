@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace PL.Task//carmel
+namespace PL.Task
 {
     /// <summary>
     /// Interaction logic for TaskWindow.xaml
