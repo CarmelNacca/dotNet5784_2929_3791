@@ -10,11 +10,11 @@ public class Worker
 {
     public int Id { get; set; }
 
-    public string Name { get; set; } ="";//NN
-    public string Email { get; set; } = "";//NN
-    public Expirience Level { get; set; }//NN
+    public string Name { get; set; } ="";
+    public string Email { get; set; } = "";
+    public Expirience Level { get; set; }
 
-    public double Cost { get; set; }//NN
+    public double Cost { get; set; }
 
     public TaskInWorker? Task { get; set; } = null;
 

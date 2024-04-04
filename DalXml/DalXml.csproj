@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -11,10 +11,6 @@
 	  <UseCommonOutputDirectory>true</UseCommonOutputDirectory>
 	  <RootNamespace>Dal</RootNamespace>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Include="..\DalTest\Initialization.cs" Link="Initialization.cs" />
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DalFacade\DalFacade.csproj" />
