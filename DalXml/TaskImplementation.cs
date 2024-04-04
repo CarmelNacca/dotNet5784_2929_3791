@@ -78,4 +78,5 @@ internal class TaskImplementation:ITask
         XMLTools.SaveListToXMLElement(element, s_tasks_xml);
 
     }
+    
 }

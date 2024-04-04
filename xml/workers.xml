@@ -49,11 +49,4 @@
     <Name>Rut Sharabi</Name>
     <Email>RS1212@gmail.com</Email>
   </Worker>
-  <Worker>
-    <Id>325932929</Id>
-    <Cost>34567</Cost>
-    <Level>Handyman</Level>
-    <Name>michal</Name>
-    <Email>mt12@gmail.com</Email>
-  </Worker>
 </ArrayOfWorker>
