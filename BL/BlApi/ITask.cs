@@ -27,6 +27,10 @@ namespace BlApi
         public IEnumerable<BO.TaskInList> TasksWithLevel(BO.ExpiriencePl level);
 
         public BO.Status UpdateStatus(int id);
+        public DateTime? ForecastOfDate(int id);
+        public IEnumerable<BO.TaskInList> Dependencies(int id);
+
+
 
     }
 }

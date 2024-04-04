@@ -26,9 +26,9 @@ namespace PL
         public ManagerWindow()
         {
             InitializeComponent();
-         
+
         }
-        
+
 
         private void BtnTask(object sender, RoutedEventArgs e)
         {
@@ -74,14 +74,22 @@ namespace PL
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            if(dateProject==null)
+            if (dateProject == null)
             {
                 MessageBox.Show("Enter date of start project");
             }
             else
             {
-                new TaskListWindow(null,null,null,true).Show();
+                new TaskListWindow(null, false, null, true,dateProject).Show();
             }
+        }
+
+        private void selectedDate(object sender, SelectionChangedEventArgs e)
+        {
+            // משתנה שמכיל את התאריך הנבחר בתאריך האחרון ברשימת התאריכים שנבחרו
+            dateProject = ((DatePicker)sender).SelectedDate ?? DateTime.Now;
+
+
         }
     }
 }

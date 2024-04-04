@@ -7,12 +7,13 @@
         mc:Ignorable="d"
         Title="ManagerWindow" Height="600" Width="600" Background="#FFCCB6B6">
     <Grid>
-        <Button Content="WORKER" HorizontalAlignment="Left" Margin="393,355,0,0" VerticalAlignment="Top" Height="71" Width="150" Click="BtnWorker" Background="White" FontFamily="Bell MT" FontWeight="Bold" FontSize="20"/>
-        <Button Content="TASK" HorizontalAlignment="Left" Margin="393,0,0,0" VerticalAlignment="Center" Height="71" Width="150" Click="BtnTask" FontFamily="Bell MT" FontWeight="Bold" FontSize="20" Background="White"/>
-        <Button Content="INITDB" HorizontalAlignment="Center" Margin="0,357,0,0" VerticalAlignment="Top" Height="71" Width="150" Click="Button_Click" Background="White" FontSize="20" FontFamily="Bell MT" FontWeight="Bold"/>
-        <Button Content="ADMIN" HorizontalAlignment="Left" Margin="48,357,0,0" VerticalAlignment="Top" Height="71" Width="150" Click="Button_Click_1" Background="White" FontWeight="Bold" FontFamily="Bell MT" FontSize="20" />
+        <Button Content="WORKER" HorizontalAlignment="Left" Margin="392,182,0,0" VerticalAlignment="Top" Height="71" Width="150" Click="BtnWorker" Background="White" FontFamily="Bell MT" FontWeight="Bold" FontSize="20"/>
+        <Button Content="TASK" HorizontalAlignment="Left" Margin="393,281,0,0" VerticalAlignment="Top" Height="71" Width="150" Click="BtnTask" FontFamily="Bell MT" FontWeight="Bold" FontSize="20" Background="White"/>
+        <Button Content="INITDB" HorizontalAlignment="Center" Margin="0,184,0,0" VerticalAlignment="Top" Height="71" Width="150" Click="Button_Click" Background="White" FontSize="20" FontFamily="Bell MT" FontWeight="Bold"/>
+        <Button Content="ADMIN" HorizontalAlignment="Left" Margin="47,184,0,0" VerticalAlignment="Top" Height="71" Width="150" Click="Button_Click_1" Background="White" FontWeight="Bold" FontFamily="Bell MT" FontSize="20" />
         <Button Content="Go to the execution stage" HorizontalAlignment="Left" Height="50" Margin="35,45,0,0" VerticalAlignment="Top" Width="144" RenderTransformOrigin="0.501,1.397" Click="Button_Click_2"/>
-        <DatePicker Text="{Binding dateProject, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="191,59,0,0" VerticalAlignment="Top" Height="38" Width="168" />
+        <DatePicker Text="{Binding dateProject, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalAlignment="Left" Margin="191,59,0,0" VerticalAlignment="Top" Height="38" Width="168" SelectedDateChanged="selectedDate" />
         <Label Content="Date of start project" HorizontalAlignment="Left" Height="36" Margin="377,49,0,0" VerticalAlignment="Top" Width="204"/>
+        <Image Source="/לוגו.jpg" Margin="2,359,153,37"/>
     </Grid>
 </Window>

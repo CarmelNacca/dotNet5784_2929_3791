@@ -14,6 +14,7 @@ internal static class Config
     private static int nextDependencyId = startDependencyId;
     internal static int NextTaskId { get => nextTaskId++; }
     internal static int NextDependencyId { get => nextDependencyId++; }
+    public static DateTime? StartOfProject { get; set; }=null;
 
     
 }
