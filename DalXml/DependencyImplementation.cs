@@ -15,29 +15,36 @@ internal class DependencyImplementation: IDependency
 /// </summary>
 
     readonly string s_dependencies_xml = "dependencies";
-    static Dependency GetDependency(XElement D)
+    static Dependency GetDependency(XElement elem)
     {
         return new Dependency()
         {
-            Id = int.TryParse((string?)D.Element("Id"), out var id) ? id : throw new FormatException("can't convert id"),
-            IdTask = int.TryParse((string?)D.Element("IdTask"), out var idTask) ? idTask : throw new FormatException("can't convert id Task"),
-            DependsOnTask = int.TryParse((string?)D.Element("DependsOnTask"), out var DependsOnTask) ? idTask : throw new FormatException("can't convert  Depends On Task")
+            Id = int.TryParse((string?)elem.Element("Id"), out var id) ? id : throw new FormatException("can't convert id"),
+            IdTask = elem.ToIntNullable("IdTask") ?? throw new FormatException("can't convert id"),
+            DependsOnTask = elem.ToIntNullable("DependsOnTask") ?? throw new FormatException("can't convert id"),
         };
     }
+    static XElement getXElement(Dependency dep)
+    {
+        return new XElement("Dependency",
+            new XElement("Id", dep.Id),
+            new XElement("IdTask", dep.IdTask),
+            new XElement("DependsOnTask", dep.DependsOnTask));
+    }
+
+
 
     public int Create(Dependency item)
     {
-        int id = Config.NextDependencyId;
-        XElement elemde=new XElement("dependency");
-        XElement elemdependency = new XElement("Dependency", new XElement("Id", id),
-            new XElement("IdTask", item.IdTask), new XElement("DependsOnTask", item.DependsOnTask));
-        elemde.Add(elemdependency);
-        XMLTools.SaveListToXMLElement(elemde, s_dependencies_xml);
-        return id;
+        XElement? depRoot = XMLTools.LoadListFromXMLElement(s_dependencies_xml);//get the information
+        int nextDepId = Config.NextDependencyId;
+        Dependency newOne = item with { Id = nextDepId };
+        depRoot.Add(getXElement(newOne));//add the new item
+        XMLTools.SaveListToXMLElement(depRoot, s_dependencies_xml);//load the updated informayion
+        return nextDepId;
     }
-    
 
-    public void Delete(int id)
+        public void Delete(int id)
     {
         XElement? Root = XMLTools.LoadListFromXMLElement(s_dependencies_xml);
         XElement? TODelete = Root.Elements().FirstOrDefault(dependency => (int?)dependency.Element("id") == id);

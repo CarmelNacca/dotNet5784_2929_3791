@@ -3,6 +3,7 @@
 
 
 using BO;
+using DO;
 using System.Text.RegularExpressions;
 
 namespace BlImplementation;
@@ -58,6 +59,7 @@ internal class TaskImplementation : BlApi.ITask
             Description = doTask.Description!,
             Alias = doTask.Name!,
             createdAtDate = doTask.createdAtDate,
+            Status = UpdateStatus(doTask.Id),
             RequiredEffortTime = doTask.RequiredEffortTime,
             StartDate = doTask.StartDate,
             ScheduledDate = doTask.ScheduledDate,
@@ -69,19 +71,19 @@ internal class TaskImplementation : BlApi.ITask
 
         };
 
-        if (doTask.ScheduledDate == null)
-        {
-            task.Status=BO.Status.Unscheduled;
-        }else if(doTask.StartDate==null)
-        {  task.Status=BO.Status.Scheduled; }
-        else if(doTask.CompleteDate==null)
-            {
-            task.Status=BO.Status.OnTrack;
-        }
-        else { task.Status=BO.Status.Done; }
-        //if (flag)
+        //if (doTask.ScheduledDate == null)
         //{
-        //    var work = _dal.Worker.Read(t => t.Id == doTask!.Worker);
+        //    task.Status=BO.Status.Unscheduled;
+        //}else if(doTask.StartDate==null)
+        //{  task.Status=BO.Status.Scheduled; }
+        //else if(doTask.CompleteDate==null)
+        //    {
+        //    task.Status=BO.Status.OnTrack;
+        //}
+        //else { task.Status=BO.Status.Done; }
+        ////if (flag)
+        ////{
+        ////    var work = _dal.Worker.Read(t => t.Id == doTask!.Worker);
 
         //    task.Worker.Id = work!.Id;
         //     task.Worker.Name = work.Name;
@@ -261,19 +263,54 @@ internal class TaskImplementation : BlApi.ITask
     public BO.Status UpdateStatus(int id)
     {
         DO.Task? task=_dal.Task.Read(id);
+        if(task.ScheduledDate == null)
+        {
+            return BO.Status.Unscheduled;
+        }
         
-        if(task.StartDate==null&&task.ScheduledDate!=null)
+        if (task.StartDate==null)
         {
             return BO.Status.Scheduled;
         }
         if(task.CompleteDate==null)
         { 
-            return BO.Status.Scheduled;
+            return BO.Status.OnTrack;
         }
-        if(task.CompleteDate!=null)
+        
         return BO.Status.Done;
         
-            return BO.Status.Unscheduled;
+          
     }
-   
+    public DateTime? ForecastOfDate(int id)
+    {
+        DO.Task? task = _dal.Task.Read(id);
+        return (task.ScheduledDate != null && task.RequiredEffortTime != null) ? task.ScheduledDate + task.RequiredEffortTime : null;
+
+    }
+    public IEnumerable<BO.TaskInList> Dependencies(int id)
+    {
+        bool IsTaskDependentOnId(Dependency dep)
+        {
+            return dep.DependsOnTask == id;
+        }
+
+        var dependencies = _dal.Dependency.ReadAll(IsTaskDependentOnId);
+
+        var dependentTasks = new List<BO.TaskInList>();
+
+        foreach (var dep in dependencies)
+        {
+            var task = _dal.Task.ReadAll(task => task.Id == dep.IdTask);
+            if (task != null)
+            {
+                foreach (var t in task)
+                {
+                    dependentTasks.Add(taskToTaskInList(doTaskToBoTask( t)));
+                }
+            }
+        }
+
+        return dependentTasks;
+    }
+
 }
