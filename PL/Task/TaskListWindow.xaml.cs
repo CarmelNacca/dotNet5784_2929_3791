@@ -1,6 +1,7 @@
 ﻿using DalApi;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
+using DalApi;
+using DO;
+
 
 namespace PL.Task
 {
@@ -29,15 +34,17 @@ namespace PL.Task
         TaskWindow? TaskWindow;
         List<BO.TaskInList> tasks = new List<BO.TaskInList> { };
         bool updateDates=false;
+        DateTime? dateProject=null;
 
        
-        public TaskListWindow(BO.Worker? w = null, bool dependency = false,TaskWindow? t=null,bool updateDate=false)
+        public TaskListWindow(BO.Worker? w = null, bool dependency = false,TaskWindow? t=null,bool updateDate=false,DateTime? date=null)
         {
             InitializeComponent();
             worker = w;
             TaskWindow= t;
             dependencies = dependency;
             updateDates = updateDate;
+            dateProject = date;
             if (worker != null)
             {
                 bool helpChooseTask(BO.Task task)
@@ -58,7 +65,8 @@ namespace PL.Task
 
 
             }
-            TaskList = s_bl.Task.ReadAll();
+            else {  TaskList = s_bl.Task.ReadAll();}
+           
         }
         public IEnumerable<BO.TaskInList> TaskList
         {
@@ -74,6 +82,19 @@ namespace PL.Task
             {
                 TaskWindow.TaskPL.Dependencies = tasks;
                 this.Close();
+            }
+            else
+            if (updateDates) 
+            {
+                bool helpupdateDates(BO.Task task)
+                {
+
+                    return (task.ScheduledDate == null);
+                }
+                if(s_bl.Task.ReadAll(helpupdateDates)==null)
+                {
+                   //לעדכן תאריך פרויקט
+                }
             }
             else
             { 
@@ -177,9 +198,17 @@ namespace PL.Task
             else
              if(updateDates)
                 {
+                new ScheduleDateWindow(this, s_bl.Task.Read(task.Id),dateProject).Show();
+                bool helpupdateDates(BO.Task task)
+                {
 
-
+                   return (task.ScheduledDate == null);
+                   
                 }
+                TaskList = s_bl.Task.ReadAll(helpupdateDates);
+                
+
+            }
             else
             {
 

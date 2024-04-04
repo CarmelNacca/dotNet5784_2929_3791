@@ -17,12 +17,7 @@
                 <TranslateTransform/>
             </TransformGroup>
         </Grid.RenderTransform>
-
-        <Button Content="WORKER" HorizontalAlignment="Left" Margin="400,425,0,0" VerticalAlignment="Top" Height="71" Width="150" Click="BtnWorker" Background="White" FontFamily="Bell MT" FontWeight="Bold" FontSize="20"/>
-        <Button Content="INITDB" HorizontalAlignment="Center" Margin="0,425,0,0" VerticalAlignment="Top" Height="71" Width="150" Click="Button_Click" Background="White" FontSize="20" FontFamily="Bell MT" FontWeight="Bold"/>
-        <Button Content="ADMIN" HorizontalAlignment="Left" Margin="48,425,0,0" VerticalAlignment="Top" Height="71" Width="150" Click="Button_Click_1" Background="White" FontWeight="Bold" FontFamily="Bell MT" FontSize="20" />
-        <Button Content="TASK" HorizontalAlignment="Left" Margin="400,327,0,0" VerticalAlignment="Top" Height="71" Width="150" Click="BtnTask" FontFamily="Bell MT" FontWeight="Bold" FontSize="20" Background="White"/>
-        <Image Source="/לוגו.jpg" Margin="48,246,227,129"/>
+        <Image Source="/לוגו.jpg" Margin="41,320,91,66"/>
         <StackPanel HorizontalAlignment="Left" Height="122" Margin="242,38,0,0" VerticalAlignment="Top" Width="308" Panel.ZIndex="-2">
             <Label Content="For manager enter password:" Width="264" Height="32" FontFamily="Bell MT" FontWeight="Bold" FontSize="20" IsEnabled="False"/>
             <TextBox BorderBrush="#FF020202" FontFamily="Bell MT" Height="33" FontSize="16" Text="{Binding Password}"  Width="244" RenderTransformOrigin="0.5,0.5">
@@ -39,7 +34,7 @@
 
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Height="122" Margin="242,160,0,0" VerticalAlignment="Top" Width="308" Panel.ZIndex="-2">
-            <Label Content="For worker enter password:" Width="264" Height="32" FontFamily="Bell MT" FontWeight="Bold" FontSize="20" IsEnabled="False"/>
+            <Label Content="For worker enter ID:" Width="264" Height="32" FontFamily="Bell MT" FontWeight="Bold" FontSize="20" IsEnabled="False"/>
             <TextBox BorderBrush="#FF020202" FontFamily="Bell MT" Height="33" FontSize="16" Text="{Binding Password2}"  Width="244" RenderTransformOrigin="0.5,0.5">
                 <TextBox.RenderTransform>
                     <TransformGroup>
