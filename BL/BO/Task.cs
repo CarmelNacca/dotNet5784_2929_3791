@@ -9,8 +9,10 @@ using System.Xml.Linq;
 
 namespace BO;
 
+
 public class Task
 {
+   
     public static StatusProject StatusProject { get; set; } = StatusProject.planning;
     public int Id { get; init; }
     public string Description { get; set; } = " "; // NN
@@ -29,7 +31,7 @@ public class Task
     public DateTime? CompleteDate { get; set; } = null;///
     public string? Deliverables { get; set; } = null;
     public string? Remarks { get; set; } = null;
-    public BO.WorkerInTask? Worker { get; set; } = null;//CalculatedEndDate StartDate ScheduledDate DeadlineDate CompleteDate Deliverables Copmlexity
+    public BO.WorkerInTask? Worker { get; set; } = null;
     public Expirience Copmlexity { get; set; }
     public override string ToString()
     {

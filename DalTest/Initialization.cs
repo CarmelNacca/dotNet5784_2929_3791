@@ -23,18 +23,18 @@ public static class Initialization
 
 
     private static readonly Random s_rand = new();
-private static void creatTask()
-{
-        
+    private static void creatTask()
+    {
+
         DateTime start = new DateTime(2024, 01, 08);
         DateTime finish = new DateTime(2024, 03, 15);
         int rangStart = (finish - start).Days;
-        s_dal!.Task.Create(new Task(0,null,"Signing a contract", "The legal process of adding the formal signature to a contract, signifying agreement and commitment", false,start.AddDays(s_rand.Next(rangStart)),null,null,null,null,null, "Formally signed contract indicating mutual agreement and commitment.", null, (DO.Expirience)0));
+        s_dal!.Task.Create(new Task(0, null, "Signing a contract", "The legal process of adding the formal signature to a contract, signifying agreement and commitment", false, start.AddDays(s_rand.Next(rangStart)), null, null, null, null, null, "Formally signed contract indicating mutual agreement and commitment.", null, (DO.Expirience)0));
         string[] TaskNameForHandyman = {"Replacement of living room windows","Replacing kitchen windows","Replacing bedroom windows",
             "Replacing bathroom windows","Installation of living room floors","Installing bedroom floors","Installing kitchen floors",
             "Installing bathroom floors","Bedroom door replacement","Living room door replacement",
             "Kitchen door replacement","Replacing a bathroom door","Living room air conditioning installation","Installing kitchen air conditioning",
-            "Bedroom air conditioning installation","Installation of heating in a bathroom","General house cleaning"};
+            "Bedroom air conditioning installation","Installation of heating in a bathroom","General house cleaning"};
         string[] TaskNamePainter = { "Painting bedrooms", "Living room painting", "Kitchen painting", "Painting a bathroom" };
         string[] TaskNameArchitect = { "Bedroom planning", "Kitchen planning", "Bathroom design", "Living room planning" };
         string[] TaskNameInteriorDesigner = {"Installation of living room curtains","Installing bedroom curtains","Installing bathroom curtains",
@@ -63,7 +63,7 @@ private static void creatTask()
         string[] TaskDescriptionForArchitect = {"The process of designing and planning the sleeping spaces in a home, including the selection of furniture, colors, lighting, and aesthetics.",
             "The process of designing and planning the cooking area in a home, including the selection of furniture, accessories, functional planning, and aesthetics.",
             "The process of designing and planning the bathroom space in a home, including the selection of furniture, colors, lighting, and privacy considerations.",
-            "The process of designing and planning the central living space in a home, including the selection of furniture, colors, and overall aesthetics."};
+            "The process of designing and planning the central living space in a home, including the selection of furniture, colors, and overall aesthetics."};
         string[] TaskDescriptionForInteriorDesigner = {"The process of installing curtains or blinds in the living room ",
             "The process of installing curtains or blinds in the bedrooms ",
             "The process of installing curtains or blinds in the bathroom ",
@@ -88,7 +88,7 @@ private static void creatTask()
             "Installation of an air conditioning system for a comfortable cooking environment.",
             "Installation of an air conditioning system for a comfortable sleeping environment.",
             "Installation of a heating system in the bathroom for comfort",
-            "A thoroughly cleaned and organized home, providing a fresh living space."};
+            "A thoroughly cleaned and organized home, providing a fresh living space."};
         string[] TaskResultForPainter = {"Refreshed bedroom walls, creating a warm atmosphere.",
             "Renewed living room walls, enhancing the overall ambiance.",
             "Updated kitchen walls, contributing to a clean look.",
@@ -106,10 +106,10 @@ private static void creatTask()
             "Selected and arranged furniture combining functionality with aesthetics.",
             "Thoughtfully selected and arranged furniture enhancing both form and function."};
 
-       
+
         for (int i = 0; i < TaskNameForHandyman.Length; i++)
         {
-            s_dal!.Task.Create(new Task(0, null, TaskNameForHandyman[i], TaskDescriptionForHandyman[i], false, start.AddDays(s_rand.Next(rangStart)), null, null, null, null, null, TaskResultForHandyman[i],null, (DO.Expirience)1));
+            s_dal!.Task.Create(new Task(0, null, TaskNameForHandyman[i], TaskDescriptionForHandyman[i], false, start.AddDays(s_rand.Next(rangStart)), null, null, null, null, null, TaskResultForHandyman[i], null, (DO.Expirience)1));
         }
         for (int i = 0; i < TaskNamePainter.Length; i++)
         {
@@ -136,18 +136,18 @@ private static void creatTask()
         s_dal.Worker.Create(new Worker(780943567, 15000, (DO.Expirience)2, "Shlomo Ben Chaim", "Shlomo345@gmail.com"));
         s_dal.Worker.Create(new Worker(345792615, 25000, (DO.Expirience)3, "Eden Chason", "Eden1212@gmail.com"));
         s_dal.Worker.Create(new Worker(325952589, 20000, (DO.Expirience)4, "Rut Sharabi", "RS1212@gmail.com"));
-       
+
     }
     //// Method for creating and initializing dependencies
     private static void creatDependency()
-{
-        s_dal!.Dependency.Create(new Dependency(0,1, 23));
-        s_dal.Dependency.Create(new Dependency(0,1, 24));
+    {
+        s_dal!.Dependency.Create(new Dependency(0, 1, 23));
+        s_dal.Dependency.Create(new Dependency(0, 1, 24));
         s_dal.Dependency.Create(new Dependency(0, 1, 25));
         s_dal.Dependency.Create(new Dependency(0, 1, 26));
         s_dal.Dependency.Create(new Dependency(0, 23, 4));
         s_dal.Dependency.Create(new Dependency(0, 23, 7));
-        s_dal.Dependency.Create(new Dependency(0,24, 3));
+        s_dal.Dependency.Create(new Dependency(0, 24, 3));
         s_dal.Dependency.Create(new Dependency(0, 24, 8));
         s_dal.Dependency.Create(new Dependency(0, 25, 5));
         s_dal.Dependency.Create(new Dependency(0, 25, 9));
@@ -161,7 +161,7 @@ private static void creatTask()
         s_dal.Dependency.Create(new Dependency(0, 9, 13));
         s_dal.Dependency.Create(new Dependency(0, 2, 27));
         s_dal.Dependency.Create(new Dependency(0, 6, 11));
-        s_dal.Dependency.Create(new Dependency(0,12, 21));
+        s_dal.Dependency.Create(new Dependency(0, 12, 21));
         s_dal.Dependency.Create(new Dependency(0, 10, 19));
         s_dal.Dependency.Create(new Dependency(0, 13, 22));
         s_dal.Dependency.Create(new Dependency(0, 11, 20));
@@ -184,7 +184,7 @@ private static void creatTask()
         s_dal.Dependency.Create(new Dependency(0, 18, 31));
         s_dal.Dependency.Create(new Dependency(0, 18, 32));
         s_dal.Dependency.Create(new Dependency(0, 18, 33));
-        s_dal.Dependency.Create(new Dependency(0, 18,34));
+        s_dal.Dependency.Create(new Dependency(0, 18, 34));
     }
     /// <summary>
     /// Main entry point for initializatio
@@ -199,11 +199,11 @@ private static void creatTask()
     {
         //s_dalWorker = dal_Worker ?? throw new NullReferenceException("DAL can not be null");
         //s_dalTask = dal_Task ?? throw new NullReferenceException("DAL can not be null");
-        //s_dalDependency = dal_Dependency ?? throw new NullReferenceException("DAL can not be null");
+        //s_dalDependency = dal_Dependency ?? throw new NullReferenceException("DAL can not be null");
         //s_dal = dal ?? throw new NullReferenceException("DAL object can not be null!"); //stage 2
         s_dal = Factory.Get; //stage 4
         Reset();
-        s_dal.Task.Reset(); 
+        s_dal.Task.Reset();
         creatDependency();
         creatTask();
         creatWorker();
@@ -211,7 +211,7 @@ private static void creatTask()
     }
     public static void Reset()
     {
-        
+
         s_dal!.Worker.Reset();
         s_dal.Dependency.Reset();
         s_dal.Task.Reset();
@@ -219,4 +219,3 @@ private static void creatTask()
 
 
 }
-

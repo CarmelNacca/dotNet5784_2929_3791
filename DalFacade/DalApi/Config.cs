@@ -1,7 +1,19 @@
 ﻿
 namespace DalApi;
-using System.Xml.Linq;
+using Microsoft.VisualBasic;
+using System.ComponentModel;
+using System.Reflection.Metadata;
 
+using System;
+using System.Xml.Linq;
+/// <summary>
+/// 
+/// The System.Xml.Linq namespace includes tools for handling xml files and the XML DOM.
+///The XElement.Load method loads an xml file, performs its analysis (parsing) and builds a DOM (Document Object Model) tree - a tree of XElement type objects and returns the object of the root element of the xml file.
+///An object of type XElement contains parsed information about some xml element.
+///Method("Element("dal) returns an object of an element with the name "dal" from the DOM tree, and the Value attribute returns the value inside the element.
+///
+/// </summary>
 static class Config
 {
     /// <summary>

@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace Dal;
 using DalApi;
-
+/// <summary>
+/// 
+/// </summary>
 sealed internal class DalList : IDal
 {
     public static IDal Instance { get; } = new DalList();
